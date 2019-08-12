@@ -29,31 +29,37 @@ public class FlagManager implements IFlagManager
         else return INSTANCE;
     }
 
+    @Override
     public boolean canBreakBlock(UUID playerUUID, Faction playerFaction, Faction chunkFaction)
     {
         return checkFlag(playerUUID, playerFaction, chunkFaction, FactionFlagTypes.DESTROY);
     }
 
+    @Override
     public boolean canPlaceBlock(UUID playerUUID, Faction playerFaction, Faction chunkFaction)
     {
         return checkFlag(playerUUID, playerFaction, chunkFaction, FactionFlagTypes.PLACE);
     }
 
+    @Override
     public boolean canInteract(UUID playerUUID, Faction playerFaction, Faction chunkFaction)
     {
         return checkFlag(playerUUID, playerFaction, chunkFaction, FactionFlagTypes.USE);
     }
 
+    @Override
     public boolean canClaim(UUID playerUUID, Faction playerFaction)
     {
         return checkFlag(playerUUID, playerFaction, FactionFlagTypes.CLAIM);
     }
 
+    @Override
     public boolean canAttack(UUID playerUUID, Faction playerFaction)
     {
         return checkFlag(playerUUID, playerFaction, FactionFlagTypes.CLAIM);
     }
 
+    @Override
     public boolean canInvite(UUID playerUUID, Faction playerFaction)
     {
         return checkFlag(playerUUID, playerFaction, FactionFlagTypes.INVITE);
