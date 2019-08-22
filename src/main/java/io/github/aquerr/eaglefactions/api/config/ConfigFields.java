@@ -45,6 +45,7 @@ public final class ConfigFields
     private boolean _spawnAtHomeAfterDeath = false;
     private boolean _canAttackOnlyAtNight = false;
     private boolean _canHomeBetweenWorlds = false;
+    private boolean _canPlaceHomeOutsideFactionClaim = true;
     private int _homeDelay = 5;
     private int _homeCooldown = 60;
     private boolean _shouldDelayClaim;
@@ -146,9 +147,12 @@ public final class ConfigFields
             this._shouldDisplayRank = _configuration.getBoolean(true, "faction-rank");
             this._factionCreationByItems = _configuration.getBoolean(false, "creating-by-items", "toggled");
             this._requiredItemsToCreateFaction = prepareItems(_configuration.getListOfStrings(Arrays.asList("minecraft:wool:1|35", "minecraft:planks|20"), "creating-by-items", "items"));
+
             this._spawnAtHomeAfterDeath = _configuration.getBoolean(false, "spawn-at-home-after-death");
             this._canAttackOnlyAtNight = _configuration.getBoolean(false, "attack-only-at-night");
             this._canHomeBetweenWorlds = _configuration.getBoolean(false, "home-from-other-worlds");
+            this._canPlaceHomeOutsideFactionClaim = _configuration.getBoolean(true, "can-place-home-outside-faction-claim");
+
             this._homeDelay = _configuration.getInt(5, "home-delay");
             this._homeCooldown = _configuration.getInt(60, "home-cooldown");
             this._shouldDelayClaim = _configuration.getBoolean(false, "delayed-claim", "toggled");
@@ -658,5 +662,10 @@ public final class ConfigFields
 
     public boolean showDynmapMemberInfo() {
         return this._dynmapMemberInfo;
+    }
+
+    public boolean canPlaceHomeOutsideFactionClaim()
+    {
+        return this._canPlaceHomeOutsideFactionClaim;
     }
 }
