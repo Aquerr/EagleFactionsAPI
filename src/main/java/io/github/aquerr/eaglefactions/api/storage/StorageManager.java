@@ -16,6 +16,9 @@ public interface StorageManager {
     @Nullable
     Faction getFaction(String factionName);
 
+    /**
+     * Reloads storage. If any changes have been made in the files or database manually then this method loads all data into the storage cache.
+     */
     void reloadStorage();
 
     boolean checkIfPlayerExists(UUID playerUUID, String playerName);
