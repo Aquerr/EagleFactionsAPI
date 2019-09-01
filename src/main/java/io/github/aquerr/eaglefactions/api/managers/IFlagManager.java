@@ -6,10 +6,10 @@ import java.util.UUID;
 
 public interface IFlagManager
 {
-    boolean canBreakBlock(UUID playerUUID, Faction playerFaction, Faction chunkFaction);
-    boolean canPlaceBlock(UUID playerUUID, Faction playerFaction, Faction chunkFaction);
-    boolean canInteract(UUID playerUUID, Faction playerFaction, Faction chunkFaction);
-    boolean canClaim(UUID playerUUID, Faction playerFaction);
-    boolean canAttack(UUID playerUUID, Faction playerFaction);
-    boolean canInvite(UUID playerUUID, Faction playerFaction);
+    boolean canBreakBlock(final UUID playerUUID, final Faction playerFaction, final Faction chunkFaction);
+    boolean canPlaceBlock(final UUID playerUUID, final Faction playerFaction, final Faction chunkFaction);
+    boolean canInteract(final UUID playerUUID, final Faction playerFaction, final Faction chunkFaction);
+    boolean canClaim(final UUID playerUUID, final Faction playerFaction);
+    boolean canAttack(final UUID playerUUID, final Faction playerFaction);
+    boolean canInvite(final UUID playerUUID, final Faction playerFaction);
 }

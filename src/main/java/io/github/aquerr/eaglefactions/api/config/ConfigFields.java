@@ -30,7 +30,6 @@ public final class ConfigFields
     private boolean _spawnHostileMobsInWarZone = true;
     private boolean _spawnMobsInFactionsTerritory = true;
     private boolean _spawnHostileMobsInFactionsTerritory = true;
-//    private boolean _mobSpawning = false;
 
     private boolean _blockEnteringOfflineFactions = false;
     private boolean _requireConnectedClaims = true;
@@ -92,7 +91,7 @@ public final class ConfigFields
     private Set<String> _whitelistedInteractBlocks = new HashSet<>();
 
     //Chat
-    private boolean _supressOtherFactionsMessagesWhileInTeamChat = false;
+    private boolean _suppressOtherFactionsMessagesWhileInTeamChat = false;
 
     //Dynmap Integration
     private boolean _dynmapIntegrationEnabled = false;
@@ -199,7 +198,7 @@ public final class ConfigFields
             this._whitelistedInteractBlocks = _configuration.getSetOfStrings(new HashSet<>(), "allowed-items-and-blocks", "interact-whitelist");
 
             //Chat
-            this._supressOtherFactionsMessagesWhileInTeamChat = _configuration.getBoolean(false, "suppress-other-factions-messages-while-in-team-chat");
+            this._suppressOtherFactionsMessagesWhileInTeamChat = _configuration.getBoolean(false, "suppress-other-factions-messages-while-in-team-chat");
 
             //Dynmap Integration
             this._dynmapIntegrationEnabled = _configuration.getBoolean(false, "dynmap-integration-enable");
@@ -627,7 +626,7 @@ public final class ConfigFields
 
     public boolean shouldSupressOtherFactionsMessagesWhileInTeamChat()
     {
-        return this._supressOtherFactionsMessagesWhileInTeamChat;
+        return this._suppressOtherFactionsMessagesWhileInTeamChat;
     }
 
     public boolean shouldShowFactionEnterPhrase()
