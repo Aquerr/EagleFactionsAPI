@@ -92,6 +92,7 @@ public final class ConfigFields
 
     //Chat
     private boolean _suppressOtherFactionsMessagesWhileInTeamChat = false;
+    private boolean _displayProtectionSystemMessages = true;
 
     //Dynmap Integration
     private boolean _dynmapIntegrationEnabled = false;
@@ -199,6 +200,7 @@ public final class ConfigFields
 
             //Chat
             this._suppressOtherFactionsMessagesWhileInTeamChat = _configuration.getBoolean(false, "suppress-other-factions-messages-while-in-team-chat");
+            this._displayProtectionSystemMessages = _configuration.getBoolean(true, "display-protection-system-messages");
 
             //Dynmap Integration
             this._dynmapIntegrationEnabled = _configuration.getBoolean(false, "dynmap-integration-enable");
@@ -627,6 +629,11 @@ public final class ConfigFields
     public boolean shouldSupressOtherFactionsMessagesWhileInTeamChat()
     {
         return this._suppressOtherFactionsMessagesWhileInTeamChat;
+    }
+
+    public boolean shouldDisplayProtectionSystemMessages()
+    {
+        return this._displayProtectionSystemMessages;
     }
 
     public boolean shouldShowFactionEnterPhrase()
