@@ -89,6 +89,4 @@ public interface FactionLogic
     void setDescription(Faction faction, String description);
 
     void setMessageOfTheDay(Faction faction, String motd);
-
-    Inventory convertFactionChestToInventory(FactionChest factionChest);
 }
