@@ -1,10 +1,9 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import org.spongepowered.api.entity.living.player.User;
-
 import java.util.Optional;
 import java.util.UUID;
 
+//TODO: Totally new class. Not really used in Eagle Factions yet. But it will be, in the future.
 public class FactionPlayer implements IFactionPlayer
 {
     private UUID uniqueId;
