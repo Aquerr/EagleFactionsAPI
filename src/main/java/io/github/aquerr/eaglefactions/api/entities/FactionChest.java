@@ -40,13 +40,13 @@ public interface FactionChest
     {
         /**
          * Gets chest column number where this item is placed.
-         * @return
+         * @return the number of the column where the item is placed.
          */
         int getColumn();
 
         /**
          * Gets chest row number where this item is placed.
-         * @return
+         * @return the number of the column where the item is placed.
          */
         int getRow();
 
