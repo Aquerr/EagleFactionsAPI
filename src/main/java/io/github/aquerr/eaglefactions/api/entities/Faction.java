@@ -40,6 +40,12 @@ public interface Faction
     FactionHome getHome();
 
     /**
+     * Gets faction leader.
+     * @return the {@link UUID} of the faction leader.
+     */
+    UUID getLeader();
+
+    /**
      * Gets faction alliances.
      * @return A Set of unique alliances.
      */
@@ -82,12 +88,6 @@ public interface Faction
     Map<FactionMemberType, Map<FactionFlagTypes, Boolean>> getFlags();
 
     /**
-     * Gets faction leader.
-     * @return the {@link UUID} of the faction leader.
-     */
-    UUID getLeader();
-
-    /**
      * Gets faction last online date.
      * @return an instance of {@link Instant} with time where the faction was last online.
      */
@@ -105,6 +105,12 @@ public interface Faction
      * @return the chest of the faction.
      */
     FactionChest getChest();
+
+    /**
+     * Checks if this faction is public.
+     * @return <tt>true</tt> if faction is public, <tt>false</tt> if not.
+     */
+    boolean isPublic();
 
     /**
      * Checks if the given player UUID exists in that faction.
@@ -156,6 +162,8 @@ public interface Faction
         Builder setFlags(final Map<FactionMemberType, Map<FactionFlagTypes, Boolean>> flags);
 
         Builder setChest(final FactionChest chest);
+
+        Builder setIsPublic(final boolean isPublic);
 
         Faction build();
     }
