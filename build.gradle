@@ -36,7 +36,7 @@ tasks.create("publishBuildOnDiscord") {
             }
 
             exec {
-                commandLine("java", "-jar", "..\\jenkinsdiscordbot-1.0.jar", "EagleFactions", jarFiles[0], lastCommitDescription)
+                commandLine("java", "-jar", "..\\jenkinsdiscordbot-1.0.jar", "EagleFactionsAPI", jarFiles[0], lastCommitDescription)
             }
         }
     }
