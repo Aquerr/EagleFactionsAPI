@@ -3,7 +3,6 @@ package io.github.aquerr.eaglefactions.api.logic;
 import com.flowpowered.math.vector.Vector3i;
 import io.github.aquerr.eaglefactions.api.entities.*;
 import org.spongepowered.api.entity.living.player.Player;
-import org.spongepowered.api.item.inventory.Inventory;
 import org.spongepowered.api.text.format.TextColor;
 
 import javax.annotation.Nullable;
@@ -89,4 +88,6 @@ public interface FactionLogic
     void setDescription(Faction faction, String description);
 
     void setMessageOfTheDay(Faction faction, String motd);
+
+	void setIsPublic(Faction playerFaction, boolean isPublic);
 }
