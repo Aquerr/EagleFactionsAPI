@@ -22,18 +22,10 @@ public interface FactionChest
     List<SlotItem> getItems();
 
     /**
-     * Gets an item from the given position in this chest.
-     * @param row the row in the chest.
-     * @param column the column in the chest.
-     * @return an {@link ItemStack} or a <tt>null</tt> if item could not be found.
+     * Gets this faction chest inventory.
+     * @return {@link Inventory} instance that is associated with this faction chest.
      */
-    ItemStack getAtPosition(int row, int column);
-
-    /**
-     * Converts this faction chest to {@link Inventory} which can be then opened by the player.
-     * @return an instance of {@link Inventory} which contains items of this faction chest.
-     */
-    Inventory toInventory();
+    Inventory getInventory();
 
     @ConfigSerializable
     interface SlotItem extends Serializable
