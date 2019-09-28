@@ -1,13 +1,14 @@
 package io.github.aquerr.eaglefactions.api.events;
 
 import io.github.aquerr.eaglefactions.api.entities.Faction;
+import org.spongepowered.api.entity.Transform;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.event.Cancellable;
-import org.spongepowered.api.event.entity.MoveEntityEvent;
+import org.spongepowered.api.world.World;
 
 import java.util.Optional;
 
-public interface FactionAreaEnterEvent extends MoveEntityEvent
+public interface FactionAreaEnterEvent
 {
 	/**
 	 * Gets the player that triggered the event.
@@ -32,4 +33,31 @@ public interface FactionAreaEnterEvent extends MoveEntityEvent
 	 * Clients can cancel this event by sending <tt>true</tt> to {@link Cancellable#setCancelled(boolean)} method.
 	 */
 	Optional<Faction> getLeftFaction();
+
+	/**
+	 * Checks if the event has been cancelled.
+	 * @return true if cancelled, false if not.
+	 */
+	boolean isCancelled();
+
+	/**
+	 * Sets the status of the event.
+	 * @param cancelled
+	 */
+	void setCancelled(boolean cancelled);
+
+	/**
+	 * See {@link org.spongepowered.api.event.entity.MoveEntityEvent} for information about this method.
+	 */
+	Transform<World> getFromTransform();
+
+	/**
+	 * See {@link org.spongepowered.api.event.entity.MoveEntityEvent} for information about this method.
+	 */
+	Transform<World> getToTransform();
+
+	/**
+	 * See {@link org.spongepowered.api.event.entity.MoveEntityEvent} for information about this method.
+	 */
+	void setToTransform(Transform<World> transform);
 }
