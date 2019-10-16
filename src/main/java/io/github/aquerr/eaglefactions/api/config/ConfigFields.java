@@ -8,7 +8,7 @@ import java.util.*;
 
 public final class ConfigFields
 {
-    private IConfiguration _configuration;
+    private Configuration _configuration;
 
     private String _languageFile = "english.conf";
 
@@ -105,7 +105,7 @@ public final class ConfigFields
     private boolean _dynmapShowFactionLeader = true;
     private boolean _dynmapMemberInfo = true;
 
-    public ConfigFields(IConfiguration configuration)
+    public ConfigFields(Configuration configuration)
     {
         _configuration = configuration;
         setupConfigFields();

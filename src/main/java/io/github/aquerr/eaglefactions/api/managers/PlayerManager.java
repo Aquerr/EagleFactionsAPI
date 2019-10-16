@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
-public interface IPlayerManager
+public interface PlayerManager
 {
     boolean addPlayer(UUID playerUUID, String name);
     Optional<Player> getPlayer(UUID playerUUID);

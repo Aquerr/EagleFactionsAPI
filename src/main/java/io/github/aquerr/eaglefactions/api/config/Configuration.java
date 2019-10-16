@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-public interface IConfiguration
+public interface Configuration
 {
     ConfigFields getConfigFields();
     void save();

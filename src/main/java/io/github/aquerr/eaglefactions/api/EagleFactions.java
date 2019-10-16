@@ -1,13 +1,13 @@
 package io.github.aquerr.eaglefactions.api;
 
-import io.github.aquerr.eaglefactions.api.config.IConfiguration;
+import io.github.aquerr.eaglefactions.api.config.Configuration;
 import io.github.aquerr.eaglefactions.api.logic.AttackLogic;
 import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
 import io.github.aquerr.eaglefactions.api.logic.PVPLogger;
-import io.github.aquerr.eaglefactions.api.managers.IFlagManager;
-import io.github.aquerr.eaglefactions.api.managers.IPlayerManager;
-import io.github.aquerr.eaglefactions.api.managers.IPowerManager;
-import io.github.aquerr.eaglefactions.api.managers.IProtectionManager;
+import io.github.aquerr.eaglefactions.api.managers.FlagManager;
+import io.github.aquerr.eaglefactions.api.managers.PlayerManager;
+import io.github.aquerr.eaglefactions.api.managers.PowerManager;
+import io.github.aquerr.eaglefactions.api.managers.ProtectionManager;
 import io.github.aquerr.eaglefactions.api.storage.StorageManager;
 
 import java.net.URL;
@@ -23,9 +23,9 @@ public interface EagleFactions
 
     /**
      * Gets Eagle Factions configuration object. Used to access any EF config related settings.
-     * @return instance of {@link IConfiguration}
+     * @return instance of {@link Configuration}
      */
-    IConfiguration getConfiguration();
+    Configuration getConfiguration();
 
     /**
      * Get Eagle Factions config path.
@@ -41,24 +41,24 @@ public interface EagleFactions
     URL getResource(final String fileName);
 
     /**
-     * @return instance of {@link IPlayerManager}
+     * @return instance of {@link PlayerManager}
      */
-    IPlayerManager getPlayerManager();
+    PlayerManager getPlayerManager();
 
     /**
-     * @return instance of {@link IFlagManager}
+     * @return instance of {@link FlagManager}
      */
-    IFlagManager getFlagManager();
+    FlagManager getFlagManager();
 
     /**
-     * @return instance of {@link IPowerManager}
+     * @return instance of {@link PowerManager}
      */
-    IPowerManager getPowerManager();
+    PowerManager getPowerManager();
 
     /**
      * @return instance of IProtectionManager
      */
-    IProtectionManager getProtectionManager();
+    ProtectionManager getProtectionManager();
 
     /**
      * @return instance of {@link PVPLogger}
