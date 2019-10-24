@@ -51,7 +51,9 @@ public interface FactionLogic
 
     void removeClaim(Faction faction, Claim claim);
 
-    boolean isClaimed(UUID worldUUID, Vector3i chunk);
+	void destroyClaim(Faction faction, Claim claim);
+
+	boolean isClaimed(UUID worldUUID, Vector3i chunk);
 
     boolean isClaimConnected(Faction faction, Claim claimToCheck);
 

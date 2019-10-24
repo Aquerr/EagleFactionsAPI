@@ -2,6 +2,7 @@ package io.github.aquerr.eaglefactions.api.entities;
 
 import com.flowpowered.math.vector.Vector3i;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Claim
@@ -13,10 +14,10 @@ public class Claim
     {
         String[] worldUUIDAndChunkPosition = claimAsString.split("\\|");
         UUID worldUUID = UUID.fromString(worldUUIDAndChunkPosition[0]);
-        String vectors[] = worldUUIDAndChunkPosition[1].replace("(", "").replace(")", "").replace(" ", "").split(",");
-        int x = Integer.valueOf(vectors[0]);
-        int y = Integer.valueOf(vectors[1]);
-        int z = Integer.valueOf(vectors[2]);
+        String[] vectors = worldUUIDAndChunkPosition[1].replace("(", "").replace(")", "").replace(" ", "").split(",");
+        int x = Integer.parseInt(vectors[0]);
+        int y = Integer.parseInt(vectors[1]);
+        int z = Integer.parseInt(vectors[2]);
         Vector3i chunkPosition = Vector3i.from(x, y, z);
         return new Claim(worldUUID, chunkPosition);
     }
@@ -38,29 +39,19 @@ public class Claim
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + this.worldUUID.hashCode();
-        result = prime * result + this.chunkPosition.hashCode();
-        return result;
+    public boolean equals(Object o)
+    {
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Claim claim = (Claim) o;
+        return worldUUID.equals(claim.worldUUID) &&
+                chunkPosition.equals(claim.chunkPosition);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == this)
-            return true;
-
-        if (!(obj instanceof Claim))
-            return false;
-
-        if (!((Claim) obj).worldUUID.equals(this.worldUUID))
-            return false;
-
-        if (!((Claim) obj).chunkPosition.equals(this.chunkPosition))
-            return false;
-
-        return true;
+    public int hashCode()
+    {
+        return Objects.hash(worldUUID, chunkPosition);
     }
 
     @Override

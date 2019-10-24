@@ -53,7 +53,7 @@ public final class ConfigFields
     private int _homeBlockTimeAfterDeathInOwnFaction = 60;
     private boolean _claimByItems = false;
     private Map<String, Integer> _requiredItemsToClaim = new HashMap<>();
-    private double _neededPowerPercentageToAttack = 20;
+    private float _neededPowerPercentageToAttack = 20.0f;
     private boolean _isPvpLoggerActive = true;
     private int _pvpLoggerBlockTime = 60;
     private boolean _showPvpLoggerInScoreboard = true;
@@ -161,7 +161,7 @@ public final class ConfigFields
             this._homeBlockTimeAfterDeathInOwnFaction = _configuration.getInt(60, "block-home-after-death-in-own-faction", "time");
             this._claimByItems = _configuration.getBoolean(false, "claiming-by-items", "toggled");
             this._requiredItemsToClaim = prepareItems(_configuration.getListOfStrings(Arrays.asList("minecraft:wool:1|35", "minecraft:planks|20", "minecraft:iron_ingot|4"), "claiming-by-items", "items"));
-            this._neededPowerPercentageToAttack = _configuration.getDouble(20, "attack-min-power-percentage") / 100;
+            this._neededPowerPercentageToAttack = _configuration.getFloat(20, "attack-min-power-percentage") / 100;
             this._isPvpLoggerActive = _configuration.getBoolean(true, "pvp-logger", "active");
             this._pvpLoggerBlockTime = _configuration.getInt(60, "pvp-logger", "time");
             this._showPvpLoggerInScoreboard = _configuration.getBoolean(true, "pvp-logger", "show-in-scoreboard");
@@ -434,7 +434,7 @@ public final class ConfigFields
         return _requiredItemsToClaim;
     }
 
-    public double getNeededPowerPercentageToAttack()
+    public float getNeededPowerPercentageToAttack()
     {
         return _neededPowerPercentageToAttack;
     }
