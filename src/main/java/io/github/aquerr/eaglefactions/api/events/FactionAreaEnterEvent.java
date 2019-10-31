@@ -4,11 +4,12 @@ import io.github.aquerr.eaglefactions.api.entities.Faction;
 import org.spongepowered.api.entity.Transform;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.event.Cancellable;
+import org.spongepowered.api.event.Event;
 import org.spongepowered.api.world.World;
 
 import java.util.Optional;
 
-public interface FactionAreaEnterEvent
+public interface FactionAreaEnterEvent extends Event, Cancellable
 {
 	/**
 	 * Gets the player that triggered the event.
