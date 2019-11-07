@@ -82,6 +82,12 @@ public interface Faction
     Set<UUID> getRecruits();
 
     /**
+     * Gets all players from the faction (recruits + members + officers + leader).
+     * @return A set of unique players UUIDs.
+     */
+    Set<UUID> getPlayers();
+
+    /**
      * Gets faction flags.
      * @return A key-value representation of faction flags where {@link FactionMemberType} is the key and {@link Map<FactionFlagTypes, Boolean>} is a value.
      */
