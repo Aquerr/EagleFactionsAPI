@@ -203,15 +203,15 @@ public final class ConfigFields
             this._displayProtectionSystemMessages = _configuration.getBoolean(true, "display-protection-system-messages");
 
             //Dynmap Integration
-            this._dynmapIntegrationEnabled = _configuration.getBoolean(false, "dynmap-integration-enable");
+            this._dynmapIntegrationEnabled = _configuration.getBoolean(false, "dynmap", "enabled");
 
-            this._dynmapFactionColor = _configuration.getInt(0x00FF00, "dynmap-faction-color");
-            this._dynmapSafezoneColor = _configuration.getInt(0x800080, "dynmap-safezone-color");
-            this._dynmapWarzoneColor = _configuration.getInt(0xFF0000, "dynmap-warzone-color");
-            this._dynmapFactionHomeIcon = _configuration.getString("greenflag", "dynmap-faction-home-marker");
+            this._dynmapFactionColor = _configuration.getInt(0x00FF00, "dynmap", "faction-color");
+            this._dynmapSafezoneColor = _configuration.getInt(0x800080, "dynmap", "safezone-color");
+            this._dynmapWarzoneColor = _configuration.getInt(0xFF0000, "dynmap", "warzone-color");
+            this._dynmapFactionHomeIcon = _configuration.getString("greenflag", "dynmap", "faction-home-marker");
 
-            this._dynmapShowFactionLeader = _configuration.getBoolean(true, "dynmap-show-faction-leader");
-            this._dynmapMemberInfo = _configuration.getBoolean(true, "dynmap-members-info");
+            this._dynmapShowFactionLeader = _configuration.getBoolean(true, "dynmap", "show-faction-leader");
+            this._dynmapMemberInfo = _configuration.getBoolean(true, "dynmap", "members-info");
 
             this._configuration.save();
         }
