@@ -1,11 +1,11 @@
 package io.github.aquerr.eaglefactions.api.events;
 
-import io.github.aquerr.eaglefactions.api.entities.IFactionPlayer;
+import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 
 public interface FactionKickEvent extends FactionEvent
 {
     /**
-     * @return the {@link IFactionPlayer} who has been kicked from the faction.
+     * @return the {@link FactionPlayer} who has been kicked from the faction.
      */
-    IFactionPlayer getKickedPlayer();
+    FactionPlayer getKickedPlayer();
 }

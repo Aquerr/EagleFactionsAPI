@@ -2,7 +2,7 @@ package io.github.aquerr.eaglefactions.api.managers;
 
 import io.github.aquerr.eaglefactions.api.entities.Faction;
 import io.github.aquerr.eaglefactions.api.entities.FactionMemberType;
-import io.github.aquerr.eaglefactions.api.entities.IFactionPlayer;
+import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.entity.living.player.User;
 
@@ -31,12 +31,11 @@ public interface PlayerManager
 
     boolean checkIfPlayerExists(UUID playerUUID, String playerName);
 
-    Set<IFactionPlayer> getServerPlayers();
+    Set<FactionPlayer> getServerPlayers();
 
     void updatePlayerName(UUID playerUUID, String playerName);
 
     Optional<String> getPlayerName(UUID playerUUID);
 
-
-    IFactionPlayer convertToFactionPlayer(User user);
+    FactionPlayer convertToFactionPlayer(User user);
 }

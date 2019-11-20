@@ -1,11 +1,11 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-public class StopWarRequest
+public class ArmisticeRequest
 {
     private String factionName;
     private String enemyFactionName;
 
-    public StopWarRequest(String factionName, String enemyFaction)
+    public ArmisticeRequest(String factionName, String enemyFaction)
     {
         this.factionName = factionName;
         this.enemyFactionName = enemyFaction;
@@ -24,7 +24,7 @@ public class StopWarRequest
     @Override
     public boolean equals (Object removeEnemy)
     {
-        if(!(removeEnemy instanceof StopWarRequest))
+        if(!(removeEnemy instanceof ArmisticeRequest))
         {
             return false;
         }
@@ -32,7 +32,7 @@ public class StopWarRequest
         {
             return true;
         }
-        return this.factionName.equals(((StopWarRequest) removeEnemy).factionName) && this.enemyFactionName.equals(((StopWarRequest) removeEnemy).enemyFactionName);
+        return this.factionName.equals(((ArmisticeRequest) removeEnemy).factionName) && this.enemyFactionName.equals(((ArmisticeRequest) removeEnemy).enemyFactionName);
     }
 
     @Override

@@ -1,67 +1,19 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
+import org.spongepowered.api.entity.living.player.User;
+
 import java.util.Optional;
 import java.util.UUID;
 
-//TODO: Totally new class. Not really used in Eagle Factions yet. But it will be, in the future.
-public class FactionPlayer implements IFactionPlayer
+public interface FactionPlayer
 {
-    private UUID uniqueId;
-    private String name;
+    String getName();
 
-    private String factionName;
-    private FactionMemberType factionRole;
+    UUID getUniqueId();
 
-    private float power;
-    private float maxpower;
+    Optional<String> getFactionName();
 
-    public FactionPlayer(String playerName, UUID uniqueId, String factionName, FactionMemberType factionRole, float power, float maxpower)
-    {
-        this.name = playerName;
-        this.uniqueId = uniqueId;
+    Optional<FactionMemberType> getFactionRole();
 
-        this.factionName = factionName;
-        this.factionRole = factionRole;
-
-        this.power = power;
-        this.maxpower = maxpower;
-    }
-
-    @Override
-    public String getName()
-    {
-        return name;
-    }
-
-    @Override
-    public UUID getUniqueId()
-    {
-        return this.uniqueId;
-    }
-
-    @Override
-    public Optional<String> getFactionName()
-    {
-        if (this.factionName == null || this.factionName.equals(""))
-        {
-            return Optional.empty();
-        }
-        else
-        {
-            return Optional.of(this.factionName);
-        }
-    }
-
-    @Override
-    public Optional<FactionMemberType> getFactionRole()
-    {
-        if (this.factionRole == null)
-        {
-            return Optional.empty();
-        }
-        else
-        {
-            return Optional.of(this.factionRole);
-        }
-    }
+    Optional<User> getUser();
 }

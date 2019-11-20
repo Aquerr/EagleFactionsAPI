@@ -1,7 +1,7 @@
 package io.github.aquerr.eaglefactions.api.storage;
 
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import io.github.aquerr.eaglefactions.api.entities.IFactionPlayer;
+import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 
 import javax.annotation.Nullable;
 import java.util.Set;
@@ -103,9 +103,9 @@ public interface StorageManager
 
     /**
      * Gets all unique players who were registered/added the the Eagle Factions storage.
-     * @return a Set of {@link IFactionPlayer} that were added to the Eagle Factions storage.
+     * @return a Set of {@link FactionPlayer} that were added to the Eagle Factions storage.
      */
-    Set<IFactionPlayer> getServerPlayers();
+    Set<FactionPlayer> getServerPlayers();
 
     /**
      * Similar to {@link #getServerPlayerNames()} but gets only players names which were added to the Eagle Factions storage.

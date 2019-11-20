@@ -75,9 +75,9 @@ public interface FactionLogic
 
     void changeTagColor(Faction faction, TextColor textColor);
 
-    FactionMemberType promotePlayer(Faction faction, Player playerToPromote);
+    FactionMemberType promotePlayer(Faction faction, UUID playerToPromote);
 
-    FactionMemberType demotePlayer(Faction faction, Player playerToDemote);
+    FactionMemberType demotePlayer(Faction faction, UUID playerToDemote);
 
     void setLastOnline(Faction faction, Instant instantTime);
 
