@@ -1,11 +1,15 @@
 package io.github.aquerr.eaglefactions.api.config;
 
+import io.github.aquerr.eaglefactions.api.config.dynmap.DynmapConfig;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
 public interface Configuration
 {
+    DynmapConfig getDynmapConfig();
+
     ConfigFields getConfigFields();
     void save();
     void reloadConfiguration();
