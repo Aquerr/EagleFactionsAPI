@@ -1,7 +1,5 @@
 package io.github.aquerr.eaglefactions.api.config;
 
-import io.github.aquerr.eaglefactions.api.config.dynmap.DynmapConfig;
-
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -9,6 +7,7 @@ import java.util.Set;
 public interface Configuration
 {
     DynmapConfig getDynmapConfig();
+    StorageConfig getStorageConfig();
 
     ConfigFields getConfigFields();
     void save();
@@ -23,6 +22,5 @@ public interface Configuration
     List<String> getListOfStrings(Collection<String> defaultValue, Object... nodePath);
     Set<String> getSetOfStrings(Collection<String> defaultValue, Object... nodePath);
 
-    boolean setListOfStrings(Collection<String> listOfStrings, Object... nodePath);
-    boolean setSetOfStrings(Collection<String> setOfStrings, Object... nodePath);
+    boolean setCollectionOfStrings(Collection<String> listOfStrings, Object... nodePath);
 }

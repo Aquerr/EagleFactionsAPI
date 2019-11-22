@@ -78,13 +78,6 @@ public final class ConfigFields
     private Set<String> _safezoneWorldNames = new HashSet<>();
     private Set<String> _warzoneWorldNames = new HashSet<>();
 
-    //Storage
-    private String _storageType = "hocon";
-    private String _storageUserName = "sa";
-    private String _storagePassword = "";
-    private String _databaseUrl = "localhost:3306/";
-    private String _databaseFileName = "database";
-
     //Whitelisted items and blocks
     private Set<String> _whitelistedItems = new HashSet<>();
     private Set<String> _whitelistedPlaceDestroyBlocks = new HashSet<>();
@@ -174,13 +167,6 @@ public final class ConfigFields
             this._notClaimableWorldNames = new HashSet<>(_configuration.getListOfStrings(new ArrayList<>(), "worlds", "NOT_CLAIMABLE"));
             this._safezoneWorldNames = new HashSet<>(_configuration.getListOfStrings(new ArrayList<>(), "worlds", "SAFE_ZONE"));
             this._warzoneWorldNames = new HashSet<>(_configuration.getListOfStrings(new ArrayList<>(), "worlds", "WAR_ZONE"));
-
-            //Storage
-            this._storageType = _configuration.getString("hocon", "storage", "type");
-            this._storageUserName = _configuration.getString("sa", "storage", "username");
-            this._storagePassword = _configuration.getString("", "storage", "password");
-            this._databaseUrl = _configuration.getString("localhost:3306/", "storage", "database-url");
-            this._databaseFileName = _configuration.getString("database", "storage", "database-file-name");
 
             //Whitelisted items and blocks
             this._whitelistedItems = _configuration.getSetOfStrings(new HashSet<>(), "allowed-items-and-blocks", "items-whitelist");
@@ -502,7 +488,7 @@ public final class ConfigFields
     public void addWorld(String worldName)
     {
         _claimableWorldNames.add(worldName);
-        _configuration.setSetOfStrings(_claimableWorldNames, "worlds", "CLAIMABLE");
+        _configuration.setCollectionOfStrings(_claimableWorldNames, "worlds", "CLAIMABLE");
     }
 
     public long getMaxInactiveTime()
@@ -537,21 +523,6 @@ public final class ConfigFields
     public boolean shouldNotifyWhenFactionRemoved()
     {
         return this._notifyWhenFactionRemoved;
-    }
-
-    public String getStorageType()
-    {
-        return _storageType;
-    }
-
-    public String getStorageUsername()
-    {
-        return _storageUserName;
-    }
-
-    public String getStoragePassword()
-    {
-        return _storagePassword;
     }
 
     public Set<String> getWhiteListedItems()
@@ -592,16 +563,6 @@ public final class ConfigFields
     public boolean shouldShowOnlyPlayerFactionsClaimsInMap()
     {
         return this._showOnlyPlayersFactionsClaimsInMap;
-    }
-
-    public String getDatabaseUrl()
-    {
-        return this._databaseUrl;
-    }
-
-    public String getDatabaseName()
-    {
-        return this._databaseFileName;
     }
 
     public boolean shouldSupressOtherFactionsMessagesWhileInTeamChat()
