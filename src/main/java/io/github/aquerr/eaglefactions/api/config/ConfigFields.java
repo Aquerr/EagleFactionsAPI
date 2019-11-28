@@ -37,8 +37,6 @@ public final class ConfigFields
     private boolean _isPlayerLimit = false;
     private int _playerLimit = 15;
     private int _attackTime = 10;
-    private String _chatPrefixType = "tag";
-    private boolean _shouldDisplayRank = true;
     private boolean _factionCreationByItems = false;
     private Map<String, Integer> _requiredItemsToCreateFaction = new HashMap<>();
     private boolean _spawnAtHomeAfterDeath = false;
@@ -62,12 +60,8 @@ public final class ConfigFields
     private boolean _allowExplosionsByOtherPlayersInClaims = false;
     private boolean _protectWarZoneFromPlayers = false;
     private Set<String> _blockedCommandsDuringFight = Sets.newHashSet("/f home", "spawn", "tpa", "/tp");
-    private boolean _canColorTags = true;
-    private Text _factionStartPrefix = Text.of("[");
-    private Text _factionEndPrefix = Text.of("]");
-    private boolean _isFactionPrefixFirstInChat = true;
     private String _maxInactiveTime = "0";
-    private boolean _notifyWhenFactionRemoved;
+    private boolean _notifyWhenFactionRemoved = true;
     private boolean _canUseFactionChest = true;
     private boolean _showOnlyPlayersFactionsClaimsInMap = false;
     private boolean _showFactionEnterPhrase = true;
@@ -82,10 +76,6 @@ public final class ConfigFields
     private Set<String> _whitelistedItems = new HashSet<>();
     private Set<String> _whitelistedPlaceDestroyBlocks = new HashSet<>();
     private Set<String> _whitelistedInteractBlocks = new HashSet<>();
-
-    //Chat
-    private boolean _suppressOtherFactionsMessagesWhileInTeamChat = false;
-    private boolean _displayProtectionSystemMessages = true;
 
     public ConfigFields(final Configuration configuration)
     {
@@ -125,8 +115,6 @@ public final class ConfigFields
             this._isPlayerLimit = _configuration.getBoolean(false, "player-limit", "toggled");
             this._playerLimit = _configuration.getInt(15, "player-limit", "limit");
             this._attackTime = _configuration.getInt(10, "attack-time");
-            this._chatPrefixType = _configuration.getString("tag", "faction-prefix");
-            this._shouldDisplayRank = _configuration.getBoolean(true, "faction-rank");
             this._factionCreationByItems = _configuration.getBoolean(false, "creating-by-items", "toggled");
             this._requiredItemsToCreateFaction = prepareItems(_configuration.getListOfStrings(Arrays.asList("minecraft:wool:1|35", "minecraft:planks|20"), "creating-by-items", "items"));
 
@@ -152,10 +140,6 @@ public final class ConfigFields
             this._allowExplosionsByOtherPlayersInClaims = _configuration.getBoolean(false, "allow-explosions-by-other-players-in-claims");
             this._protectWarZoneFromPlayers = _configuration.getBoolean(false, "protect-warzone-from-players");
             this._blockedCommandsDuringFight = _configuration.getSetOfStrings(Sets.newHashSet("/f home", "spawn", "tpa", "/tp"), "pvp-logger", "blocked-commands-during-fight");
-            this._canColorTags = _configuration.getBoolean(true, "colored-tags-allowed");
-            this._factionStartPrefix = TextSerializers.FORMATTING_CODE.deserialize(_configuration.getString("[", "faction-prefix-start"));
-            this._factionEndPrefix = TextSerializers.FORMATTING_CODE.deserialize(_configuration.getString("]", "faction-prefix-end"));
-            this._isFactionPrefixFirstInChat = _configuration.getBoolean(true, "faction-prefix-first-in-chat");
             this._maxInactiveTime = _configuration.getString("30d", "factions-remover", "max-inactive-time");
             this._notifyWhenFactionRemoved = _configuration.getBoolean(true, "factions-remover", "notify-when-removed");
             this._canUseFactionChest = _configuration.getBoolean(true, "faction-chest");
@@ -172,10 +156,6 @@ public final class ConfigFields
             this._whitelistedItems = _configuration.getSetOfStrings(new HashSet<>(), "allowed-items-and-blocks", "items-whitelist");
             this._whitelistedPlaceDestroyBlocks = _configuration.getSetOfStrings(new HashSet<>(), "allowed-items-and-blocks", "place-destroy-whitelist");
             this._whitelistedInteractBlocks = _configuration.getSetOfStrings(new HashSet<>(), "allowed-items-and-blocks", "interact-whitelist");
-
-            //Chat
-            this._suppressOtherFactionsMessagesWhileInTeamChat = _configuration.getBoolean(false, "suppress-other-factions-messages-while-in-team-chat");
-            this._displayProtectionSystemMessages = _configuration.getBoolean(true, "display-protection-system-messages");
 
             this._configuration.save();
         }
@@ -306,16 +286,6 @@ public final class ConfigFields
         return this._attackTime;
     }
 
-    public String getChatPrefixType()
-    {
-        return _chatPrefixType;
-    }
-
-    public boolean shouldDisplayRank()
-    {
-        return _shouldDisplayRank;
-    }
-
     public boolean getFactionCreationByItems()
     {
         return _factionCreationByItems;
@@ -433,21 +403,6 @@ public final class ConfigFields
         return _languageFile;
     }
 
-    public boolean canColorTags()
-    {
-        return _canColorTags;
-    }
-
-    public Text getFactionStartPrefix()
-    {
-        return _factionStartPrefix;
-    }
-
-    public Text getFactionEndPrefix()
-    {
-        return _factionEndPrefix;
-    }
-
     public Set<String> getClaimableWorldNames()
     {
         return _claimableWorldNames;
@@ -480,10 +435,6 @@ public final class ConfigFields
         return detectedWorldNames;
     }
 
-    public boolean isFactionPrefixFirstInChat()
-    {
-        return _isFactionPrefixFirstInChat;
-    }
 
     public void addWorld(String worldName)
     {
@@ -563,16 +514,6 @@ public final class ConfigFields
     public boolean shouldShowOnlyPlayerFactionsClaimsInMap()
     {
         return this._showOnlyPlayersFactionsClaimsInMap;
-    }
-
-    public boolean shouldSupressOtherFactionsMessagesWhileInTeamChat()
-    {
-        return this._suppressOtherFactionsMessagesWhileInTeamChat;
-    }
-
-    public boolean shouldDisplayProtectionSystemMessages()
-    {
-        return this._displayProtectionSystemMessages;
     }
 
     public boolean shouldShowFactionEnterPhrase()

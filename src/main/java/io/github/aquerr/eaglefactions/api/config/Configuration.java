@@ -6,6 +6,7 @@ import java.util.Set;
 
 public interface Configuration
 {
+    ChatConfig getChatConfig();
     DynmapConfig getDynmapConfig();
     StorageConfig getStorageConfig();
 
