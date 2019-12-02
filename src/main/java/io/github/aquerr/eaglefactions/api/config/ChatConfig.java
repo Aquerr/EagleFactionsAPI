@@ -22,4 +22,6 @@ public interface ChatConfig
 	boolean canColorTags();
 
 	boolean isFactionPrefixFirstInChat();
+
+	Text getNonFactionPlayerPrefix();
 }
