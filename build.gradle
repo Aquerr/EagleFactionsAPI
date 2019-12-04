@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'org.spongepowered.plugin' version '0.9.0'
 }
 
 group 'io.github.aquerr'
@@ -14,6 +13,7 @@ targetCompatibility = 1.8
 repositories {
     jcenter()
     mavenCentral()
+    maven { url 'https://repo.spongepowered.org/maven' }
 }
 
 dependencies {
