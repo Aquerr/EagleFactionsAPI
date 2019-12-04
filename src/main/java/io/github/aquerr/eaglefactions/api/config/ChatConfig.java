@@ -7,7 +7,7 @@ public interface ChatConfig
 
 	void reload();
 
-	boolean shouldSupressOtherFactionsMessagesWhileInTeamChat();
+	boolean shouldSuppressOtherFactionsMessagesWhileInTeamChat();
 
 	boolean shouldDisplayProtectionSystemMessages();
 
@@ -24,4 +24,6 @@ public interface ChatConfig
 	boolean isFactionPrefixFirstInChat();
 
 	Text getNonFactionPlayerPrefix();
+
+	boolean shouldShowFactionEnterPhrase();
 }

@@ -8,10 +8,15 @@ public interface Configuration
 {
     ChatConfig getChatConfig();
     DynmapConfig getDynmapConfig();
+    FactionsConfig getFactionsConfig();
+    PowerConfig getPowerConfig();
+    ProtectionConfig getProtectionConfig();
+    PVPLoggerConfig getPvpLoggerConfig();
     StorageConfig getStorageConfig();
 
-    ConfigFields getConfigFields();
     void save();
+
+
     void reloadConfiguration();
 
     int getInt(int defaultValue, Object... nodePath);
