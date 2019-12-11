@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'io.github.aquerr'
-version '0.13.0'
+version '0.13.1'
 
 compileJava.options.encoding = 'UTF-8'
 

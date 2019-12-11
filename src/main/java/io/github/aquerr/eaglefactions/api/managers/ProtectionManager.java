@@ -11,9 +11,10 @@ public interface ProtectionManager
      * Checks if a {@link User} can break blocks at the given {@link Location<World>}
      * @param location that should be checked for block break.
      * @param player who will be tested for the given location.
+     * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if player can break block or <tt>false</tt> if not
      */
-    boolean canBreak(final Location<World> location, final User player);
+    boolean canBreak(final Location<World> location, final User player, final boolean shouldNotify);
 
     /**
      * Checks if a block can be destroyed at the given {@link Location<World>}
@@ -26,17 +27,19 @@ public interface ProtectionManager
      * Checks if a {@link User} can place blocks at the given {@link Location<World>}
      * @param location that should be checked for block place.
      * @param player who will be tested for the given location.
+     * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if block can be placed at the given location or <tt>false</tt> if not
      */
-    boolean canPlace(final Location<World> location, final User player);
+    boolean canPlace(final Location<World> location, final User player, final boolean shouldNotify);
 
     /**
      * Checks if a {@link User} can explode blocks at the given {@link Location<World>}
      * @param location that should be checked for block explosion.
      * @param player who will be tested for the given location.
+     * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if blocks can be exploded at the given location or <tt>false</tt> if not
      */
-    boolean canExplode(final Location<World> location, final User player);
+    boolean canExplode(final Location<World> location, final User player, final boolean shouldNotify);
 
     /**
      * Checks if blocks can explode at the given {@link Location<World>}
@@ -75,16 +78,18 @@ public interface ProtectionManager
      * Checks if a {@link User} can interact with block at the given location.
      * @param blockLocation block location that should be checked.
      * @param player who should be tested for block interaction.
+     * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if player can interact with block or <tt>false</tt> if not
      */
-    boolean canInteractWithBlock(final Location<World> blockLocation, final User player);
+    boolean canInteractWithBlock(final Location<World> blockLocation, final User player, final boolean shouldNotify);
 
     /**
      * Checks if a {@link User} can use an item at the given location.
      * @param location that should be checked for item use.
      * @param user who should be tested for the given location.
      * @param usedItem {@link ItemStackSnapshot} that should be tested.
+     * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if user can use the item in the given location or <tt>false</tt> if not
      */
-    boolean canUseItem(final Location<World> location, final User user, final ItemStackSnapshot usedItem);
+    boolean canUseItem(final Location<World> location, final User user, final ItemStackSnapshot usedItem, final boolean shouldNotify);
 }
