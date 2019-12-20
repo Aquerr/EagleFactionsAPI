@@ -2,6 +2,9 @@ package io.github.aquerr.eaglefactions.api.logic;
 
 import org.spongepowered.api.entity.living.player.Player;
 
+/**
+ * Interface for PVP-Logger related actions.
+ */
 public interface PVPLogger
 {
     /**

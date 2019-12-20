@@ -1,8 +1,12 @@
 package io.github.aquerr.eaglefactions.api.events;
 
 import com.flowpowered.math.vector.Vector3i;
+import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.world.World;
 
+/**
+ * Fired when a {@link Player} claims a chunk at a given {@link Vector3i}.
+ */
 public interface FactionClaimEvent extends FactionEvent
 {
     /**

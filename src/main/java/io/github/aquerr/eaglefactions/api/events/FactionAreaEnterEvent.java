@@ -9,6 +9,11 @@ import org.spongepowered.api.world.World;
 
 import java.util.Optional;
 
+/**
+ * Event that is fired when player enters or leave a claimed territory.
+ *
+ * This event is NOT fired if player moves between territories which belongs to the same faction.
+ */
 public interface FactionAreaEnterEvent extends Event, Cancellable
 {
 	/**

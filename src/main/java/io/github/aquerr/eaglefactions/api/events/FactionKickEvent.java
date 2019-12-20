@@ -1,7 +1,12 @@
 package io.github.aquerr.eaglefactions.api.events;
 
+import io.github.aquerr.eaglefactions.api.entities.Faction;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
+import org.spongepowered.api.entity.living.player.Player;
 
+/**
+ * Fired when a {@link Player} is being kicked from a {@link Faction}
+ */
 public interface FactionKickEvent extends FactionEvent
 {
     /**

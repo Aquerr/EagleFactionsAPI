@@ -1,10 +1,18 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
+import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
+import io.github.aquerr.eaglefactions.api.managers.PowerManager;
 import org.spongepowered.api.text.Text;
 
 import java.time.Instant;
 import java.util.*;
 
+/**
+ * Faction is an immutable object that stores all information (but power) needed for faction to work.
+ *
+ * To change faction data use {@link FactionLogic}
+ * To get faction power use {@link PowerManager}
+ */
 public interface Faction
 {
     /**
@@ -130,11 +138,6 @@ public interface Faction
      * @return a builder used to build a new faction instance.
      */
     Builder toBuilder();
-
-//    static Builder builder(final String name, final Text tag, final UUID leader)
-//    {
-//        return new Builder(name, tag, leader);
-//    }
 
     //Builder
     interface Builder

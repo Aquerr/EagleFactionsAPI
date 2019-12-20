@@ -5,6 +5,9 @@ import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.event.Cancellable;
 import org.spongepowered.api.event.Event;
 
+/**
+ * Base event for all events related to {@link Faction}
+ */
 public interface FactionEvent extends Event, Cancellable
 {
     /**
