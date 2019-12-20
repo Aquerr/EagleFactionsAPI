@@ -20,7 +20,7 @@ Check our [Wiki](https://github.com/Aquerr/EagleFactionsAPI/wiki) to get to know
 
 ## Links
 
-* [Wiki](https://github.com/Aquerr/EagleFactions/wiki)
+* [Wiki](https://github.com/Aquerr/EagleFactionsAPI/wiki)
 * Ore (Not yet available)
 * [Discord](https://discord.gg/Zg3rWta)
 
