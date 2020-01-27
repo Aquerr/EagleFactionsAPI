@@ -54,44 +54,50 @@ public interface Faction
     UUID getLeader();
 
     /**
+     * Gets faction truces.
+     * @return the {@link Set} of unique truces.
+     */
+    Set<String> getTruces();
+
+    /**
      * Gets faction alliances.
-     * @return A Set of unique alliances.
+     * @return the {@link Set} of unique alliances.
      */
     Set<String> getAlliances();
 
     /**
      * Gets faction claims.
-     * @return A Set of unique claims.
+     * @return the {@link Set} of unique claims.
      */
     Set<Claim> getClaims();
 
     /**
      * Gets faction enemies.
-     * @return A Set of unique enemies.
+     * @return the {@link Set} of unique enemies.
      */
     Set<String> getEnemies();
 
     /**
      * Gets faction members.
-     * @return A Set of unique members UUIDs.
+     * @return the {@link Set} of unique members UUIDs.
      */
     Set<UUID> getMembers();
 
     /**
      * Gets faction officers.
-     * @return A Set of unique officers UUIDs.
+     * @return the {@link Set} of unique officers UUIDs.
      */
     Set<UUID> getOfficers();
 
     /**
      * Gets faction recruits.
-     * @return A Set of unique recruits UUIDs.
+     * @return the {@link Set} of unique recruits UUIDs.
      */
     Set<UUID> getRecruits();
 
     /**
      * Gets all players from the faction (recruits + members + officers + leader).
-     * @return A set of unique players UUIDs.
+     * @return the {@link Set} of unique players UUIDs.
      */
     Set<UUID> getPlayers();
 
@@ -112,7 +118,7 @@ public interface Faction
      * @param playerUUID the UUID of the player.
      * @return faction member type for the given player.
      */
-    FactionMemberType getPlayerMemberType(UUID playerUUID);
+    FactionMemberType getPlayerMemberType(final UUID playerUUID);
 
     /**
      * Gets faction chest.
@@ -131,7 +137,7 @@ public interface Faction
      * @param playerUUID the UUID of the player.
      * @return <tt>true</tt> if player exists, <tt>false</tt> if not.
      */
-    boolean containsPlayer(UUID playerUUID);
+    boolean containsPlayer(final UUID playerUUID);
 
     /**
      * Converts the faction to the builder.
@@ -159,6 +165,8 @@ public interface Faction
         Builder setOfficers(final Set<UUID> officers);
 
         Builder setAlliances(final Set<String> alliances);
+
+        Builder setTruces(final Set<String> truces);
 
         Builder setEnemies(final Set<String> enemies);
 

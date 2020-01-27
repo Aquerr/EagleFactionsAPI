@@ -90,6 +90,20 @@ public interface FactionLogic
     void leaveFaction(UUID playerUUID, String factionName);
 
     /**
+     * Creates a truce between given factions.
+     * @param playerFactionName  the name of the first faction.
+     * @param invitedFactionName the name of the second faction.
+     */
+    void addTruce(String playerFactionName, String invitedFactionName);
+
+    /**
+     * Disbands a truce between given factions.
+     * @param playerFactionName  the name of the first faction.
+     * @param removedFactionName the name of the second faction.
+     */
+    void removeTruce(String playerFactionName, String removedFactionName);
+
+    /**
      * Creates an alliance between given factions.
      * @param playerFactionName  the name of the first faction.
      * @param invitedFactionName the name of the second faction.
