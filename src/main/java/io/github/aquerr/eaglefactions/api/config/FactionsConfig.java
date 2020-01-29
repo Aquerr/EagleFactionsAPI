@@ -24,6 +24,8 @@ public interface FactionsConfig
 
 	boolean isFactionFriendlyFire();
 
+	boolean isTruceFriendlyFire();
+
 	boolean isAllianceFriendlyFire();
 
 	int getHomeDelayTime();
