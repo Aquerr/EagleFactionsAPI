@@ -22,7 +22,9 @@ public interface FactionsConfig
 
 	int getAttackTime();
 
-	boolean isFactionFriendlyFire();
+    float getPercentageDamageReductionInOwnTerritory();
+
+    boolean isFactionFriendlyFire();
 
 	boolean isTruceFriendlyFire();
 
