@@ -35,6 +35,8 @@ public interface ProtectionConfig
 
 	boolean canSpawnHostileMobsInFactionsTerritory();
 
+	boolean shouldProtectWildernessFromPlayers();
+
 	boolean shouldProtectClaimFromMobGrief();
 
 	boolean shouldProtectWarZoneFromMobGrief();
