@@ -1,11 +1,15 @@
 package io.github.aquerr.eaglefactions.api.config;
 
+import java.nio.file.Path;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
 public interface Configuration
 {
+    Path getConfigDirectoryPath();
+    Path getConfigPath();
+
     ChatConfig getChatConfig();
     DynmapConfig getDynmapConfig();
     FactionsConfig getFactionsConfig();
@@ -15,7 +19,6 @@ public interface Configuration
     StorageConfig getStorageConfig();
 
     void save();
-
 
     void reloadConfiguration();
 
