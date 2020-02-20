@@ -13,20 +13,11 @@ import java.util.UUID;
 @Singleton
 public class FlagManagerImpl implements FlagManager
 {
-    private static FlagManagerImpl INSTANCE = null;
-    private final EagleFactions plugin;
+    private final PlayerManager playerManager;
 
-    private FlagManagerImpl(EagleFactions plugin)
+    public FlagManagerImpl(final PlayerManager playerManager)
     {
-        this.plugin = plugin;
-        INSTANCE = this;
-    }
-
-    public static FlagManagerImpl getInstance(final EagleFactions eagleFactions)
-    {
-        if (INSTANCE == null)
-            return new FlagManagerImpl(eagleFactions);
-        else return INSTANCE;
+        this.playerManager = playerManager;
     }
 
     @Override
@@ -67,7 +58,7 @@ public class FlagManagerImpl implements FlagManager
 
     private boolean checkFlag(final UUID playerUUID, final Faction playerFaction, final FactionFlagTypes flagTypes)
     {
-        final FactionMemberType memberType = plugin.getPlayerManager().getFactionMemberType(playerUUID, playerFaction);
+        final FactionMemberType memberType = this.playerManager.getFactionMemberType(playerUUID, playerFaction);
         return playerFaction.getFlags().get(memberType).get(flagTypes);
     }
 
@@ -75,7 +66,7 @@ public class FlagManagerImpl implements FlagManager
     {
         if (playerFaction.getName().equals(chunkFaction.getName()))
         {
-            final FactionMemberType memberType = plugin.getPlayerManager().getFactionMemberType(playerUUID, playerFaction);
+            final FactionMemberType memberType = this.playerManager.getFactionMemberType(playerUUID, playerFaction);
             return chunkFaction.getFlags().get(memberType).get(flagType);
         }
         else if (playerFaction.getAlliances().contains(chunkFaction.getName()))
