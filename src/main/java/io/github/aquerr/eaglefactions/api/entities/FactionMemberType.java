@@ -2,5 +2,5 @@ package io.github.aquerr.eaglefactions.api.entities;
 
 public enum FactionMemberType
 {
-    LEADER, OFFICER, MEMBER, RECRUIT, TRUCE, ALLY
+    LEADER, OFFICER, MEMBER, RECRUIT, TRUCE, ALLY, NONE
 }
