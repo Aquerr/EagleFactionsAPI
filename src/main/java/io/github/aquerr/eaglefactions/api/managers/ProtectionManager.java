@@ -1,5 +1,7 @@
 package io.github.aquerr.eaglefactions.api.managers;
 
+import org.spongepowered.api.entity.Entity;
+import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.entity.living.player.User;
 import org.spongepowered.api.item.inventory.ItemStackSnapshot;
 import org.spongepowered.api.world.Location;
@@ -47,6 +49,15 @@ public interface ProtectionManager
      * @return <tt>true</tt> if blocks can be exploded at the given location or <tt>false</tt> if not
      */
     boolean canExplode(final Location<World> location);
+
+    /**
+     * Checks if player attack given entity.
+     * @param attackedEntity the entity
+     * @param player the player that attacked entity
+     * @param shouldNotify determines if user should be notified about not having access to attack entity.
+     * @return <tt>true</tt> if player can attack entity, <tt>false</tt> if not.
+     */
+    boolean canAttackEntity(final Entity attackedEntity, final Player player, final boolean shouldNotify);
 
     /**
      * Checks if the given item id is white-listed by Eagle Factions.

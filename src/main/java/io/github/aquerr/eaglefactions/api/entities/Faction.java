@@ -140,6 +140,24 @@ public interface Faction
     boolean containsPlayer(final UUID playerUUID);
 
     /**
+     * Checks if this faction is SafeZone.
+     * @return <tt>true<tt/> if it is SafeZone, <tt>false</tt>> if not.
+     */
+    default boolean isSafeZone()
+    {
+        return getName().equalsIgnoreCase("safezone");
+    }
+
+    /**
+     * Checks if this faction is WarZone.
+     * @return <tt>true<tt/> if it is WarZone, <tt>false</tt>> if not.
+     */
+    default boolean isWarZone()
+    {
+        return getName().equalsIgnoreCase("warzone");
+    }
+
+    /**
      * Converts the faction to the builder.
      * @return a builder used to build a new faction instance.
      */
