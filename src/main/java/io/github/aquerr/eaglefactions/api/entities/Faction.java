@@ -102,10 +102,10 @@ public interface Faction
     Set<UUID> getPlayers();
 
     /**
-     * Gets faction flags.
-     * @return A key-value representation of faction flags where {@link FactionMemberType} is the key and {@link Map<FactionFlagTypes, Boolean>} is a value.
+     * Gets faction permissions.
+     * @return A key-value representation of faction permissions where {@link FactionMemberType} is the key and {@link Map< FactionPermType , Boolean>} is a value.
      */
-    Map<FactionMemberType, Map<FactionFlagTypes, Boolean>> getFlags();
+    Map<FactionMemberType, Map<FactionPermType, Boolean>> getPerms();
 
     /**
      * Gets faction last online date.
@@ -176,7 +176,7 @@ public interface Faction
 
         Builder setLastOnline(final Instant lastOnline);
 
-        Builder setFlags(final Map<FactionMemberType, Map<FactionFlagTypes, Boolean>> flags);
+        Builder setPerms(final Map<FactionMemberType, Map<FactionPermType, Boolean>> perms);
 
         Builder setChest(final FactionChest chest);
 

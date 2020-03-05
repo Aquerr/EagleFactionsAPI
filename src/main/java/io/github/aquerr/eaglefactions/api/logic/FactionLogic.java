@@ -246,13 +246,13 @@ public interface FactionLogic
     boolean addClaimByItems(Player player, Faction faction, UUID worldUUID, Vector3i chunkPosition);
 
     /**
-     * Changes permission of the given {@link FactionFlagTypes} for the given {@link FactionMemberType} in the faction.
+     * Changes permission of the given {@link FactionPermType} for the given {@link FactionMemberType} in the faction.
      * @param faction the faction that should be edited.
      * @param factionMemberType the faction member type that should be affected.
-     * @param factionFlagTypes the faction flag type that should be changed.
+     * @param factionPermType the faction flag type that should be changed.
      * @param flagValue new boolean value.
      */
-    void toggleFlag(Faction faction, FactionMemberType factionMemberType, FactionFlagTypes factionFlagTypes, Boolean flagValue);
+    void toggleFlag(Faction faction, FactionMemberType factionMemberType, FactionPermType factionPermType, Boolean flagValue);
 
     /**
      * Changes color of the faction tag.

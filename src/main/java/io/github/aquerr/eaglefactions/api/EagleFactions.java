@@ -4,7 +4,7 @@ import io.github.aquerr.eaglefactions.api.config.Configuration;
 import io.github.aquerr.eaglefactions.api.logic.AttackLogic;
 import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
 import io.github.aquerr.eaglefactions.api.logic.PVPLogger;
-import io.github.aquerr.eaglefactions.api.managers.FlagManager;
+import io.github.aquerr.eaglefactions.api.managers.PermsManager;
 import io.github.aquerr.eaglefactions.api.managers.PlayerManager;
 import io.github.aquerr.eaglefactions.api.managers.PowerManager;
 import io.github.aquerr.eaglefactions.api.managers.ProtectionManager;
@@ -46,9 +46,9 @@ public interface EagleFactions
     PlayerManager getPlayerManager();
 
     /**
-     * @return instance of {@link FlagManager}
+     * @return instance of {@link PermsManager}
      */
-    FlagManager getFlagManager();
+    PermsManager getPermsManager();
 
     /**
      * @return instance of {@link PowerManager}

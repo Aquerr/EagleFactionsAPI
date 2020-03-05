@@ -1,6 +1,6 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-public enum FactionFlagTypes
+public enum FactionPermType
 {
     USE, PLACE, DESTROY, CLAIM, ATTACK, INVITE,
 }

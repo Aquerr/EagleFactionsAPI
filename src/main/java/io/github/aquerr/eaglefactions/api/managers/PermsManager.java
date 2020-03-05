@@ -4,7 +4,7 @@ import io.github.aquerr.eaglefactions.api.entities.Faction;
 
 import java.util.UUID;
 
-public interface FlagManager
+public interface PermsManager
 {
     boolean canBreakBlock(final UUID playerUUID, final Faction playerFaction, final Faction chunkFaction);
     boolean canPlaceBlock(final UUID playerUUID, final Faction playerFaction, final Faction chunkFaction);
