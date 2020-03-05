@@ -26,9 +26,9 @@ public class FactionHome
 
             String[] vectors = vectorsString.replace("(", "").replace(")", "").replace(" ", "").split(",");
 
-            int x = Integer.valueOf(vectors[0]);
-            int y = Integer.valueOf(vectors[1]);
-            int z = Integer.valueOf(vectors[2]);
+            int x = Integer.parseInt(vectors[0]);
+            int y = Integer.parseInt(vectors[1]);
+            int z = Integer.parseInt(vectors[2]);
 
             Vector3i blockPosition = Vector3i.from(x, y, z);
 

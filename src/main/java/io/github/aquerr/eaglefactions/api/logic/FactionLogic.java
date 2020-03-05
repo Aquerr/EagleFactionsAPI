@@ -195,10 +195,9 @@ public interface FactionLogic
     /**
      * Sets home for the given {@link Faction}
      * @param faction the faction for which home should be set
-     * @param worldUUID the world UUID fo the world where home should be set.
-     * @param blockPosition the position of the home.
+     * @param home new faction's home.
      */
-    void setHome(Faction faction, @Nullable UUID worldUUID, @Nullable Vector3i blockPosition);
+    void setHome(Faction faction, @Nullable FactionHome home);
 
     /**
      * Gets the list of all factions tags used on the server.
