@@ -13,7 +13,7 @@ import java.util.*;
  * To change faction data use {@link FactionLogic}
  * To get faction power use {@link PowerManager}
  */
-public interface Faction
+public interface Faction extends Comparable<Faction>
 {
     /**
      * Gets faction name.
@@ -155,6 +155,36 @@ public interface Faction
     default boolean isWarZone()
     {
         return getName().equalsIgnoreCase("warzone");
+    }
+
+    /**
+     * Checks if the given faction is in alliance with this faction.
+     * @param faction the faction that will be checked.
+     * @return <tt>true</tt> if faction is an ally, <tt>false</tt> if not.
+     */
+    default boolean isAlly(final Faction faction)
+    {
+        return getAlliances().contains(faction);
+    }
+
+    /**
+     * Checks if the given faction is in truce with this faction.
+     * @param faction the faction that will be checked.
+     * @return <tt>true</tt> if faction is in truce, <tt>false</tt> if not.
+     */
+    default boolean isTruce(final Faction faction)
+    {
+        return getTruces().contains(faction);
+    }
+
+    /**
+     * Checks if the given faction is an enemy to this faction.
+     * @param faction the faction that will be checked.
+     * @return <tt>true</tt> if faction is an enemy, <tt>false</tt> if not.
+     */
+    default boolean isEnemy(final Faction faction)
+    {
+        return getEnemies().contains(faction);
     }
 
     /**
