@@ -164,7 +164,7 @@ public interface Faction extends Comparable<Faction>
      */
     default boolean isAlly(final Faction faction)
     {
-        return getAlliances().contains(faction);
+        return getAlliances().contains(faction.getName());
     }
 
     /**
@@ -174,7 +174,7 @@ public interface Faction extends Comparable<Faction>
      */
     default boolean isTruce(final Faction faction)
     {
-        return getTruces().contains(faction);
+        return getTruces().contains(faction.getName());
     }
 
     /**
@@ -184,7 +184,7 @@ public interface Faction extends Comparable<Faction>
      */
     default boolean isEnemy(final Faction faction)
     {
-        return getEnemies().contains(faction);
+        return getEnemies().contains(faction.getName());
     }
 
     /**
