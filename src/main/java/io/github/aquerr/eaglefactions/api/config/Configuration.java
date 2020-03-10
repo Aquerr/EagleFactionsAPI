@@ -30,6 +30,4 @@ public interface Configuration
 
     List<String> getListOfStrings(Collection<String> defaultValue, Object... nodePath);
     Set<String> getSetOfStrings(Collection<String> defaultValue, Object... nodePath);
-
-    boolean setCollectionOfStrings(Collection<String> listOfStrings, Object... nodePath);
 }
