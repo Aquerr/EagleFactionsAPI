@@ -51,13 +51,13 @@ public interface ProtectionManager
     boolean canExplode(final Location<World> location);
 
     /**
-     * Checks if player attack given entity.
-     * @param attackedEntity the entity
-     * @param player the player that attacked entity
-     * @param shouldNotify determines if user should be notified about not having access to attack entity.
-     * @return <tt>true</tt> if player can attack entity, <tt>false</tt> if not.
+     * Checks if the player can hit the given entity.
+     * @param entity the entity
+     * @param player the player that hit entity
+     * @param shouldNotify determines if user should be notified about not having access to hit entity.
+     * @return <tt>true</tt> if player can hit entity, <tt>false</tt> if not.
      */
-    boolean canAttackEntity(final Entity attackedEntity, final Player player, final boolean shouldNotify);
+    boolean canHitEntity(final Entity entity, final Player player, final boolean shouldNotify);
 
     /**
      * Checks if the given item id is white-listed by Eagle Factions.
