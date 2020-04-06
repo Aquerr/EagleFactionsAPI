@@ -1,6 +1,7 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
 import com.flowpowered.math.vector.Vector3i;
+import com.google.common.base.Strings;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
@@ -18,6 +19,9 @@ public class FactionHome
 
     public static FactionHome from(String worldUUIDAndBlockPositionString)
     {
+        if (Strings.isNullOrEmpty(worldUUIDAndBlockPositionString))
+            return null;
+
         try
         {
             String splitter = "\\|";

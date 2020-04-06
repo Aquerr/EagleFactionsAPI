@@ -4,6 +4,8 @@ import io.github.aquerr.eaglefactions.api.entities.Faction;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 
 import javax.annotation.Nullable;
+import java.io.IOException;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -127,4 +129,25 @@ public interface StorageManager
      * @return <tt>true</tt> if operation succeed or <tt>false</tt> if not
      */
     boolean updatePlayerName(final UUID playerUUID, final String playerName);
+
+    /**
+     * Creates a backup of Eagle Factions data.
+     * Backups are placed in /config/eaglefactions/backups.
+     *
+     * @return <tt>true</tt> if operation succeed or <tt>false</tt> if not
+     */
+    boolean createBackup();
+
+    /**
+     * Restores Eagle Factions data from the given backup.
+     * @param backupName the name of the backup file.
+     * @return <tt>true</tt> if operation succeed or <tt>false</tt> if not
+     */
+    boolean restoreBackup(String backupName);
+
+    /**
+     * Gets a list of backup files' names.
+     * @return the list of backup files.
+     */
+    List<String> listBackups();
 }

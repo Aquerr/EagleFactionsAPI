@@ -57,4 +57,10 @@ public interface FactionPlayer
      * @return the {@link User} instance or {@link Optional#empty()} if instance could not be found.
      */
     Optional<User> getUser();
+
+    /**
+     * Checks if the given player recently died in WarZone.
+     * @return <tt>true</tt> if yes, <tt>false</tt> if not.
+     */
+    boolean diedInWarZone();
 }
