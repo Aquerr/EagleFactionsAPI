@@ -52,6 +52,10 @@ public interface FactionPlayer
      */
     float getMaxPower();
 
+    //TODO: To rethink...
+    float getLastKnownPlayerPower();
+    float getLastKnownPlayerMaxPower();
+
     /**
      * Gets {@link User} instance from the current player.
      * @return the {@link User} instance or {@link Optional#empty()} if instance could not be found.
