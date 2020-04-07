@@ -5,7 +5,9 @@ import io.github.aquerr.eaglefactions.api.managers.PowerManager;
 import org.spongepowered.api.text.Text;
 
 import java.time.Instant;
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * Faction is an immutable object that stores all information (but power) needed for faction to work.

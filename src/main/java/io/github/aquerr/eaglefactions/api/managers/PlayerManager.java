@@ -1,7 +1,5 @@
 package io.github.aquerr.eaglefactions.api.managers;
 
-import io.github.aquerr.eaglefactions.api.entities.Faction;
-import io.github.aquerr.eaglefactions.api.entities.FactionMemberType;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.entity.living.player.User;
@@ -12,32 +10,58 @@ import java.util.UUID;
 
 public interface PlayerManager
 {
+    /**
+     * Adds new player to the cache and storage.
+     * @param playerUUID the uuid of the player.
+     * @param name the name of the player.
+     * @return <tt>true</tt> if operation succeed or <tt>false</tt> if not.
+     */
     boolean addPlayer(UUID playerUUID, String name);
+
+    /**
+     * Gets player for the given UUID.
+     * @param playerUUID the uuid of the player.
+     * @return the player.
+     */
     Optional<Player> getPlayer(UUID playerUUID);
 
-    FactionMemberType getFactionMemberType(UUID playerUUID, Faction faction);
-    float getPlayerPower(UUID playerUUID);
-    float getPlayerMaxPower(UUID playerUUID);
-    boolean setPlayerPower(UUID playerUUID, float power);
-    boolean setPlayerMaxPower(UUID playerUUID, float power);
+    /**
+     * Saves/persists the faction player.
+     *
+     * @param factionPlayer the faction player.
+     * @return <tt>true</tt> if operation succeed or <tt>false</tt> if not.
+     */
+    boolean savePlayer(final FactionPlayer factionPlayer);
 
+    /**
+     * Gets faction player for the given UUID.
+     *
+     * @param playerUUID the UUID of the player.
+     * @return the faction player if found, otherwise Optional.empty().
+     */
+    Optional<FactionPlayer> getFactionPlayer(UUID playerUUID);
+
+    /**
+     *  Checks if a player with the given player uuid is currently online.
+     *
+     * @param playerUUID the UUID of hte player.
+     * @return <tt>true</tt> if player is online, <tt>false</tt> if not.
+     */
     boolean isPlayerOnline(UUID playerUUID);
 
-    boolean lastDeathAtWarZone(UUID playerUUID);
-
+    /**
+     * Gets the set of players names that were playing on this server.
+     *
+     * @return the set of player names.
+     */
     Set<String> getServerPlayerNames();
 
-    void setDeathInWarZone(UUID playerUUID, boolean didDie);
-
-    boolean checkIfPlayerExists(UUID playerUUID, String playerName);
-
+    /**
+     * Gets the set of faction players that were playing on this server.
+     *
+     * @return the set of faction player.
+     */
     Set<FactionPlayer> getServerPlayers();
-
-    void updatePlayerName(UUID playerUUID, String playerName);
-
-    Optional<String> getPlayerName(UUID playerUUID);
-
-    FactionPlayer convertToFactionPlayer(User user);
 
     /**
      * @return boolean value that indicates if player has admin mode turned on.
@@ -63,4 +87,11 @@ public interface PlayerManager
      * @return set with players who have admin mode on.
      */
     Set<UUID> getAdminModePlayers();
+
+    /**
+     * Sets player's last death location to warzone.
+     * @param playerUUID the UUID of the player.
+     * @param didDie the value.
+     */
+    void setDeathInWarZone(UUID playerUUID, boolean didDie);
 }

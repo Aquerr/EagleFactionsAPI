@@ -21,6 +21,24 @@ public interface PowerManager
     float getPlayerMaxPower(final UUID playerUUID);
 
     /**
+     * Sets the power for the given player.
+     *
+     * @param playerUUID the UUID of the player.
+     * @param power the new power.
+     * @return <tt>true</tt> if operation succeed, <tt>false</tt> if not.
+     */
+    boolean setPlayerPower(UUID playerUUID, float power);
+
+    /**
+     * Sets the mnax power for the given player.
+     *
+     * @param playerUUID the UUID of the player.
+     * @param maxpower the new max power.
+     * @return <tt>true</tt> if operation succeed, <tt>false</tt> if not.
+     */
+    boolean setPlayerMaxPower(UUID playerUUID, float maxpower);
+
+    /**
      * Decreases player's power by the amount specified in the config file. Default: 2
      * @param playerUUID the UUID of the player.
      */
@@ -71,18 +89,4 @@ public interface PowerManager
      * Note: Result number should be equal to faction power.
      */
     int getFactionMaxClaims(final Faction faction);
-
-    /**
-     * Sets maximal power of the player with the given {@link UUID}.
-     * @param playerUUID the UUID of the player that maximal power should be changed.
-     * @param newPower new maximal power.
-     */
-    void setMaxPower(final UUID playerUUID, final float newPower);
-
-    /**
-     * Sets power of the player with the given {@link UUID}
-     * @param playerUUID the UUID of the player that power should be changed.
-     * @param newPower new power.
-     */
-    void setPower(final UUID playerUUID, final float newPower);
 }

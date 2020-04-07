@@ -32,7 +32,7 @@ public interface FactionPlayer
      * Gets player's faction member type (rank).
      * @return the {@link FactionMemberType} of the player.
      */
-    Optional<FactionMemberType> getFactionRole();
+    FactionMemberType getFactionRole();
 
     /**
      * Checks if the player is online.
@@ -51,10 +51,6 @@ public interface FactionPlayer
      * @return player's maxpower as floating number.
      */
     float getMaxPower();
-
-    //TODO: To rethink...
-    float getLastKnownPlayerPower();
-    float getLastKnownPlayerMaxPower();
 
     /**
      * Gets {@link User} instance from the current player.
