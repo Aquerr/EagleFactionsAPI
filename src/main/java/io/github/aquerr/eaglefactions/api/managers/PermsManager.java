@@ -20,19 +20,11 @@ public interface PermsManager
     static Map<FactionMemberType, Map<FactionPermType, Boolean>> getDefaultFactionPerms()
     {
         Map<FactionMemberType, Map<FactionPermType, Boolean>> map = new LinkedHashMap<>();
-        Map<FactionPermType, Boolean> leaderMap = new LinkedHashMap<>();
         Map<FactionPermType, Boolean> officerMap = new LinkedHashMap<>();
         Map<FactionPermType, Boolean> membersMap = new LinkedHashMap<>();
         Map<FactionPermType, Boolean> recruitsMap = new LinkedHashMap<>();
         Map<FactionPermType, Boolean> allyMap = new LinkedHashMap<>();
         Map<FactionPermType, Boolean> truceMap = new LinkedHashMap<>();
-
-        leaderMap.put(FactionPermType.USE, true);
-        leaderMap.put(FactionPermType.PLACE, true);
-        leaderMap.put(FactionPermType.DESTROY, true);
-        leaderMap.put(FactionPermType.CLAIM, true);
-        leaderMap.put(FactionPermType.ATTACK, true);
-        leaderMap.put(FactionPermType.INVITE, true);
 
         officerMap.put(FactionPermType.USE, true);
         officerMap.put(FactionPermType.PLACE, true);
@@ -63,7 +55,6 @@ public interface PermsManager
         allyMap.put(FactionPermType.PLACE, true);
         allyMap.put(FactionPermType.DESTROY, true);
 
-        map.put(FactionMemberType.LEADER, leaderMap);
         map.put(FactionMemberType.OFFICER, officerMap);
         map.put(FactionMemberType.MEMBER, membersMap);
         map.put(FactionMemberType.RECRUIT, recruitsMap);
