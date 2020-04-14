@@ -1,5 +1,6 @@
 package io.github.aquerr.eaglefactions.api.managers;
 
+import io.github.aquerr.eaglefactions.api.entities.FactionType;
 import org.spongepowered.api.entity.Entity;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.entity.living.player.User;
@@ -69,21 +70,21 @@ public interface ProtectionManager
      * @return <tt>true</tt> if the item is white-listed or <tt>false</tt> if it is not.
      *
      */
-    boolean isItemWhitelisted(final String itemId);
+    boolean isItemWhitelisted(final String itemId, final FactionType factionType);
 
     /**
      * Checks if the given item or block id is white-listed for placing and destroying by Eagle Factions.
      * @param itemOrBlockId of the item/block that should be tested.
      * @return <tt>true</tt> if item/block is white-listed or <tt>false</tt> if it is not.
      */
-    boolean isBlockWhitelistedForPlaceDestroy(final String itemOrBlockId);
+    boolean isBlockWhitelistedForPlaceDestroy(final String itemOrBlockId, final FactionType factionType);
 
     /**
      * Checks if the given block id is white-listed for interaction by Eagle Factions.
      * @param blockId of the block that should be tested.
      * @return <tt>true</tt> if block is white-listed or <tt>false</tt> if not.
      */
-    boolean isBlockWhitelistedForInteraction(final String blockId);
+    boolean isBlockWhitelistedForInteraction(final String blockId, final FactionType factionType);
 
     /**
      * Checks if a {@link User} can interact with block at the given location.

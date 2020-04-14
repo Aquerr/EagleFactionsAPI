@@ -118,7 +118,8 @@ public interface Faction extends Comparable<Faction>
     /**
      * Checks what member the given player is.
      * @param playerUUID the UUID of the player.
-     * @return faction member type for the given player.
+     * @return faction member type for the given player or {@link FactionMemberType#NONE}
+     * if player is not a member of this faction and is not in alliance/truce with this faction.
      */
     FactionMemberType getPlayerMemberType(final UUID playerUUID);
 

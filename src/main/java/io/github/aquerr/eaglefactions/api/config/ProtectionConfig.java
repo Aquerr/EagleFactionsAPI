@@ -14,11 +14,11 @@ public interface ProtectionConfig
 
 	Set<String> getWarZoneWorldNames();
 
-	Set<String> getWhiteListedItems();
+	WhiteList getFactionWhitelists();
 
-	Set<String> getWhiteListedPlaceDestroyBlocks();
+	WhiteList getSafeZoneWhitelists();
 
-	Set<String> getWhiteListedInteractBlocks();
+	WhiteList getWarZoneWhitelists();
 
 	Set<String> getDetectedWorldNames();
 
@@ -44,4 +44,13 @@ public interface ProtectionConfig
 	boolean shouldAllowExplosionsByOtherPlayersInClaims();
 
 	boolean shouldProtectWarzoneFromPlayers();
+
+	interface WhiteList
+	{
+		Set<String> getWhiteListedItems();
+
+		Set<String> getWhiteListedPlaceDestroyBlocks();
+
+		Set<String> getWhiteListedInteractBlocks();
+	}
 }
