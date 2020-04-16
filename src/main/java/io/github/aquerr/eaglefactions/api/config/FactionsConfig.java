@@ -69,6 +69,8 @@ public interface FactionsConfig
 	boolean shouldNotifyWhenFactionRemoved();
 
 	boolean shouldShowOnlyPlayerFactionsClaimsInMap();
+	
+	boolean shouldRegenerateChunksWhenFactionRemoved();
 
 	boolean canPlaceHomeOutsideFactionClaim();
 }
