@@ -61,6 +61,14 @@ public interface ProtectionManager
     boolean canHitEntity(final Entity entity, final Player player, final boolean shouldNotify);
 
     /**
+     * Checks if the location can be notified from the given location.
+     * @param sourceLocation the source location
+     * @param notifiedLocation the notified location
+     * @return <tt>true</tt> if location can be notified, <tt>false</tt> if not.
+     */
+    boolean canNotifyBlock(Location<World> sourceLocation, Location<World> notifiedLocation);
+
+    /**
      * Checks if the given item id is white-listed by Eagle Factions.
      * @param itemId for the item that should be tested.
      *
