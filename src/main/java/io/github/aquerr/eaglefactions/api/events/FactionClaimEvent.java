@@ -31,7 +31,7 @@ public interface FactionClaimEvent extends FactionEvent
         boolean isClaimedByItems();
     }
 
-    interface Unclaim
+    interface Unclaim extends FactionClaimEvent
     {
 
     }
