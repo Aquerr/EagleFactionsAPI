@@ -193,6 +193,33 @@ public interface FactionLogic
     boolean isClaimConnected(Faction faction, Claim claimToCheck);
 
     /**
+     * Adds new owner of the given claim.
+     * @param faction the faction that owns the claim.
+     * @param claim the claim
+     * @param owner the owner that should be added as owner of the given claim.
+     * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
+     */
+    boolean addClaimOwner(final Faction faction, final Claim claim, final UUID owner);
+
+    /**
+     * Removes owner of the given claim.
+     * @param faction the faction that owns the claim.
+     * @param claim the claim
+     * @param owner the owner that should be removed from the given claim.
+     * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
+     */
+    boolean removeClaimOwner(final Faction faction, final Claim claim, final UUID owner);
+
+    /**
+     * Sets claims accessibility by faction.
+     * @param faction the faction that own the claim.
+     * @param claim the claim.
+     * @param isAccessibleByFaction the
+     * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
+     */
+    boolean setClaimAccessibleByFaction(final Faction faction, final Claim claim, final boolean isAccessibleByFaction);
+
+    /**
      * Sets home for the given {@link Faction}
      * @param faction the faction for which home should be set
      * @param home new faction's home.

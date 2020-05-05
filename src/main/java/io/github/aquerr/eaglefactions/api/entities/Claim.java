@@ -1,14 +1,17 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
 import com.flowpowered.math.vector.Vector3i;
+import org.spongepowered.api.entity.living.player.Player;
 
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 public class Claim
 {
     private final UUID worldUUID;
     private final Vector3i chunkPosition;
+
+    private final List<UUID> owners;
+    private final boolean accessibleByFaction;
 
     public static Claim valueOf(String claimAsString)
     {
@@ -24,8 +27,15 @@ public class Claim
 
     public Claim(UUID worldUUID, Vector3i chunkPosition)
     {
+        this(worldUUID, chunkPosition, new ArrayList<>(), true);
+    }
+
+    public Claim(UUID worldUUID, Vector3i chunkPosition, final List<UUID> owners, final boolean accessibleByFaction)
+    {
         this.worldUUID = worldUUID;
         this.chunkPosition = chunkPosition;
+        this.accessibleByFaction = accessibleByFaction;
+        this.owners = Collections.unmodifiableList(owners);
     }
 
     public UUID getWorldUUID()
@@ -36,6 +46,23 @@ public class Claim
     public Vector3i getChunkPosition()
     {
         return this.chunkPosition;
+    }
+
+    public List<UUID> getOwners()
+    {
+        return this.owners;
+    }
+
+    public boolean isAccessibleByFaction()
+    {
+        return this.accessibleByFaction;
+    }
+
+    public boolean hasAccess(final UUID playerUniqueId)
+    {
+        if (this.accessibleByFaction)
+            return true;
+        return this.owners.contains(playerUniqueId);
     }
 
     @Override

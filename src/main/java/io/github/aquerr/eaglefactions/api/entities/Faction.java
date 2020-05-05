@@ -1,11 +1,14 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
+import com.flowpowered.math.vector.Vector3i;
 import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
 import io.github.aquerr.eaglefactions.api.managers.PowerManager;
 import org.spongepowered.api.text.Text;
 
+import javax.annotation.Nullable;
 import java.time.Instant;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
@@ -188,6 +191,18 @@ public interface Faction extends Comparable<Faction>
     default boolean isEnemy(final Faction faction)
     {
         return getEnemies().contains(faction.getName());
+    }
+
+    default Optional<Claim> getClaimAt(final UUID worldUUID, final Vector3i chunkPosition)
+    {
+        for (final Claim claim : getClaims())
+        {
+            if (claim.getWorldUUID().equals(worldUUID) && claim.getChunkPosition().equals(chunkPosition))
+            {
+                return Optional.of(claim);
+            }
+        }
+        return Optional.empty();
     }
 
     /**
