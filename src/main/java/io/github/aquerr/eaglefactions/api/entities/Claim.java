@@ -13,17 +13,17 @@ public class Claim
     private final List<UUID> owners;
     private final boolean accessibleByFaction;
 
-    public static Claim valueOf(String claimAsString)
-    {
-        String[] worldUUIDAndChunkPosition = claimAsString.split("\\|");
-        UUID worldUUID = UUID.fromString(worldUUIDAndChunkPosition[0]);
-        String[] vectors = worldUUIDAndChunkPosition[1].replace("(", "").replace(")", "").replace(" ", "").split(",");
-        int x = Integer.parseInt(vectors[0]);
-        int y = Integer.parseInt(vectors[1]);
-        int z = Integer.parseInt(vectors[2]);
-        Vector3i chunkPosition = Vector3i.from(x, y, z);
-        return new Claim(worldUUID, chunkPosition);
-    }
+//    public static Claim valueOf(String claimAsString)
+//    {
+//        String[] worldUUIDAndChunkPosition = claimAsString.split("\\|");
+//        UUID worldUUID = UUID.fromString(worldUUIDAndChunkPosition[0]);
+//        String[] vectors = worldUUIDAndChunkPosition[1].replace("(", "").replace(")", "").replace(" ", "").split(",");
+//        int x = Integer.parseInt(vectors[0]);
+//        int y = Integer.parseInt(vectors[1]);
+//        int z = Integer.parseInt(vectors[2]);
+//        Vector3i chunkPosition = Vector3i.from(x, y, z);
+//        return new Claim(worldUUID, chunkPosition);
+//    }
 
     public Claim(UUID worldUUID, Vector3i chunkPosition)
     {
