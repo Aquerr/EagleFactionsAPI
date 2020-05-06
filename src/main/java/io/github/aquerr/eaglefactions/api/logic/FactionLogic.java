@@ -217,7 +217,7 @@ public interface FactionLogic
      * @param isAccessibleByFaction the
      * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
      */
-    boolean setClaimAccessibleByFaction(final Faction faction, final Claim claim, final boolean isAccessibleByFaction);
+    void setClaimAccessibleByFaction(final Faction faction, final Claim claim, final boolean isAccessibleByFaction);
 
     /**
      * Sets home for the given {@link Faction}
