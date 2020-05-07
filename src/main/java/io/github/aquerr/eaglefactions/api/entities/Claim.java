@@ -10,32 +10,20 @@ public class Claim
     private final UUID worldUUID;
     private final Vector3i chunkPosition;
 
-    private final List<UUID> owners;
+    private final Set<UUID> owners;
     private final boolean accessibleByFaction;
-
-//    public static Claim valueOf(String claimAsString)
-//    {
-//        String[] worldUUIDAndChunkPosition = claimAsString.split("\\|");
-//        UUID worldUUID = UUID.fromString(worldUUIDAndChunkPosition[0]);
-//        String[] vectors = worldUUIDAndChunkPosition[1].replace("(", "").replace(")", "").replace(" ", "").split(",");
-//        int x = Integer.parseInt(vectors[0]);
-//        int y = Integer.parseInt(vectors[1]);
-//        int z = Integer.parseInt(vectors[2]);
-//        Vector3i chunkPosition = Vector3i.from(x, y, z);
-//        return new Claim(worldUUID, chunkPosition);
-//    }
 
     public Claim(UUID worldUUID, Vector3i chunkPosition)
     {
-        this(worldUUID, chunkPosition, new ArrayList<>(), true);
+        this(worldUUID, chunkPosition, Collections.EMPTY_SET, true);
     }
 
-    public Claim(UUID worldUUID, Vector3i chunkPosition, final List<UUID> owners, final boolean accessibleByFaction)
+    public Claim(UUID worldUUID, Vector3i chunkPosition, final Set<UUID> owners, final boolean accessibleByFaction)
     {
         this.worldUUID = worldUUID;
         this.chunkPosition = chunkPosition;
         this.accessibleByFaction = accessibleByFaction;
-        this.owners = Collections.unmodifiableList(owners);
+        this.owners = Collections.unmodifiableSet(owners);
     }
 
     public UUID getWorldUUID()
@@ -48,7 +36,7 @@ public class Claim
         return this.chunkPosition;
     }
 
-    public List<UUID> getOwners()
+    public Set<UUID> getOwners()
     {
         return this.owners;
     }
