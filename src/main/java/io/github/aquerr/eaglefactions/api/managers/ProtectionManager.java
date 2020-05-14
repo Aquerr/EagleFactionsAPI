@@ -17,14 +17,14 @@ public interface ProtectionManager
      * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if player can break block or <tt>false</tt> if not
      */
-    boolean canBreak(final Location<World> location, final User player, final boolean shouldNotify);
+    ProtectionResult canBreak(final Location<World> location, final User player, final boolean shouldNotify);
 
     /**
      * Checks if a block can be destroyed at the given {@link Location<World>}
      * @param location that should be checked for block break.
      * @return <tt>true</tt> if block can be destroyed at the given location or <tt>false</tt> if not
      */
-    boolean canBreak(final Location<World> location);
+    ProtectionResult canBreak(final Location<World> location);
 
     /**
      * Checks if a {@link User} can place blocks at the given {@link Location<World>}
@@ -33,7 +33,7 @@ public interface ProtectionManager
      * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if block can be placed at the given location or <tt>false</tt> if not
      */
-    boolean canPlace(final Location<World> location, final User player, final boolean shouldNotify);
+    ProtectionResult canPlace(final Location<World> location, final User player, final boolean shouldNotify);
 
     /**
      * Checks if a {@link User} can explode blocks at the given {@link Location<World>}
@@ -42,14 +42,14 @@ public interface ProtectionManager
      * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if blocks can be exploded at the given location or <tt>false</tt> if not
      */
-    boolean canExplode(final Location<World> location, final User player, final boolean shouldNotify);
+    ProtectionResult canExplode(final Location<World> location, final User player, final boolean shouldNotify);
 
     /**
      * Checks if blocks can explode at the given {@link Location<World>}
      * @param location that should be check for block explosion.
      * @return <tt>true</tt> if blocks can be exploded at the given location or <tt>false</tt> if not
      */
-    boolean canExplode(final Location<World> location);
+    ProtectionResult canExplode(final Location<World> location);
 
     /**
      * Checks if the player can hit the given entity.
@@ -58,7 +58,7 @@ public interface ProtectionManager
      * @param shouldNotify determines if user should be notified about not having access to hit entity.
      * @return <tt>true</tt> if player can hit entity, <tt>false</tt> if not.
      */
-    boolean canHitEntity(final Entity entity, final Player player, final boolean shouldNotify);
+    ProtectionResult canHitEntity(final Entity entity, final Player player, final boolean shouldNotify);
 
     /**
      * Checks if the location can be notified from the given location.
@@ -66,7 +66,7 @@ public interface ProtectionManager
      * @param notifiedLocation the notified location
      * @return <tt>true</tt> if location can be notified, <tt>false</tt> if not.
      */
-    boolean canNotifyBlock(Location<World> sourceLocation, Location<World> notifiedLocation);
+    ProtectionResult canNotifyBlock(Location<World> sourceLocation, Location<World> notifiedLocation);
 
     /**
      * Checks if the given item id is white-listed by Eagle Factions.
@@ -101,7 +101,7 @@ public interface ProtectionManager
      * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if player can interact with block or <tt>false</tt> if not
      */
-    boolean canInteractWithBlock(final Location<World> blockLocation, final User player, final boolean shouldNotify);
+    ProtectionResult canInteractWithBlock(final Location<World> blockLocation, final User player, final boolean shouldNotify);
 
     /**
      * Checks if a {@link User} can use an item at the given location.
@@ -111,5 +111,5 @@ public interface ProtectionManager
      * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if user can use the item in the given location or <tt>false</tt> if not
      */
-    boolean canUseItem(final Location<World> location, final User user, final ItemStackSnapshot usedItem, final boolean shouldNotify);
+    ProtectionResult canUseItem(final Location<World> location, final User user, final ItemStackSnapshot usedItem, final boolean shouldNotify);
 }
