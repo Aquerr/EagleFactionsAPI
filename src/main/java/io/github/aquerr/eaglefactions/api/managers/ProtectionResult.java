@@ -40,7 +40,7 @@ public class ProtectionResult
     }
 
     /**
-     * Has access inf war zone.
+     * Has access in war zone.
      */
     public static ProtectionResult okWarZone()
     {
