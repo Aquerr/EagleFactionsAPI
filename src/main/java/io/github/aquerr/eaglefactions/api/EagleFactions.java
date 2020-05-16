@@ -1,6 +1,9 @@
 package io.github.aquerr.eaglefactions.api;
 
 import io.github.aquerr.eaglefactions.api.config.Configuration;
+import io.github.aquerr.eaglefactions.api.entities.Faction;
+import io.github.aquerr.eaglefactions.api.entities.FactionMemberType;
+import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 import io.github.aquerr.eaglefactions.api.logic.AttackLogic;
 import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
 import io.github.aquerr.eaglefactions.api.logic.PVPLogger;
@@ -9,9 +12,11 @@ import io.github.aquerr.eaglefactions.api.managers.PlayerManager;
 import io.github.aquerr.eaglefactions.api.managers.PowerManager;
 import io.github.aquerr.eaglefactions.api.managers.ProtectionManager;
 import io.github.aquerr.eaglefactions.api.storage.StorageManager;
+import org.spongepowered.api.text.Text;
 
 import java.net.URL;
 import java.nio.file.Path;
+import java.util.UUID;
 
 public interface EagleFactions
 {
@@ -79,4 +84,32 @@ public interface EagleFactions
      * @return instance of {@link StorageManager}
      */
     StorageManager getStorageManager();
+
+    /**
+     * Gets instance of {@link Faction.Builder} used to create a faction object.
+     *
+     * To persist faction, use {@link FactionLogic}.
+     *
+     * @param name the name of the faction.
+     * @param tag the tag of the faction.
+     * @param leader the UUID of the faction's leader.
+     * @return new instance of {@link Faction.Builder}
+     */
+    Faction.Builder getBuilderForFaction(final String name, final Text tag, final UUID leader);
+
+    /**
+     * Creates new faction player object.
+     *
+     * To persist it, use {@link PlayerManager}.
+     *
+     * @param playerName player's name
+     * @param uniqueId player's UUID
+     * @param factionName player's faction. Can be null or empty string.
+     * @param power player's power.
+     * @param maxpower player's maxpower
+     * @param factionRole player's faction role {@link FactionMemberType}. If null is passed then {@link FactionMemberType#NONE} is used.
+     * @param diedInWarZone did player recently die in warzone?
+     * @return an instance of {@link FactionPlayer}
+     */
+    FactionPlayer createNewFactionPlayer(String playerName, UUID uniqueId, String factionName, float power, float maxpower, FactionMemberType factionRole, boolean diedInWarZone);
 }

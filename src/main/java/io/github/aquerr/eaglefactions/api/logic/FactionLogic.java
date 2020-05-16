@@ -279,7 +279,7 @@ public interface FactionLogic
      * @param factionPermType the faction flag type that should be changed.
      * @param flagValue new boolean value.
      */
-    void toggleFlag(Faction faction, FactionMemberType factionMemberType, FactionPermType factionPermType, Boolean flagValue);
+    void togglePerm(Faction faction, FactionMemberType factionMemberType, FactionPermType factionPermType, Boolean flagValue);
 
     /**
      * Changes color of the faction tag.
