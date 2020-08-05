@@ -142,7 +142,7 @@ public interface FactionLogic
      * Gets all claimed chunks on the server.
      * @return {@link Set<Claim>} that contains all claimed chunks.
      */
-    Set<Claim> getAllClaims();
+    Map<Claim, Optional<Faction>> getAllClaims();
 
     /**
      * Adds claims to the given faction.
