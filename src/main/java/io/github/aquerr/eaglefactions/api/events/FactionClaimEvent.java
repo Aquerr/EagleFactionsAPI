@@ -33,6 +33,12 @@ public interface FactionClaimEvent extends FactionEvent
 
     interface Unclaim extends FactionClaimEvent
     {
+        interface Pre extends FactionEvent {}
 
+        interface Post extends FactionEvent {}
     }
+
+    interface Pre extends FactionEvent {}
+
+    interface Post extends FactionEvent {}
 }

@@ -5,6 +5,7 @@ import org.spongepowered.api.entity.Transform;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.event.Cancellable;
 import org.spongepowered.api.event.Event;
+import org.spongepowered.api.event.block.ChangeBlockEvent;
 import org.spongepowered.api.world.World;
 
 import java.util.Optional;
@@ -41,18 +42,6 @@ public interface FactionAreaEnterEvent extends Event, Cancellable
 	Optional<Faction> getLeftFaction();
 
 	/**
-	 * Checks if the event has been cancelled.
-	 * @return true if cancelled, false if not.
-	 */
-	boolean isCancelled();
-
-	/**
-	 * Sets the status of the event.
-	 * @param cancelled
-	 */
-	void setCancelled(boolean cancelled);
-
-	/**
 	 * See {@link org.spongepowered.api.event.entity.MoveEntityEvent} for information about this method.
 	 */
 	Transform<World> getFromTransform();
@@ -66,4 +55,14 @@ public interface FactionAreaEnterEvent extends Event, Cancellable
 	 * See {@link org.spongepowered.api.event.entity.MoveEntityEvent} for information about this method.
 	 */
 	void setToTransform(Transform<World> transform);
+
+	interface Pre extends FactionAreaEnterEvent
+	{
+
+	}
+
+	interface Post extends FactionAreaEnterEvent
+	{
+
+	}
 }

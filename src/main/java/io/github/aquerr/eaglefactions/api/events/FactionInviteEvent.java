@@ -12,4 +12,8 @@ public interface FactionInviteEvent extends FactionEvent
      * @return {@link Player} who has been invited to the faction.
      */
     Player getInvitedPlayer();
+
+    interface Pre extends FactionEvent {}
+
+    interface Post extends FactionEvent {}
 }

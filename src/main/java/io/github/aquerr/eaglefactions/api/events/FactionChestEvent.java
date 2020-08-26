@@ -8,5 +8,16 @@ import org.spongepowered.api.entity.living.player.Player;
  */
 public interface FactionChestEvent extends FactionEvent
 {
+    /**
+     * Gets faction chest.
+     * @return the faction chest
+     */
+    default FactionChest getFactionChest()
+    {
+        return getFaction().getChest();
+    }
 
+    interface Pre extends FactionEvent {}
+
+    interface Post extends FactionEvent {}
 }

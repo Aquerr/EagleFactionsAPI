@@ -17,4 +17,8 @@ public interface FactionCreateEvent extends FactionEvent
      * @return <tt>true</tt> if faction is being created by items or <tt>false</tt> if it is not.
      */
     boolean isCreatedByItems();
+
+    interface Pre extends FactionEvent {}
+
+    interface Post extends FactionEvent {}
 }

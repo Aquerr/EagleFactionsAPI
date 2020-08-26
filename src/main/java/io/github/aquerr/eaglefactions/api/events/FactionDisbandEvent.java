@@ -20,4 +20,8 @@ public interface FactionDisbandEvent extends FactionEvent
      * @return
      */
     boolean forceRemovedByAdmin();
+
+    interface Pre extends FactionEvent {}
+
+    interface Post extends FactionEvent {}
 }
