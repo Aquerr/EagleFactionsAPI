@@ -17,28 +17,29 @@ public interface FactionClaimEvent extends FactionEvent
 
     /**
      * Gets the chunk position of the claim where the claim event was triggered in.
+     *
+     * Can be null if player unclaimed all claims.
+     *
      * @return chunk position as {@link Vector3i}
      */
     Vector3i getChunkPosition();
 
-    interface Claim
+    interface Claim extends FactionClaimEvent
     {
         /**
-         * <strong>Currently unimplemented</strong>
-         *
          * @return <tt>true</tt> if territory is being claimed by items or <tt>false</tt> if it is not
          */
         boolean isClaimedByItems();
+
+        interface Pre extends Claim {}
+
+        interface Post extends Claim {}
     }
 
     interface Unclaim extends FactionClaimEvent
     {
-        interface Pre extends FactionEvent {}
+        interface Pre extends Unclaim {}
 
-        interface Post extends FactionEvent {}
+        interface Post extends Unclaim {}
     }
-
-    interface Pre extends FactionEvent {}
-
-    interface Post extends FactionEvent {}
 }

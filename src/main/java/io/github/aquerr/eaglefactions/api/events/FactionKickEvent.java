@@ -14,7 +14,7 @@ public interface FactionKickEvent extends FactionEvent
      */
     FactionPlayer getKickedPlayer();
 
-    interface Pre extends FactionEvent {}
+    interface Pre extends FactionKickEvent {}
 
-    interface Post extends FactionEvent {}
+    interface Post extends FactionKickEvent {}
 }

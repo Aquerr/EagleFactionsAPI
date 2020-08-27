@@ -18,7 +18,7 @@ public interface FactionCreateEvent extends FactionEvent
      */
     boolean isCreatedByItems();
 
-    interface Pre extends FactionEvent {}
+    interface Pre extends FactionCreateEvent {}
 
-    interface Post extends FactionEvent {}
+    interface Post extends FactionCreateEvent {}
 }

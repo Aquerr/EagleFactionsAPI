@@ -8,7 +8,7 @@ import org.spongepowered.api.entity.living.player.Player;
  */
 public interface FactionJoinEvent extends FactionEvent
 {
-    interface Pre extends FactionEvent {}
+    interface Pre extends FactionJoinEvent {}
 
-    interface Post extends FactionEvent {}
+    interface Post extends FactionJoinEvent {}
 }

@@ -17,7 +17,7 @@ public interface FactionChestEvent extends FactionEvent
         return getFaction().getChest();
     }
 
-    interface Pre extends FactionEvent {}
+    interface Pre extends FactionChestEvent {}
 
-    interface Post extends FactionEvent {}
+    interface Post extends FactionChestEvent {}
 }

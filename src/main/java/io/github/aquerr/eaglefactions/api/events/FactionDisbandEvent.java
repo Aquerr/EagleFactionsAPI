@@ -21,7 +21,15 @@ public interface FactionDisbandEvent extends FactionEvent
      */
     boolean forceRemovedByAdmin();
 
-    interface Pre extends FactionEvent {}
+    /**
+     * Can be null if {@link FactionDisbandEvent#removedDueToInactivity()} returns true
+     *
+     * @return the player that triggered disband event
+     */
+    @Override
+    Player getCreator();
 
-    interface Post extends FactionEvent {}
+    interface Pre extends FactionDisbandEvent {}
+
+    interface Post extends FactionDisbandEvent {}
 }

@@ -8,7 +8,7 @@ import org.spongepowered.api.entity.living.player.Player;
  */
 public interface FactionLeaveEvent extends FactionEvent
 {
-    interface Pre extends FactionEvent {}
+    interface Pre extends FactionLeaveEvent {}
 
-    interface Post extends FactionEvent {}
+    interface Post extends FactionLeaveEvent {}
 }

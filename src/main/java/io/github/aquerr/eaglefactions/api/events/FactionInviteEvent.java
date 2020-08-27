@@ -13,7 +13,7 @@ public interface FactionInviteEvent extends FactionEvent
      */
     Player getInvitedPlayer();
 
-    interface Pre extends FactionEvent {}
+    interface Pre extends FactionInviteEvent {}
 
-    interface Post extends FactionEvent {}
+    interface Post extends FactionInviteEvent {}
 }

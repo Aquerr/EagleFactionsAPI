@@ -21,9 +21,9 @@ public interface FactionDemoteEvent extends FactionEvent
      */
     FactionPlayer getDemotedPlayer();
 
-    interface Pre extends FactionEvent {}
+    interface Pre extends FactionDemoteEvent {}
 
-    interface Post extends FactionEvent
+    interface Post extends FactionDemoteEvent
     {
         FactionMemberType getDemotedToRank();
     }

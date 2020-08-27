@@ -7,9 +7,12 @@ import io.github.aquerr.eaglefactions.api.entities.Faction;
  */
 public interface FactionRenameEvent extends FactionEvent
 {
+    /**
+     * @return new faction name.
+     */
     String getNewFactionName();
 
-    interface Pre extends FactionEvent {}
+    interface Pre extends FactionRenameEvent {}
 
-    interface Post extends FactionEvent {}
+    interface Post extends FactionRenameEvent {}
 }
