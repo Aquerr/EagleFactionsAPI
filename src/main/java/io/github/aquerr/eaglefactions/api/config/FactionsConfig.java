@@ -73,4 +73,9 @@ public interface FactionsConfig
 	boolean shouldRegenerateChunksWhenFactionRemoved();
 
 	boolean canPlaceHomeOutsideFactionClaim();
+
+	boolean shouldInformAboutAttack();
+	boolean shouldInformAboutDestroy();
+	boolean shouldShowAttackedClaim();
+	boolean shouldShowDestroyedClaim();
 }
