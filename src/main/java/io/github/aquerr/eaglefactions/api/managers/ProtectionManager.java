@@ -1,6 +1,7 @@
 package io.github.aquerr.eaglefactions.api.managers;
 
 import io.github.aquerr.eaglefactions.api.entities.FactionType;
+import org.spongepowered.api.block.BlockSnapshot;
 import org.spongepowered.api.entity.Entity;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.entity.living.player.User;
@@ -11,34 +12,80 @@ import org.spongepowered.api.world.World;
 public interface ProtectionManager
 {
     /**
+     * @deprecated use {@link #canBreak(BlockSnapshot, User, boolean)} instead.
+     * Will be removed in next API release.
+     *
      * Checks if a {@link User} can break blocks at the given {@link Location<World>}
      * @param location that should be checked for block break.
      * @param player who will be tested for the given location.
      * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if player can break block or <tt>false</tt> if not
      */
-    ProtectionResult canBreak(final Location<World> location, final User player, final boolean shouldNotify);
+    @Deprecated
+    default ProtectionResult canBreak(final Location<World> location, final User player, final boolean shouldNotify)
+    {
+        return canBreak(BlockSnapshot.builder().from(location).build(), player, shouldNotify);
+    }
 
     /**
+     * Checks if a {@link User} can break the given {@link BlockSnapshot}
+     * @param blockSnapshot that should be checked for block break.
+     * @param player who preformed block break.
+     * @param shouldNotify determines if user should be notified about not having access to break block.
+     * @return <tt>true</tt> if player can break block or <tt>false</tt> if not
+     */
+    ProtectionResult canBreak(final BlockSnapshot blockSnapshot, final User player, final boolean shouldNotify);
+
+    /**
+     * @deprecated use {@link #canBreak(BlockSnapshot)} instead.
+     * Will be removed in next API release.
+     *
      * Checks if a block can be destroyed at the given {@link Location<World>}
      * @param location that should be checked for block break.
      * @return <tt>true</tt> if block can be destroyed at the given location or <tt>false</tt> if not
      */
-    ProtectionResult canBreak(final Location<World> location);
+    @Deprecated
+    default ProtectionResult canBreak(final Location<World> location)
+    {
+        return canBreak(BlockSnapshot.builder().from(location).build());
+    }
 
     /**
+     * Checks if the given {@link BlockSnapshot} can be destroyed.
+     * @param blockSnapshot that should be checked.
+     * @return <tt>true</tt> if block can be destroyed or <tt>false</tt> if not
+     */
+    ProtectionResult canBreak(final BlockSnapshot blockSnapshot);
+
+    /**
+     * @deprecated use {@link #canPlace(BlockSnapshot, User, boolean)} instead.
+     * Will be removed in next API release.
+     *
      * Checks if a {@link User} can place blocks at the given {@link Location<World>}
      * @param location that should be checked for block place.
      * @param player who will be tested for the given location.
      * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if block can be placed at the given location or <tt>false</tt> if not
      */
-    ProtectionResult canPlace(final Location<World> location, final User player, final boolean shouldNotify);
+    @Deprecated
+    default ProtectionResult canPlace(final Location<World> location, final User player, final boolean shouldNotify)
+    {
+        return canPlace(BlockSnapshot.builder().from(location).build(), player, shouldNotify);
+    }
+
+    /**
+     * Checks if a {@link User} can place the given {@link BlockSnapshot}.
+     * @param blockSnapshot that should be checked for block place.
+     * @param player who placed the block.
+     * @param shouldNotify determines if user should be notified about not having access to place block.
+     * @return <tt>true</tt> if block can be placed at the given location or <tt>false</tt> if not
+     */
+    ProtectionResult canPlace(final BlockSnapshot blockSnapshot, final User player, final boolean shouldNotify);
 
     /**
      * Checks if a {@link User} can explode blocks at the given {@link Location<World>}
      * @param location that should be checked for block explosion.
-     * @param player who will be tested for the given location.
+     * @param player who will be tested.
      * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if blocks can be exploded at the given location or <tt>false</tt> if not
      */
