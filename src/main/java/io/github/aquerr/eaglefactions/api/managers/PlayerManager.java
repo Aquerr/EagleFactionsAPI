@@ -66,9 +66,24 @@ public interface PlayerManager
     /**
      * @return boolean value that indicates if player has admin mode.
      *
-     * All players that have eaglefactions.admin.adminmode permission are considered as admins.
+     * All players that toggled admin mode by using admin command or
+     * have "eaglefactions.adminmode" permission are considered as admins.
      */
     boolean hasAdminMode(final User player);
+
+    /**
+     * Activates factions admin mode for the given player.
+     * @param player the player admin mode should be activated for.
+     * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
+     */
+    boolean activateAdminMode(final User player);
+
+    /**
+     * Deactivates factions admin mode for the given player.
+     * @param player the player admin mode should be deactivated for.
+     * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
+     */
+    boolean deactivateAdminMode(final User player);
 
     /**
      * Gets a set consists of players with admin mode.
