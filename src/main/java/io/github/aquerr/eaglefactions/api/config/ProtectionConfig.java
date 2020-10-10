@@ -52,5 +52,20 @@ public interface ProtectionConfig
 		Set<String> getWhiteListedPlaceDestroyBlocks();
 
 		Set<String> getWhiteListedInteractBlocks();
+
+		default boolean isItemWhiteListed(String itemId)
+		{
+			return getWhiteListedItems().contains(itemId);
+		}
+
+		default boolean isBlockWhitelistedForPlaceDestroy(String blockId)
+		{
+			return getWhiteListedPlaceDestroyBlocks().contains(blockId);
+		}
+
+		default boolean isBlockWhiteListedForInteraction(String blockId)
+		{
+			return getWhiteListedInteractBlocks().contains(blockId);
+		}
 	}
 }
