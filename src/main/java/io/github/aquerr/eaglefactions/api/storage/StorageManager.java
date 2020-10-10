@@ -59,27 +59,6 @@ public interface StorageManager
     @Nullable FactionPlayer getPlayer(UUID playerUUID);
 
     /**
-     * Similar to {@link #getServerPlayerNames()} but gets only players names which were added to the Eagle Factions storage.
-     * @return an instance of {@link Set<String>} which contains all unique players added to Eagle Factions storage.
-     */
-    Set<String> getServerPlayerNames();
-
-//    /**
-//     * Gets player's name from the storage.
-//     * @param playerUUID the UUID of the player.
-//     * @return player's name or empty string if the player does not exist or name property is not set.
-//     */
-//    String getPlayerName(final UUID playerUUID);
-
-//    /**
-//     * Updates player's name in the storage.
-//     * @param playerUUID the UUID of the player.
-//     * @param playerName the name of the player.
-//     * @return <tt>true</tt> if operation succeed or <tt>false</tt> if not
-//     */
-//    boolean updatePlayerName(final UUID playerUUID, final String playerName);
-
-    /**
      * Creates a backup of Eagle Factions data.
      * Backups are placed in /config/eaglefactions/backups.
      *

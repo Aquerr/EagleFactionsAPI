@@ -50,13 +50,6 @@ public interface PlayerManager
     boolean isPlayerOnline(UUID playerUUID);
 
     /**
-     * Gets the set of players names that were playing on this server.
-     *
-     * @return the set of player names.
-     */
-    Set<String> getServerPlayerNames();
-
-    /**
      * Gets the set of faction players that were playing on this server.
      *
      * @return the set of faction player.

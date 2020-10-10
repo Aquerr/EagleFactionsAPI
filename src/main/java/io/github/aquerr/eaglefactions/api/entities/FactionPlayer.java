@@ -23,10 +23,19 @@ public interface FactionPlayer
     UUID getUniqueId();
 
     /**
+     * Gets player's faction.
+     * @return the {@link Optional} that contains a Faction object if player is in a faction.
+     */
+    Optional<Faction> getFaction();
+
+    /**
      * Gets player's faction name.
      * @return the name of the faction as {@link Optional<String>} or {@link Optional#empty()} if player is not in a faction.
      */
-    Optional<String> getFactionName();
+    default Optional<String> getFactionName()
+    {
+        return getFaction().map(Faction::getName);
+    }
 
     /**
      * Gets player's faction member type (rank).
