@@ -104,12 +104,11 @@ public interface EagleFactions
      *
      * @param playerName player's name
      * @param uniqueId player's UUID
-     * @param faction player's faction at the given point of time. Can be null. Is immutable, modification's should be done through {@link FactionLogic}.
+     * @param factionName player's faction at the given point of time. Can be null.
      * @param power player's power.
      * @param maxpower player's maxpower
-     * @param factionRole player's faction role {@link FactionMemberType}. If null is passed then {@link FactionMemberType#NONE} is used.
      * @param diedInWarZone did player recently die in warzone?
      * @return an instance of {@link FactionPlayer}
      */
-    FactionPlayer createNewFactionPlayer(String playerName, UUID uniqueId, Faction faction, float power, float maxpower, FactionMemberType factionRole, boolean diedInWarZone);
+    FactionPlayer createNewFactionPlayer(String playerName, UUID uniqueId, String factionName, float power, float maxpower, boolean diedInWarZone);
 }
