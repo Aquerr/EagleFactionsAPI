@@ -4,6 +4,7 @@ import com.flowpowered.math.vector.Vector3i;
 import com.google.common.base.Strings;
 
 import javax.annotation.Nullable;
+import java.util.Objects;
 import java.util.UUID;
 
 public class FactionHome
@@ -60,5 +61,20 @@ public class FactionHome
     public String toString()
     {
         return this.WorldUUID.toString() + "|" + this.BlockPosition.toString();
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FactionHome that = (FactionHome) o;
+        return Objects.equals(BlockPosition, that.BlockPosition) && Objects.equals(WorldUUID, that.WorldUUID);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(BlockPosition, WorldUUID);
     }
 }
