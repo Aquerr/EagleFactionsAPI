@@ -16,6 +16,8 @@ public interface FactionPlayer
      */
     String getName();
 
+    void setFaction(Faction faction);
+
     /**
      * Gets player's unique id.
      * @return the {@link UUID} of the player.

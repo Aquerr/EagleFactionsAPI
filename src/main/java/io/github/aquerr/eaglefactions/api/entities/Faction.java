@@ -205,11 +205,45 @@ public interface Faction extends Comparable<Faction>
         return Optional.empty();
     }
 
-    /**
-     * Converts the faction to the builder.
-     * @return a builder used to build a new faction instance.
-     */
-    Builder toBuilder();
+    void setName(String name);
+
+    void setTag(Text tag);
+
+    void setDescription(String description);
+
+    void setMessageOfTheDay(String messageOfTheDay);
+
+    void setRecruits(Set<UUID> recruits);
+
+    void setMembers(Set<UUID> members);
+
+    void setTruces(Set<String> truces);
+
+    void setAlliances(Set<String> alliances);
+
+    void setEnemies(Set<String> enemies);
+
+    void setLeader(UUID leader);
+
+    void setOfficers(Set<UUID> officers);
+
+    void setClaims(Set<Claim> claims);
+
+    void setHome(FactionHome home);
+
+    void setLastOnline(Instant lastOnline);
+
+    void setIsPublic(boolean aPublic);
+
+    void setPerms(Map<FactionMemberType, Map<FactionPermType, Boolean>> perms);
+
+    void setChest(FactionChest chest);
+
+//    /**
+//     * Converts the faction to the builder.
+//     * @return a builder used to build a new faction instance.
+//     */
+//    Builder toBuilder();
 
     //Builder
     interface Builder

@@ -2,6 +2,7 @@ package io.github.aquerr.eaglefactions.api.entities;
 
 import com.flowpowered.math.vector.Vector3i;
 import com.google.common.base.Strings;
+import org.apache.commons.lang3.Validate;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
@@ -11,13 +12,16 @@ public class FactionHome
     private final Vector3i BlockPosition;
     private final UUID WorldUUID;
 
-    public FactionHome(@Nullable UUID worldUUID, @Nullable Vector3i blockPosition)
+    public FactionHome(final UUID worldUUID, final Vector3i blockPosition)
     {
+        Validate.notNull(worldUUID);
+        Validate.notNull(blockPosition);
+
         this.BlockPosition = blockPosition;
         this.WorldUUID = worldUUID;
     }
 
-    public static FactionHome from(String worldUUIDAndBlockPositionString)
+    public static FactionHome from(final String worldUUIDAndBlockPositionString)
     {
         if (Strings.isNullOrEmpty(worldUUIDAndBlockPositionString))
             return null;

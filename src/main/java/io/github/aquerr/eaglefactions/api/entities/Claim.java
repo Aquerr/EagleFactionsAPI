@@ -11,7 +11,7 @@ public class Claim
     private final Vector3i chunkPosition;
 
     private final Set<UUID> owners;
-    private final boolean accessibleByFaction;
+    private boolean accessibleByFaction;
 
     public Claim(UUID worldUUID, Vector3i chunkPosition)
     {
@@ -23,7 +23,7 @@ public class Claim
         this.worldUUID = worldUUID;
         this.chunkPosition = chunkPosition;
         this.accessibleByFaction = accessibleByFaction;
-        this.owners = Collections.unmodifiableSet(owners);
+        this.owners = owners;
     }
 
     public UUID getWorldUUID()
@@ -38,7 +38,22 @@ public class Claim
 
     public Set<UUID> getOwners()
     {
-        return this.owners;
+        return Collections.unmodifiableSet(this.owners);
+    }
+
+    public boolean addOwner(final UUID playerUUID)
+    {
+        return this.owners.add(playerUUID);
+    }
+
+    public boolean removeOwner(final UUID playerUUID)
+    {
+        return this.owners.remove(playerUUID);
+    }
+
+    public void setAccessibleByFaction(final boolean accessibleByFaction)
+    {
+        this.accessibleByFaction = accessibleByFaction;
     }
 
     public boolean isAccessibleByFaction()
