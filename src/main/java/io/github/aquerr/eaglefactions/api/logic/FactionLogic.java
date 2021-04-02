@@ -90,6 +90,14 @@ public interface FactionLogic
     void leaveFaction(UUID playerUUID, String factionName);
 
     /**
+     * Sets player's faction
+     * @param playerUUID the UUID of the player.
+     * @param factionName the name of the faction.
+     * @param rank the rank that will be given to the player.
+     */
+    void setFaction(UUID playerUUID, String factionName, FactionMemberType rank);
+
+    /**
      * Creates a truce between given factions.
      * @param playerFactionName  the name of the first faction.
      * @param invitedFactionName the name of the second faction.
