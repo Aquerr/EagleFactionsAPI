@@ -20,7 +20,10 @@ public interface ProtectionConfig
 
 	WhiteList getWarZoneWhitelists();
 
+	WhiteList getWildernessWhitelists();
+
 	Set<String> getDetectedWorldNames();
+
 
 	void addWorld(String worldName);
 
