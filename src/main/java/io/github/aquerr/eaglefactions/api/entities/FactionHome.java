@@ -1,9 +1,9 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import com.flowpowered.math.vector.Vector3i;
 import com.google.common.base.Strings;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.spongepowered.math.vector.Vector3i;
 
-import javax.annotation.Nullable;
 import java.util.Objects;
 import java.util.UUID;
 

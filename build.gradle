@@ -1,11 +1,12 @@
 plugins {
-    id 'java'
+    id 'java-library'
+    id 'idea'
 }
 
-group 'io.github.aquerr'
-version '0.15.3'
+group "io.github.aquerr"
+version "0.16.0"
 
-compileJava.options.encoding = 'UTF-8'
+compileJava.options.encoding = "UTF-8"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -13,18 +14,18 @@ targetCompatibility = 1.8
 repositories {
     jcenter()
     mavenCentral()
-    maven { url 'https://repo.spongepowered.org/maven' }
+    maven { url "https://repo.spongepowered.org/maven" }
 }
 
 dependencies {
-    compileOnly('org.spongepowered:spongeapi:7.3.0')
-//    compile 'com.github.rojo8399:PlaceholderAPI:4.5.1'
+    api "org.spongepowered:spongeapi:8.0.0-SNAPSHOT"
 }
 
 tasks.create("publishBuildOnDiscord") {
     group = "Publishing"
     description = "Task for publishing the jar file to discord's jenkins channel"
     doLast {
+
         String[] jarFiles = new FileNameFinder().getFileNames(project.buildDir.getPath(), "**/*.jar")
 
         if(jarFiles.length > 0) {

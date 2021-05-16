@@ -2,7 +2,7 @@ package io.github.aquerr.eaglefactions.api.config;
 
 import io.github.aquerr.eaglefactions.api.entities.ChatEnum;
 import io.github.aquerr.eaglefactions.api.entities.FactionMemberType;
-import org.spongepowered.api.text.Text;
+import net.kyori.adventure.text.TextComponent;
 
 import java.util.Map;
 import java.util.Set;
@@ -16,9 +16,9 @@ public interface ChatConfig
 
 	boolean shouldDisplayProtectionSystemMessages();
 
-	Text getFactionStartPrefix();
+	TextComponent getFactionStartPrefix();
 
-	Text getFactionEndPrefix();
+	TextComponent getFactionEndPrefix();
 
 	String getChatPrefixType();
 
@@ -26,7 +26,7 @@ public interface ChatConfig
 
 	boolean isFactionPrefixFirstInChat();
 
-	Text getNonFactionPlayerPrefix();
+	TextComponent getNonFactionPlayerPrefix();
 
 	boolean shouldShowFactionEnterPhrase();
 

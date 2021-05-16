@@ -1,12 +1,10 @@
 package io.github.aquerr.eaglefactions.api.events;
 
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import org.spongepowered.api.entity.Transform;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.event.Cancellable;
 import org.spongepowered.api.event.Event;
-import org.spongepowered.api.event.block.ChangeBlockEvent;
-import org.spongepowered.api.world.World;
+import org.spongepowered.math.vector.Vector3d;
 
 import java.util.Optional;
 
@@ -44,17 +42,17 @@ public interface FactionAreaEnterEvent extends Event, Cancellable
 	/**
 	 * See {@link org.spongepowered.api.event.entity.MoveEntityEvent} for information about this method.
 	 */
-	Transform<World> getFromTransform();
+	Vector3d originalPosition();
 
 	/**
 	 * See {@link org.spongepowered.api.event.entity.MoveEntityEvent} for information about this method.
 	 */
-	Transform<World> getToTransform();
+	Vector3d destinationPosition();
 
 	/**
 	 * See {@link org.spongepowered.api.event.entity.MoveEntityEvent} for information about this method.
 	 */
-	void setToTransform(Transform<World> transform);
+	void setDestinationPosition(Vector3d position);
 
 	interface Pre extends FactionAreaEnterEvent
 	{

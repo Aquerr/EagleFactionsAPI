@@ -1,10 +1,9 @@
 package io.github.aquerr.eaglefactions.api.logic;
 
-import com.flowpowered.math.vector.Vector3i;
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import org.spongepowered.api.entity.living.player.Player;
-import org.spongepowered.api.world.Location;
-import org.spongepowered.api.world.World;
+import org.spongepowered.api.entity.living.player.server.ServerPlayer;
+import org.spongepowered.api.world.server.ServerLocation;
+import org.spongepowered.math.vector.Vector3i;
 
 import java.util.UUID;
 
@@ -18,7 +17,7 @@ public interface AttackLogic
      * @param player who is attacking the chunk.
      * @param attackedChunk a chunk that is being attacked.
      */
-    void attack(Player player, Vector3i attackedChunk);
+    void attack(ServerPlayer player, Vector3i attackedChunk);
 
     /**
      * Blocks claiming function the the given faction.
@@ -40,14 +39,14 @@ public interface AttackLogic
      * @param faction that should be notified about an attack.
      *
      */
-    void informAboutAttack(Faction faction, Location<World> chunkLocation);
+    void informAboutAttack(Faction faction, ServerLocation chunkLocation);
 
     /**
      * Informs the given faction about the chunk being destroyed (unclaimed).
      * @param faction that should be notified about chunk being destroyed.
      * @param chunkLocation the location in which the chunk has been destroyed.
      */
-    void informAboutDestroying(Faction faction, Location<World> chunkLocation);
+    void informAboutDestroying(Faction faction, ServerLocation chunkLocation);
 
     /**
      * Blocks home command for the given player.

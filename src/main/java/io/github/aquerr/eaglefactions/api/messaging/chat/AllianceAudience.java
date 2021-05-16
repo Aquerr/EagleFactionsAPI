@@ -1,14 +1,14 @@
 package io.github.aquerr.eaglefactions.api.messaging.chat;
 
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import org.spongepowered.api.text.channel.MessageChannel;
+import net.kyori.adventure.audience.Audience;
 
 import java.util.Set;
 
-public interface AllianceMessageChannel extends MessageChannel
+public interface AllianceAudience extends Audience
 {
 	/**
-	 * Gets factions that this channel is sending messages to.
+	 * Gets factions that are the audience for receiving the alliance messages.
 	 * @return the set of factions.
 	 */
 	Set<Faction> getFactions();

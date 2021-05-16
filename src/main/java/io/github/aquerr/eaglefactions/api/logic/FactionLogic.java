@@ -1,11 +1,12 @@
 package io.github.aquerr.eaglefactions.api.logic;
 
-import com.flowpowered.math.vector.Vector3i;
 import io.github.aquerr.eaglefactions.api.entities.*;
+import net.kyori.adventure.text.format.TextColor;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.spongepowered.api.entity.living.player.Player;
-import org.spongepowered.api.text.format.TextColor;
+import org.spongepowered.api.entity.living.player.server.ServerPlayer;
+import org.spongepowered.math.vector.Vector3i;
 
-import javax.annotation.Nullable;
 import java.time.Instant;
 import java.util.*;
 
@@ -75,14 +76,6 @@ public interface FactionLogic
 
     /**
      * Joins a player to the given faction.
-     * This method first tries to get the faction object and then puts the player in the faction recruits list.
-     * @param playerUUID the UUID of the player that should be added to the given faction.
-     * @param factionName the name of the faction.
-     */
-    void joinFaction(UUID playerUUID, String factionName);
-
-    /**
-     * Joins a player to the given faction.
      * This method first tries to get the faction object and then removes player from it.
      * @param playerUUID the UUID of the player that should be removed from the faction.
      * @param factionName the name of the faction.
@@ -138,13 +131,6 @@ public interface FactionLogic
      * @param enemyFactionName the name of the second faction.
      */
     void removeEnemy(String playerFactionName, String enemyFactionName);
-
-    /**
-     * Sets player as leader in the given faction.
-     * @param newLeaderUUID the UUID of the player that should be set as leader.
-     * @param playerFactionName the name of the faction.
-     */
-    void setLeader(UUID newLeaderUUID, String playerFactionName);
 
     /**
      * Gets all claimed chunks on the server.
@@ -268,7 +254,7 @@ public interface FactionLogic
      * @param worldUUID the world UUID of the given chunk
      * @param chunkPosition the chunk location
      */
-    void startClaiming(Player player, Faction faction, UUID worldUUID, Vector3i chunkPosition);
+    void startClaiming(ServerPlayer player, Faction faction, UUID worldUUID, Vector3i chunkPosition);
 
     /**
      * Adds claim by using items that are specified in the config file.
@@ -295,22 +281,6 @@ public interface FactionLogic
      * @param textColor new {@link TextColor} that should be used for the faction tag.
      */
     void changeTagColor(Faction faction, TextColor textColor);
-
-    /**
-     * Promotes a player to higher rank in a faction.
-     * @param faction that will be affected by this change.
-     * @param playerToPromote the UUID of the player that should be promoted.
-     * @return {@link FactionMemberType} that player has been promoted to.
-     */
-    FactionMemberType promotePlayer(Faction faction, UUID playerToPromote);
-
-    /**
-     * Promotes a player to lower rank in a faction.
-     * @param faction that will be affected by this change.
-     * @param playerToDemote the UUID of the player that should be demoted.
-     * @return {@link FactionMemberType} that player has been demoted to.
-     */
-    FactionMemberType demotePlayer(Faction faction, UUID playerToDemote);
 
     /**
      * Sets faction last online time.

@@ -1,8 +1,8 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import ninja.leaping.configurate.objectmapping.serialize.ConfigSerializable;
 import org.spongepowered.api.item.inventory.Inventory;
 import org.spongepowered.api.item.inventory.ItemStack;
+import org.spongepowered.configurate.objectmapping.ConfigSerializable;
 
 import java.io.Serializable;
 import java.util.List;

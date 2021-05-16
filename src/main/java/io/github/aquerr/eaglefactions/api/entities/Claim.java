@@ -1,7 +1,6 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import com.flowpowered.math.vector.Vector3i;
-import org.spongepowered.api.entity.living.player.Player;
+import org.spongepowered.math.vector.Vector3i;
 
 import java.util.*;
 
