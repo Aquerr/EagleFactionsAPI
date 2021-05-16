@@ -7,10 +7,7 @@ import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 import io.github.aquerr.eaglefactions.api.logic.AttackLogic;
 import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
 import io.github.aquerr.eaglefactions.api.logic.PVPLogger;
-import io.github.aquerr.eaglefactions.api.managers.PermsManager;
-import io.github.aquerr.eaglefactions.api.managers.PlayerManager;
-import io.github.aquerr.eaglefactions.api.managers.PowerManager;
-import io.github.aquerr.eaglefactions.api.managers.ProtectionManager;
+import io.github.aquerr.eaglefactions.api.managers.*;
 import io.github.aquerr.eaglefactions.api.storage.StorageManager;
 import org.spongepowered.api.text.Text;
 
@@ -61,7 +58,7 @@ public interface EagleFactions
     PowerManager getPowerManager();
 
     /**
-     * @return instance of IProtectionManager
+     * @return instance of {@link ProtectionManager}
      */
     ProtectionManager getProtectionManager();
 
@@ -84,6 +81,16 @@ public interface EagleFactions
      * @return instance of {@link StorageManager}
      */
     StorageManager getStorageManager();
+
+    /**
+     * @return instance of {@link InvitationManager}
+     */
+    InvitationManager getInvitationManager();
+
+    /**
+     * @return instance of {@link RankManager}
+     */
+    RankManager getRankManager();
 
     /**
      * Gets instance of {@link Faction.Builder} used to create a faction object.

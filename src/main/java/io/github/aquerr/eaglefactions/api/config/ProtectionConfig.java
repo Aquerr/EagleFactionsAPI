@@ -60,7 +60,6 @@ public interface ProtectionConfig
 		{
 			final Set<String> test = getWhiteListedItems();
 			return test.contains(itemId);
-//			return getWhiteListedItems().contains(itemId);
 		}
 
 		default boolean isBlockWhitelistedForPlaceDestroy(String blockId)

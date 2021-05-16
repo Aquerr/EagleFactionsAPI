@@ -10,13 +10,13 @@ public interface FactionDisbandEvent extends FactionEvent
 {
 
     /**
-     * Tells if faction was removed by FactionRemover due to inactivity time.
+     * Tells if the faction was removed by the FactionRemover due to inactivity time.
      * @return
      */
     boolean removedDueToInactivity();
 
     /**
-     * Tells if faction was removed by player with Admin Mode.
+     * Tells if the faction was removed by a player with Admin Mode.
      * @return
      */
     boolean forceRemovedByAdmin();

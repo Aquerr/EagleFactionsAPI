@@ -75,14 +75,6 @@ public interface FactionLogic
 
     /**
      * Joins a player to the given faction.
-     * This method first tries to get the faction object and then puts the player in the faction recruits list.
-     * @param playerUUID the UUID of the player that should be added to the given faction.
-     * @param factionName the name of the faction.
-     */
-    void joinFaction(UUID playerUUID, String factionName);
-
-    /**
-     * Joins a player to the given faction.
      * This method first tries to get the faction object and then removes player from it.
      * @param playerUUID the UUID of the player that should be removed from the faction.
      * @param factionName the name of the faction.
@@ -138,13 +130,6 @@ public interface FactionLogic
      * @param enemyFactionName the name of the second faction.
      */
     void removeEnemy(String playerFactionName, String enemyFactionName);
-
-    /**
-     * Sets player as leader in the given faction.
-     * @param newLeaderUUID the UUID of the player that should be set as leader.
-     * @param playerFactionName the name of the faction.
-     */
-    void setLeader(UUID newLeaderUUID, String playerFactionName);
 
     /**
      * Gets all claimed chunks on the server.
@@ -295,22 +280,6 @@ public interface FactionLogic
      * @param textColor new {@link TextColor} that should be used for the faction tag.
      */
     void changeTagColor(Faction faction, TextColor textColor);
-
-    /**
-     * Promotes a player to higher rank in a faction.
-     * @param faction that will be affected by this change.
-     * @param playerToPromote the UUID of the player that should be promoted.
-     * @return {@link FactionMemberType} that player has been promoted to.
-     */
-    FactionMemberType promotePlayer(Faction faction, UUID playerToPromote);
-
-    /**
-     * Promotes a player to lower rank in a faction.
-     * @param faction that will be affected by this change.
-     * @param playerToDemote the UUID of the player that should be demoted.
-     * @return {@link FactionMemberType} that player has been demoted to.
-     */
-    FactionMemberType demotePlayer(Faction faction, UUID playerToDemote);
 
     /**
      * Sets faction last online time.
