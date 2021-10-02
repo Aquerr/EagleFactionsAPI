@@ -1,19 +1,32 @@
 package io.github.aquerr.eaglefactions.api.exception;
 
+import org.spongepowered.api.item.inventory.ItemStack;
+
+import java.util.Arrays;
+import java.util.List;
+
 public class RequiredItemsNotFoundException extends Exception
 {
-    public RequiredItemsNotFoundException()
-    {
+    private final ItemStack missingItem;
+    private final List<ItemStack> allRequiredItems;
 
+    public RequiredItemsNotFoundException(ItemStack missingItem, List<ItemStack> allRequiredItems)
+    {
+        super();
+        this.missingItem = missingItem;
+        this.allRequiredItems = allRequiredItems;
     }
 
-    public RequiredItemsNotFoundException(String s)
+    @Override
+    public String getMessage()
     {
-        super(s);
+        return "Could not found required items in player's inventory. All required items: " + buildAllRequiredItemsMessage() + ". Missing item = " + missingItem;
     }
 
-    public RequiredItemsNotFoundException(String s, Throwable throwable)
+    public String buildAllRequiredItemsMessage()
     {
-        super(s, throwable);
+        return Arrays.toString(allRequiredItems.stream()
+                .map(itemStack -> itemStack.getType().getId() + ":" + itemStack.getQuantity())
+                .toArray());
     }
 }
