@@ -1,6 +1,5 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import ninja.leaping.configurate.objectmapping.serialize.ConfigSerializable;
 import org.spongepowered.api.item.inventory.Inventory;
 import org.spongepowered.api.item.inventory.ItemStack;
 
@@ -27,7 +26,6 @@ public interface FactionChest
      */
     Inventory getInventory();
 
-    @ConfigSerializable
     interface SlotItem extends Serializable
     {
         /**
