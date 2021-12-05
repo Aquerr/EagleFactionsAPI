@@ -65,6 +65,14 @@ public interface PermsManager
      */
     boolean canInvite(final UUID playerUUID, final Faction playerFaction);
 
+    /**
+     * Checks if a player with the given UUID has permission for opening faction's chest.
+     * @param playerUUID the UUID of the player.
+     * @param playerFaction player's faction.
+     * @return <tt>true</tt> if player can open faction's chest, <tt>false</tt> if not.
+     */
+    boolean canUseChest(final UUID playerUUID, final Faction playerFaction);
+
     static Map<FactionMemberType, Map<FactionPermType, Boolean>> getDefaultFactionPerms()
     {
         Map<FactionMemberType, Map<FactionPermType, Boolean>> map = new LinkedHashMap<>();
@@ -80,6 +88,7 @@ public interface PermsManager
         officerMap.put(FactionPermType.CLAIM, true);
         officerMap.put(FactionPermType.ATTACK, true);
         officerMap.put(FactionPermType.INVITE, true);
+        officerMap.put(FactionPermType.CHEST, true);
 
         membersMap.put(FactionPermType.USE, true);
         membersMap.put(FactionPermType.PLACE, true);
@@ -87,6 +96,7 @@ public interface PermsManager
         membersMap.put(FactionPermType.CLAIM, false);
         membersMap.put(FactionPermType.ATTACK, false);
         membersMap.put(FactionPermType.INVITE, true);
+        membersMap.put(FactionPermType.CHEST, true);
 
         recruitsMap.put(FactionPermType.USE, true);
         recruitsMap.put(FactionPermType.PLACE, true);
@@ -94,6 +104,7 @@ public interface PermsManager
         recruitsMap.put(FactionPermType.CLAIM, false);
         recruitsMap.put(FactionPermType.ATTACK, false);
         recruitsMap.put(FactionPermType.INVITE, false);
+        recruitsMap.put(FactionPermType.CHEST, false);
 
         truceMap.put(FactionPermType.USE, true);
         truceMap.put(FactionPermType.PLACE, false);
