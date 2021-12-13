@@ -78,4 +78,6 @@ public interface FactionsConfig
 	boolean shouldInformAboutDestroy();
 	boolean shouldShowAttackedClaim();
 	boolean shouldShowDestroyedClaim();
+
+    boolean shouldShowAttackInBossBar();
 }
