@@ -17,8 +17,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly('org.spongepowered:spongeapi:7.3.0')
-//    compile 'com.github.rojo8399:PlaceholderAPI:4.5.1'
+    compileOnly('org.spongepowered:spongeapi:7.4.0')
 }
 
 tasks.create("publishBuildOnDiscord") {
