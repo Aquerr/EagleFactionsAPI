@@ -1,5 +1,6 @@
 package io.github.aquerr.eaglefactions.api.config;
 
+import java.util.List;
 import java.util.Set;
 
 public interface ProtectionConfig
@@ -48,7 +49,9 @@ public interface ProtectionConfig
 
 	boolean shouldProtectWarzoneFromPlayers();
 
-	interface WhiteList
+    List<String> getBlockedCommandsInOtherFactionsTerritory();
+
+    interface WhiteList
 	{
 		Set<String> getWhiteListedItems();
 
