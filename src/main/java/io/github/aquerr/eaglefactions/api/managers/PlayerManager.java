@@ -1,8 +1,8 @@
 package io.github.aquerr.eaglefactions.api.managers;
 
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
-import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.entity.living.player.User;
+import org.spongepowered.api.entity.living.player.server.ServerPlayer;
 
 import java.util.Optional;
 import java.util.Set;
@@ -23,7 +23,7 @@ public interface PlayerManager
      * @param playerUUID the uuid of the player.
      * @return the player.
      */
-    Optional<Player> getPlayer(UUID playerUUID);
+    Optional<ServerPlayer> getPlayer(UUID playerUUID);
 
     /**
      * Saves/persists the faction player.

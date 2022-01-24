@@ -1,14 +1,17 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import org.spongepowered.api.data.key.Keys;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.Style;
+import net.kyori.adventure.text.format.TextDecoration;
+import org.spongepowered.api.data.Keys;
 import org.spongepowered.api.item.ItemTypes;
 import org.spongepowered.api.item.inventory.ItemStack;
-import org.spongepowered.api.text.Text;
-import org.spongepowered.api.text.format.TextColors;
-import org.spongepowered.api.text.format.TextStyles;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static net.kyori.adventure.text.format.NamedTextColor.DARK_PURPLE;
 
 public final class EagleFeather
 {
@@ -17,23 +20,24 @@ public final class EagleFeather
 
     }
 
-    public static Text getDisplayName()
+    public static Component getDisplayName()
     {
-        return Text.of(TextColors.DARK_PURPLE, "Eagle's Feather");
+        return Component.text("Eagle's Feather", DARK_PURPLE);
     }
 
     public static ItemStack getEagleFeatherItem()
     {
-        List<Text> eagleFeatherLore = new ArrayList<>();
-        eagleFeatherLore.add(Text.of("A mystical feather that comes from", TextStyles.BOLD, TextStyles.ITALIC, TextColors.YELLOW, " The Greatest Eagle"));
-        eagleFeatherLore.add(Text.of());
-        eagleFeatherLore.add(Text.of(TextColors.GRAY, TextStyles.ITALIC, "It looks like a key. Maybe it could be used somewhere?"));
+        List<Component> eagleFeatherLore = new ArrayList<>();
+        eagleFeatherLore.add(Component.text("A mystical feather that comes from")
+                .append(Component.text(" The Greatest Eagle", Style.style(NamedTextColor.YELLOW, TextDecoration.BOLD, TextDecoration.ITALIC))));
+        eagleFeatherLore.add(Component.newline());
+        eagleFeatherLore.add(Component.text("It looks like a key. Maybe it could be used somewhere?", Style.style(NamedTextColor.GRAY, TextDecoration.ITALIC)));
 
         return ItemStack.builder()
                .itemType(ItemTypes.FEATHER)
                .quantity(1)
                .add(Keys.DISPLAY_NAME, getDisplayName())
-               .add(Keys.ITEM_LORE, eagleFeatherLore)
+               .add(Keys.LORE, eagleFeatherLore)
                .build();
     }
 }

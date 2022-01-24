@@ -2,14 +2,13 @@ package io.github.aquerr.eaglefactions.api;
 
 import io.github.aquerr.eaglefactions.api.config.Configuration;
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import io.github.aquerr.eaglefactions.api.entities.FactionMemberType;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 import io.github.aquerr.eaglefactions.api.logic.AttackLogic;
 import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
 import io.github.aquerr.eaglefactions.api.logic.PVPLogger;
 import io.github.aquerr.eaglefactions.api.managers.*;
 import io.github.aquerr.eaglefactions.api.storage.StorageManager;
-import org.spongepowered.api.text.Text;
+import net.kyori.adventure.text.TextComponent;
 
 import java.net.URL;
 import java.nio.file.Path;
@@ -102,7 +101,7 @@ public interface EagleFactions
      * @param leader the UUID of the faction's leader.
      * @return new instance of {@link Faction.Builder}
      */
-    Faction.Builder getBuilderForFaction(final String name, final Text tag, final UUID leader);
+    Faction.Builder getBuilderForFaction(final String name, final TextComponent tag, final UUID leader);
 
     /**
      * Creates new faction player object.

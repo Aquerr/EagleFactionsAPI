@@ -26,7 +26,7 @@ public class RequiredItemsNotFoundException extends Exception
     public String buildAllRequiredItemsMessage()
     {
         return Arrays.toString(allRequiredItems.stream()
-                .map(itemStack -> itemStack.getType().getId() + ":" + itemStack.getQuantity())
+                .map(itemStack -> itemStack.type().toString() + ":" + itemStack.quantity())
                 .toArray());
     }
 }

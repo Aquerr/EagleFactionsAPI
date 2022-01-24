@@ -1,11 +1,11 @@
 package io.github.aquerr.eaglefactions.api.logic;
 
-import com.flowpowered.math.vector.Vector3i;
 import io.github.aquerr.eaglefactions.api.entities.*;
-import org.spongepowered.api.entity.living.player.Player;
-import org.spongepowered.api.text.format.TextColor;
+import net.kyori.adventure.text.format.NamedTextColor;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.spongepowered.api.entity.living.player.server.ServerPlayer;
+import org.spongepowered.math.vector.Vector3i;
 
-import javax.annotation.Nullable;
 import java.time.Instant;
 import java.util.*;
 
@@ -42,11 +42,11 @@ public interface FactionLogic
     Faction getFactionByName(String factionName);
 
     /**
-     * Gets a {@link List<Player>} that contains all online players in a given {@link Faction}
+     * Gets a {@link List<ServerPlayer>} that contains all online players in a given {@link Faction}
      * @param faction the faction that should be used to get online players from.
-     * @return {@link List<Player>} list with online players in the given faction.
+     * @return {@link List<ServerPlayer>} list with online players in the given faction.
      */
-    List<Player> getOnlinePlayers(Faction faction);
+    List<ServerPlayer> getOnlinePlayers(Faction faction);
 
     /**
      * Gets all faction names that exists on the server.
@@ -253,7 +253,7 @@ public interface FactionLogic
      * @param worldUUID the world UUID of the given chunk
      * @param chunkPosition the chunk location
      */
-    void startClaiming(Player player, Faction faction, UUID worldUUID, Vector3i chunkPosition);
+    void startClaiming(ServerPlayer player, Faction faction, UUID worldUUID, Vector3i chunkPosition);
 
     /**
      * Adds claim by using items that are specified in the config file.
@@ -263,7 +263,7 @@ public interface FactionLogic
      * @param chunkPosition the chunk location
      * @return
      */
-    boolean addClaimByItems(Player player, Faction faction, UUID worldUUID, Vector3i chunkPosition);
+    boolean addClaimByItems(ServerPlayer player, Faction faction, UUID worldUUID, Vector3i chunkPosition);
 
     /**
      * Changes permission of the given {@link FactionPermType} for the given {@link FactionMemberType} in the faction.
@@ -277,9 +277,9 @@ public interface FactionLogic
     /**
      * Changes color of the faction tag.
      * @param faction the faction that should be affected.
-     * @param textColor new {@link TextColor} that should be used for the faction tag.
+     * @param textColor new {@link NamedTextColor} that should be used for the faction tag.
      */
-    void changeTagColor(Faction faction, TextColor textColor);
+    void changeTagColor(Faction faction, NamedTextColor textColor);
 
     /**
      * Sets faction last online time.

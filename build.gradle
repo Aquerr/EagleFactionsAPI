@@ -7,8 +7,8 @@ version '0.16.0'
 
 compileJava.options.encoding = 'UTF-8'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 8
+targetCompatibility = 8
 
 repositories {
     jcenter()
@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly('org.spongepowered:spongeapi:7.3.0')
+    compileOnly('org.spongepowered:spongeapi:8.0.0')
 //    compile 'com.github.rojo8399:PlaceholderAPI:4.5.1'
 }
 

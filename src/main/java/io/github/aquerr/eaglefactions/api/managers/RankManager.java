@@ -4,9 +4,8 @@ import io.github.aquerr.eaglefactions.api.entities.Faction;
 import io.github.aquerr.eaglefactions.api.entities.FactionMemberType;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 import io.github.aquerr.eaglefactions.api.exception.PlayerNotInFactionException;
-import org.spongepowered.api.entity.living.player.Player;
-
-import javax.annotation.Nullable;
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.spongepowered.api.entity.living.player.server.ServerPlayer;
 
 public interface RankManager
 {
@@ -16,7 +15,7 @@ public interface RankManager
      * @param targetPlayer the {@link FactionPlayer} that should be demoted.
      * @return {@link FactionMemberType} that the player has been demoted to. Returns same rank if it has not been changed.
      */
-    FactionMemberType demotePlayer(@Nullable Player player, FactionPlayer targetPlayer) throws PlayerNotInFactionException;
+    FactionMemberType demotePlayer(@Nullable ServerPlayer player, FactionPlayer targetPlayer) throws PlayerNotInFactionException;
 
     /**
      * Promotes a player to higher rank in a faction.
@@ -24,7 +23,7 @@ public interface RankManager
      * @param targetPlayer the {@link FactionPlayer} that should be promoted.
      * @return {@link FactionMemberType} that the player has been promoted to. Returns same rank if it has not been changed.
      */
-    FactionMemberType promotePlayer(@Nullable Player player, FactionPlayer targetPlayer) throws PlayerNotInFactionException;
+    FactionMemberType promotePlayer(@Nullable ServerPlayer player, FactionPlayer targetPlayer) throws PlayerNotInFactionException;
 
     /**
      * Sets player as leader in the given faction.
