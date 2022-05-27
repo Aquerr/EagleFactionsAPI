@@ -1,7 +1,7 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import org.spongepowered.api.item.inventory.Inventory;
 import org.spongepowered.api.item.inventory.ItemStack;
+import org.spongepowered.api.item.inventory.menu.InventoryMenu;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,9 +22,9 @@ public interface FactionChest
 
     /**
      * Gets this faction chest inventory.
-     * @return {@link Inventory} instance that is associated with this faction chest.
+     * @return {@link InventoryMenu} instance that is associated with this faction chest.
      */
-    Inventory getInventory();
+    InventoryMenu getInventory();
 
     interface SlotItem extends Serializable
     {
