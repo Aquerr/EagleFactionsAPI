@@ -7,6 +7,7 @@ import io.github.aquerr.eaglefactions.api.logic.AttackLogic;
 import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
 import io.github.aquerr.eaglefactions.api.logic.PVPLogger;
 import io.github.aquerr.eaglefactions.api.managers.*;
+import io.github.aquerr.eaglefactions.api.messaging.placeholder.PlaceholderService;
 import io.github.aquerr.eaglefactions.api.storage.StorageManager;
 import net.kyori.adventure.text.TextComponent;
 
@@ -90,6 +91,11 @@ public interface EagleFactions
      * @return instance of {@link RankManager}
      */
     RankManager getRankManager();
+
+    /**
+     * @return instance of {@link PlaceholderService}
+     */
+    PlaceholderService getPlaceholderService();
 
     /**
      * Gets instance of {@link Faction.Builder} used to create a faction object.
