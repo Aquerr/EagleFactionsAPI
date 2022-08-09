@@ -4,6 +4,7 @@ import io.github.aquerr.eaglefactions.api.entities.Faction;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -60,11 +61,11 @@ public interface StorageManager
 
     /**
      * Creates a backup of Eagle Factions data.
-     * Backups are placed in /config/eaglefactions/backups.
+     * By default backups are placed in /config/eaglefactions/backups.
      *
-     * @return <tt>true</tt> if operation succeed or <tt>false</tt> if not
+     * @return <tt>backup path</tt> if operation succeed or <tt>null</tt> if not
      */
-    boolean createBackup();
+    Path createBackup();
 
     /**
      * Restores Eagle Factions data from the given backup.
