@@ -12,6 +12,8 @@ public interface MessageService
 
     CommandException resolveExceptionWithMessage(String messageKey);
 
+    CommandException resolveExceptionWithMessage(String messageKey, Object... args);
+
     CommandException resolveExceptionWithMessageAndThrowable(String messageKey, Throwable throwable);
 
     TextComponent resolveComponentWithMessage(String messageKey);
