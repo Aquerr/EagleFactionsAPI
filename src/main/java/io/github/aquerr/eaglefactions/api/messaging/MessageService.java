@@ -1,0 +1,24 @@
+package io.github.aquerr.eaglefactions.api.messaging;
+
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+import org.spongepowered.api.command.exception.CommandException;
+
+public interface MessageService
+{
+    Component resolveMessageWithPrefix(String messageKey);
+
+    Component resolveMessageWithPrefix(String messageKey, Object... args);
+
+    CommandException resolveExceptionWithMessage(String messageKey);
+
+    CommandException resolveExceptionWithMessageAndThrowable(String messageKey, Throwable throwable);
+
+    TextComponent resolveComponentWithMessage(String messageKey);
+
+    TextComponent resolveComponentWithMessage(String messageKey, Object... args);
+
+    String resolveMessage(String messageKey);
+
+    String resolveMessage(String messageKey, Object... args);
+}
