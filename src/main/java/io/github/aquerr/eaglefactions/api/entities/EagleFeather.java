@@ -36,7 +36,7 @@ public final class EagleFeather
         return ItemStack.builder()
                .itemType(ItemTypes.FEATHER)
                .quantity(1)
-               .add(Keys.DISPLAY_NAME, getDisplayName())
+               .add(Keys.CUSTOM_NAME, getDisplayName())
                .add(Keys.LORE, eagleFeatherLore)
                .build();
     }
