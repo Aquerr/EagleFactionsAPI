@@ -12,7 +12,7 @@ import io.github.aquerr.eaglefactions.api.messaging.placeholder.PlaceholderServi
 import io.github.aquerr.eaglefactions.api.storage.StorageManager;
 import net.kyori.adventure.text.TextComponent;
 
-import java.net.URL;
+import java.net.URI;
 import java.nio.file.Path;
 import java.util.UUID;
 
@@ -38,10 +38,11 @@ public interface EagleFactions
 
     /**
      * Gets Eagle Factions resource file.
+     *
      * @param fileName to get from resources
-     * @return <tt>URL</tt> object of that file or <tt>null</tt> if file could not be found.
+     * @return <tt>URI</tt> object of that file or <tt>null</tt> if file could not be found.
      */
-    URL getResource(final String fileName);
+    URI getResource(final String fileName);
 
     /**
      * @return instance of {@link PlayerManager}
