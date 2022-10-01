@@ -1,6 +1,7 @@
 package io.github.aquerr.eaglefactions.api.logic;
 
 import io.github.aquerr.eaglefactions.api.entities.*;
+import io.github.aquerr.eaglefactions.api.managers.claim.provider.FactionMaxClaimCountProvider;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.spongepowered.api.entity.living.player.server.ServerPlayer;
@@ -17,8 +18,26 @@ import java.util.*;
 public interface FactionLogic
 {
     /**
+     * Add {@link FactionMaxClaimCountProvider} to providers used in calculating maximal claim count for faction in {@link FactionLogic#getFactionMaxClaims(Faction)}.
+     * @param provider new provider
+     */
+    void addFactionMaxClaimCountProvider(FactionMaxClaimCountProvider provider);
+
+    /**
+     * Overrides providers used in calculating maximal claim count for faction.
+     * @param providers
+     */
+    void setFactionMaxClaimCountProviders(Set<FactionMaxClaimCountProvider> providers);
+
+    /**
+     * Gets providers used in calculating maximal claim count for faction.
+     * @return an unmodifiable set of {@link FactionMaxClaimCountProvider}
+     */
+    Set<FactionMaxClaimCountProvider> getFactionMaxClaimCountProviders();
+
+    /**
      * Gets {@link Faction} for the given player {@link UUID}.
-     * @param playerUUID the UUID of the player who's faction should be looked for.
+     * @param playerUUID the UUID of the player whose faction should be looked for.
      * @return {@link Optional<Faction>} if the given player is in a faction or
      * {@link Optional#empty()} if the given player is not in a faction.
      */
@@ -147,7 +166,7 @@ public interface FactionLogic
     /**
      * Directly adds a claim to the given faction.
      *
-     * Consider using {@link FactionLogic#startClaiming(Player, Faction, UUID, Vector3i)}
+     * Consider using {@link FactionLogic#startClaiming(ServerPlayer, Faction, UUID, Vector3i)}
      * if you want to preform the full claiming mechanism (claiming with delay, claiming by using items).
      *
      * @param faction the faction that should acquire claim.
@@ -157,14 +176,14 @@ public interface FactionLogic
 
     /**
      * Directly adds a claim from the given faction.
-     * @param faction the faction that should lost a claim.
+     * @param faction the faction that should lose a claim.
      * @param claim the claim that should be removed from the faction.
      */
     void removeClaim(Faction faction, Claim claim);
 
     /**
-     * Works the same like {@link FactionLogic#removeClaim(Faction, Claim)} but it is used after successful attack to spawn different particles.
-     * @param faction the faction that should lost a claim.
+     * Works the same as {@link FactionLogic#removeClaim(Faction, Claim)} but it is used after successful attack to spawn different particles.
+     * @param faction the faction that should lose a claim.
      * @param claim the claim that should be removed from the faction.
      */
 	void destroyClaim(Faction faction, Claim claim);
@@ -329,4 +348,11 @@ public interface FactionLogic
      * @param isPublic boolean value, <tt>true</tt> if faction should be public, <tt>false</tt> if not.
      */
 	void setIsPublic(Faction faction, boolean isPublic);
+
+    /**
+     * Gets maximal amount of claims a faction can have.
+     * @param faction the faction that the maximal amount of claims should be got from.
+     * @return maximal amount of claims for given faction.
+     */
+    int getFactionMaxClaims(final Faction faction);
 }

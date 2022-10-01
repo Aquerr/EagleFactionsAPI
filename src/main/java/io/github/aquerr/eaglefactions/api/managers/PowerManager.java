@@ -1,11 +1,50 @@
 package io.github.aquerr.eaglefactions.api.managers;
 
 import io.github.aquerr.eaglefactions.api.entities.Faction;
+import io.github.aquerr.eaglefactions.api.managers.power.provider.FactionMaxPowerProvider;
+import io.github.aquerr.eaglefactions.api.managers.power.provider.FactionPowerProvider;
 
+import java.util.Set;
 import java.util.UUID;
 
 public interface PowerManager
 {
+    /**
+     * Adds {@link FactionPowerProvider} to providers used to calculate faction's power in {@link PowerManager#getFactionPower(Faction)}
+     * @param provider new provider
+     */
+    void addFactionPowerProvider(FactionPowerProvider provider);
+
+    /**
+     * Adds {@link FactionMaxPowerProvider} to providers used to calculate faction's max power in {@link PowerManager#getFactionMaxPower(Faction)}
+     * @param provider new provider
+     */
+    void addFactionMaxPowerProvider(FactionMaxPowerProvider provider);
+
+    /**
+     * Overrides providers collection used to calculate faction's power in {@link PowerManager#getFactionPower(Faction)}
+     * @param providers new providers
+     */
+    void setFactionPowerProviders(Set<FactionPowerProvider> providers);
+
+    /**
+     * Overrides providers collection used to calculate faction's max power in {@link PowerManager#getFactionMaxPower(Faction)}
+     * @param providers new providers
+     */
+    void setFactionMaxPowerProviders(Set<FactionMaxPowerProvider> providers);
+
+    /**
+     * Gets providers used in calculating faction's power
+     * @return an unmodifiable set of {@link FactionPowerProvider}
+     */
+    Set<FactionPowerProvider> getFactionPowerProviders();
+
+    /**
+     * Gets providers used in calculating faction's max power
+     * @return an unmodifiable set of {@link FactionMaxPowerProvider}
+     */
+    Set<FactionMaxPowerProvider> getFactionMaxPowerProviders();
+
     /**
      * Gets player's power for the given player's {@link UUID}
      * @param playerUUID the UUID of the player
@@ -80,13 +119,4 @@ public interface PowerManager
     void startIncreasingPower(final UUID playerUUID);
 
     //TODO: Add method for stopping power addition.
-
-    /**
-     * Gets maximal amount of claims a faction can have.
-     * @param faction the faction that the maximal amount of claims should be get from.
-     * @return maximal amount of claims.
-     *
-     * Note: Result number should be equal to faction power.
-     */
-    int getFactionMaxClaims(final Faction faction);
 }
