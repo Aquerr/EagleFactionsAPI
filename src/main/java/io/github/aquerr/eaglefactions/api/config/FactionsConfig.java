@@ -67,6 +67,7 @@ public interface FactionsConfig
 	long getMaxInactiveTime();
 
 	boolean shouldNotifyWhenFactionRemoved();
+	boolean shouldNotifyWHenFactionCreated();
 
 	boolean shouldShowOnlyPlayerFactionsClaimsInMap();
 	
