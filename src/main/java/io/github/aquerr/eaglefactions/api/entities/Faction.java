@@ -113,9 +113,15 @@ public interface Faction extends Comparable<Faction>
 
     /**
      * Gets faction last online date.
-     * @return an instance of {@link Instant} with time where the faction was last online.
+     * @return an instance of {@link Instant} with time when the faction was last online.
      */
     Instant getLastOnline();
+
+    /**
+     * Gets faction creation date.
+     * @return an instance of {@link Instant} representing the date-time when faction was created.
+     */
+    Instant getCreatedDate();
 
     /**
      * Checks what member the given player is.
@@ -240,6 +246,8 @@ public interface Faction extends Comparable<Faction>
         Builder setHome(final FactionHome home);
 
         Builder setLastOnline(final Instant lastOnline);
+
+        Builder setCreatedDate(final Instant createdDate);
 
         Builder setPerms(final Map<FactionMemberType, Map<FactionPermType, Boolean>> perms);
 
