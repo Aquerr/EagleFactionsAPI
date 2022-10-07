@@ -144,6 +144,12 @@ public interface Faction extends Comparable<Faction>
     boolean isPublic();
 
     /**
+     * Gets protection flags.
+     * @return the {@link ProtectionFlags} for this faction.
+     */
+    ProtectionFlags getProtectionFlags();
+
+    /**
      * Checks if the given player UUID exists in that faction.
      * @param playerUUID the UUID of the player.
      * @return <tt>true</tt> if player exists, <tt>false</tt> if not.
@@ -254,6 +260,8 @@ public interface Faction extends Comparable<Faction>
         Builder setChest(final FactionChest chest);
 
         Builder setIsPublic(final boolean isPublic);
+
+        Builder setProtectionFlags(final Set<ProtectionFlag> protectionFlags);
 
         Faction build();
     }

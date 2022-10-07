@@ -1,5 +1,6 @@
 package io.github.aquerr.eaglefactions.api.config;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Collection;
 import java.util.List;
@@ -20,7 +21,7 @@ public interface Configuration
 
     void save();
 
-    void reloadConfiguration();
+    void reloadConfiguration() throws IOException;
 
     int getInt(int defaultValue, Object... nodePath);
     double getDouble(double defaultValue, Object... nodePath);

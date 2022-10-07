@@ -1,11 +1,12 @@
 package io.github.aquerr.eaglefactions.api.config;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
 public interface ProtectionConfig
 {
-	void reload();
+	void reload() throws IOException;
 
 	Set<String> getClaimableWorldNames();
 
@@ -28,22 +29,7 @@ public interface ProtectionConfig
 
 	void addWorld(String worldName);
 
-	//Mob spawning methods
-	boolean canSpawnMobsInSafeZone();
-
-	boolean canSpawnMobsInWarZone();
-
-	boolean canSpawnHostileMobsInWarZone();
-
-	boolean canSpawnMobsInFactionsTerritory();
-
-	boolean canSpawnHostileMobsInFactionsTerritory();
-
 	boolean shouldProtectWildernessFromPlayers();
-
-	boolean shouldProtectClaimFromMobGrief();
-
-	boolean shouldProtectWarZoneFromMobGrief();
 
 	boolean shouldAllowExplosionsByOtherPlayersInClaims();
 
