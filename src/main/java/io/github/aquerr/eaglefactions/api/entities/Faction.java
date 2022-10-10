@@ -144,10 +144,21 @@ public interface Faction extends Comparable<Faction>
     boolean isPublic();
 
     /**
-     * Gets protection flags.
-     * @return the {@link ProtectionFlags} for this faction.
+     * Gets value for given flag type.
+     *
+     * @param type the type
+     * @return <tt>true</tt> if flag is set to true, <tt>false</tt> if flag is set to false OR it does not exist.
      */
-    ProtectionFlags getProtectionFlags();
+    boolean getProtectionFlagValue(ProtectionFlagType type);
+
+    /**
+     * Gets protection flags set.
+     *
+     * Note: Modifications on returned Set does not affect the actual protection flags inside faction.
+     *
+     * @return the protection flags for this faction.
+     */
+    Set<ProtectionFlag> getProtectionFlags();
 
     /**
      * Checks if the given player UUID exists in that faction.

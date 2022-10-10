@@ -355,4 +355,12 @@ public interface FactionLogic
      * @return maximal amount of claims for given faction.
      */
     int getFactionMaxClaims(final Faction faction);
+
+    /**
+     * Updates faction's protection flag value
+     * @param faction the faction
+     * @param flagType flag type
+     * @param value new value
+     */
+    void setFactionProtectionFlag(Faction faction, ProtectionFlagType flagType, boolean value);
 }

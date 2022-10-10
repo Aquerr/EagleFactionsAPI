@@ -16,12 +16,4 @@ public interface ProtectionFlags
      * @return <tt>true</tt> if flag is set to true, <tt>false</tt> if flag is set to false OR it does not exist.
      */
     boolean getValueForFlag(ProtectionFlagType type);
-
-    /**
-     * Adds given flag.
-     * If given flag already exists, it is overriden.
-     *
-     * @param flag the flag
-     */
-    void add(ProtectionFlag flag);
 }
