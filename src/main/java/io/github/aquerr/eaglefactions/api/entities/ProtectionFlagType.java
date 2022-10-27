@@ -1,5 +1,8 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 /**
  * En enum representing protection flag types which can be applied on a faction.
  */
@@ -41,6 +44,13 @@ public enum ProtectionFlagType
     TERRITORY_POWER_LOSS("TERRITORY_POWER_LOSS");
 
     private final String name;
+
+    public static Optional<ProtectionFlagType> getProtectionFlagTypeForName(String name)
+    {
+        return Arrays.stream(values())
+                .filter(protectionFlagType -> protectionFlagType.getName().equalsIgnoreCase(name))
+                .findFirst();
+    }
 
     ProtectionFlagType(final String name)
     {
