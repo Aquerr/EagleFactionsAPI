@@ -19,6 +19,8 @@ public interface Configuration
     PVPLoggerConfig getPvpLoggerConfig();
     StorageConfig getStorageConfig();
 
+    BluemapConfig getBluemapConfig();
+
     void save();
 
     void reloadConfiguration() throws IOException;
