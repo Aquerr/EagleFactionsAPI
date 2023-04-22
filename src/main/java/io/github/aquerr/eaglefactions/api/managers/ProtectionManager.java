@@ -112,4 +112,11 @@ public interface ProtectionManager
      * @return <tt>true</tt> if user can use the item in the given location or <tt>false</tt> if not
      */
     ProtectionResult canUseItem(final ServerLocation location, final User user, final ItemStackSnapshot usedItem, final boolean shouldNotify);
+
+    /**
+     * Checks if the given server location is safe zone.
+     * @param location the server location to check.
+     * @return <tt>true</tt> if it is safe zone, <tt>false</tt> if not.
+     */
+    boolean isSafeZone(ServerLocation location);
 }
