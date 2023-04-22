@@ -24,6 +24,15 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
+tasks.withType(Jar::class).configureEach {
+    if(System.getenv("JENKINS_HOME") != null) {
+        archiveVersion.set(project.version.toString() + "_" + System.getenv("BUILD_NUMBER") + "-SNAPSHOT")
+        println("Version => " + project.version.toString())
+    } else {
+        archiveVersion.set(project.version.toString() + "-SNAPSHOT")
+    }
+}
+
 tasks.withType(JavaCompile::class).configureEach {
     options.apply {
         encoding = "utf-8" // Consistent source file encoding
