@@ -1,8 +1,11 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import org.spongepowered.math.vector.Vector3i;
+import io.github.aquerr.eaglefactions.api.math.Vector3i;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Objects;
+import java.util.Set;
+import java.util.UUID;
 
 public class Claim
 {

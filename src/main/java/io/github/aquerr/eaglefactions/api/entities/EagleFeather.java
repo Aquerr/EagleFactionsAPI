@@ -1,6 +1,6 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import org.spongepowered.api.item.inventory.ItemStack;
+import net.minecraft.world.item.ItemStack;
 
 /**
  * Represents a mystical feather that comes from The Greatest Eagle.

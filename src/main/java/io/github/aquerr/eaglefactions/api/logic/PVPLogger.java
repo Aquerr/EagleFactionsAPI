@@ -1,6 +1,6 @@
 package io.github.aquerr.eaglefactions.api.logic;
 
-import org.spongepowered.api.entity.living.player.server.ServerPlayer;
+import net.minecraft.server.level.ServerPlayer;
 
 /**
  * Interface for PVP-Logger related actions.

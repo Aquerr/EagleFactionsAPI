@@ -10,7 +10,7 @@ import io.github.aquerr.eaglefactions.api.managers.*;
 import io.github.aquerr.eaglefactions.api.messaging.MessageService;
 import io.github.aquerr.eaglefactions.api.messaging.placeholder.PlaceholderService;
 import io.github.aquerr.eaglefactions.api.storage.StorageManager;
-import net.kyori.adventure.text.TextComponent;
+import net.minecraft.network.chat.Component;
 
 import java.net.URI;
 import java.nio.file.Path;
@@ -114,7 +114,7 @@ public interface EagleFactions
      * @param leader the UUID of the faction's leader.
      * @return new instance of {@link Faction.Builder}
      */
-    Faction.Builder getBuilderForFaction(final String name, final TextComponent tag, final UUID leader);
+    Faction.Builder getBuilderForFaction(final String name, final Component tag, final UUID leader);
 
     /**
      * Creates new faction player object.

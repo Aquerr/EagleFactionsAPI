@@ -3,7 +3,7 @@ package io.github.aquerr.eaglefactions.api.events;
 import io.github.aquerr.eaglefactions.api.entities.Faction;
 import io.github.aquerr.eaglefactions.api.entities.FactionMemberType;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
-import org.spongepowered.api.entity.living.player.Player;
+import net.minecraft.server.level.ServerPlayer;
 
 /**
  * Fired when a {@link FactionPlayer} is being promoted inside {@link Faction}
@@ -14,7 +14,7 @@ public interface FactionPromoteEvent extends FactionEvent
      * Gets the player that demoted a faction member and thus triggered this event.
      * @return the player that triggered this event.
      */
-    default Player getPromotedBy()
+    default ServerPlayer getPromotedBy()
     {
         return this.getCreator();
     }

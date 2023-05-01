@@ -1,9 +1,7 @@
 package io.github.aquerr.eaglefactions.api.events;
 
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import org.spongepowered.api.entity.living.player.Player;
-import org.spongepowered.api.event.Cancellable;
-import org.spongepowered.api.event.Event;
+import net.minecraft.server.level.ServerPlayer;
 
 /**
  * Base event for all events related to {@link Faction}
@@ -12,9 +10,9 @@ public interface FactionEvent extends Event, Cancellable
 {
     /**
      * Gets the player that triggered the event.
-     * @return {@link Player} object.
+     * @return {@link ServerPlayer} object.
      */
-    Player getCreator();
+    ServerPlayer getCreator();
 
     /**
      * Gets faction that this event is related to.

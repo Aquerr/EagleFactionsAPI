@@ -1,8 +1,7 @@
 package io.github.aquerr.eaglefactions.api.managers;
 
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
-import org.spongepowered.api.entity.living.player.User;
-import org.spongepowered.api.entity.living.player.server.ServerPlayer;
+import net.minecraft.server.level.ServerPlayer;
 
 import java.util.Optional;
 import java.util.Set;
@@ -62,21 +61,21 @@ public interface PlayerManager
      * All players that toggled admin mode by using admin command or
      * have "eaglefactions.adminmode" permission are considered as admins.
      */
-    boolean hasAdminMode(final User player);
+    boolean hasAdminMode(final ServerPlayer player);
 
     /**
      * Activates factions admin mode for the given player.
      * @param player the player admin mode should be activated for.
      * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
      */
-    boolean activateAdminMode(final User player);
+    boolean activateAdminMode(final ServerPlayer player);
 
     /**
      * Deactivates factions admin mode for the given player.
      * @param player the player admin mode should be deactivated for.
      * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
      */
-    boolean deactivateAdminMode(final User player);
+    boolean deactivateAdminMode(final ServerPlayer player);
 
     /**
      * Gets a set consists of players with admin mode.

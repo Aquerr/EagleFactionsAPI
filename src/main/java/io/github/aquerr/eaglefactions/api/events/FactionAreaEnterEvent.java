@@ -1,11 +1,8 @@
 package io.github.aquerr.eaglefactions.api.events;
 
+import com.mojang.math.Vector3d;
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import org.spongepowered.api.entity.living.player.Player;
-import org.spongepowered.api.event.Cancellable;
-import org.spongepowered.api.event.Event;
-import org.spongepowered.api.world.World;
-import org.spongepowered.math.vector.Vector3d;
+import net.minecraft.server.level.ServerPlayer;
 
 import java.util.Optional;
 
@@ -20,7 +17,7 @@ public interface FactionAreaEnterEvent extends Event, Cancellable
 	 * Gets the player that triggered the event.
 	 * @return {@link Player} object.
 	 */
-	Player getCreator();
+	ServerPlayer getCreator();
 
 	/**
 	 * Gets faction owning the claim (chunk) that the player has entered to.

@@ -1,8 +1,8 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
 import com.google.common.base.Strings;
+import io.github.aquerr.eaglefactions.api.math.Vector3i;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.spongepowered.math.vector.Vector3i;
 
 import java.util.Objects;
 import java.util.UUID;

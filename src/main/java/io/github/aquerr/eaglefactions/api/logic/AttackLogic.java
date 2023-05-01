@@ -1,9 +1,9 @@
 package io.github.aquerr.eaglefactions.api.logic;
 
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import org.spongepowered.api.entity.living.player.server.ServerPlayer;
-import org.spongepowered.api.world.server.ServerLocation;
-import org.spongepowered.math.vector.Vector3i;
+import io.github.aquerr.eaglefactions.api.math.Vector3i;
+import io.github.aquerr.eaglefactions.api.util.ServerLocation;
+import net.minecraft.server.level.ServerPlayer;
 
 import java.util.UUID;
 

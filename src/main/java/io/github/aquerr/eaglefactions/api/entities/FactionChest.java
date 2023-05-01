@@ -1,7 +1,7 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import org.spongepowered.api.item.inventory.ItemStack;
-import org.spongepowered.api.item.inventory.menu.InventoryMenu;
+import net.minecraft.world.inventory.InventoryMenu;
+import net.minecraft.world.item.ItemStack;
 
 import java.io.Serializable;
 import java.util.List;
@@ -22,7 +22,7 @@ public interface FactionChest
 
     /**
      * Gets this faction chest inventory.
-     * @return {@link InventoryMenu} instance that is associated with this faction chest.
+     * @return {@link net.minecraft.world.inventory.InventoryMenu} instance that is associated with this faction chest.
      */
     InventoryMenu getInventory();
 
@@ -41,7 +41,7 @@ public interface FactionChest
         int getRow();
 
         /**
-         * Gets an instance of {@link ItemStack} from the SlotItem.
+         * Gets an instance of {@link net.minecraft.world.item.ItemStack} from the SlotItem.
          * @return an ItemStack from this particular SlotItem.
          */
         ItemStack getItem();

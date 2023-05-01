@@ -2,8 +2,8 @@ package io.github.aquerr.eaglefactions.api.entities;
 
 import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
 import io.github.aquerr.eaglefactions.api.managers.PowerManager;
-import net.kyori.adventure.text.TextComponent;
-import org.spongepowered.math.vector.Vector3i;
+import io.github.aquerr.eaglefactions.api.math.Vector3i;
+import io.github.aquerr.eaglefactions.api.text.Text;
 
 import java.time.Instant;
 import java.util.Map;
@@ -31,7 +31,7 @@ public interface Faction extends Comparable<Faction>
      *
      * @return the tag of the faction.
      */
-    TextComponent getTag();
+    Text getTag();
 
     /**
      * Gets faction description.
@@ -238,7 +238,7 @@ public interface Faction extends Comparable<Faction>
     {
         Builder setName(final String name);
 
-        Builder setTag(final TextComponent tag);
+        Builder setTag(final Text tag);
 
         Builder setDescription(final String description);
 

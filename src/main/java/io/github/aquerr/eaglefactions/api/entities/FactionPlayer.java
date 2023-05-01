@@ -1,6 +1,6 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import org.spongepowered.api.entity.living.player.User;
+import net.minecraft.server.level.ServerPlayer;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -62,10 +62,10 @@ public interface FactionPlayer
     float getMaxPower();
 
     /**
-     * Gets {@link User} instance from the current player.
-     * @return the {@link User} instance or {@link Optional#empty()} if instance could not be found.
+     * Gets {@link net.minecraft.server.level.ServerPlayer} instance from the current player.
+     * @return the {@link net.minecraft.server.level.ServerPlayer} instance or {@link Optional#empty()} if instance could not be found.
      */
-    Optional<User> getUser();
+    Optional<ServerPlayer> getServerPlayer();
 
     /**
      * Checks if the given player recently died in WarZone.

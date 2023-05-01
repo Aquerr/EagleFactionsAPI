@@ -1,10 +1,10 @@
 package io.github.aquerr.eaglefactions.api.events;
 
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import org.spongepowered.api.entity.living.player.Player;
+import net.minecraft.server.level.ServerPlayer;
 
 /**
- * Fired when a {@link Player} disbands a {@link Faction}.
+ * Fired when a {@link net.minecraft.server.level.ServerPlayer} disbands a {@link Faction}.
  */
 public interface FactionDisbandEvent extends FactionEvent
 {
@@ -27,7 +27,7 @@ public interface FactionDisbandEvent extends FactionEvent
      * @return the player that triggered disband event
      */
     @Override
-    Player getCreator();
+    ServerPlayer getCreator();
 
     interface Pre extends FactionDisbandEvent {}
 

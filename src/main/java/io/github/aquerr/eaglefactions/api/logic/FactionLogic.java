@@ -1,14 +1,24 @@
 package io.github.aquerr.eaglefactions.api.logic;
 
-import io.github.aquerr.eaglefactions.api.entities.*;
+import io.github.aquerr.eaglefactions.api.entities.Claim;
+import io.github.aquerr.eaglefactions.api.entities.Faction;
+import io.github.aquerr.eaglefactions.api.entities.FactionChest;
+import io.github.aquerr.eaglefactions.api.entities.FactionHome;
+import io.github.aquerr.eaglefactions.api.entities.FactionMemberType;
+import io.github.aquerr.eaglefactions.api.entities.FactionPermType;
+import io.github.aquerr.eaglefactions.api.entities.ProtectionFlagType;
 import io.github.aquerr.eaglefactions.api.managers.claim.provider.FactionMaxClaimCountProvider;
-import net.kyori.adventure.text.format.NamedTextColor;
+import io.github.aquerr.eaglefactions.api.math.Vector3i;
+import net.minecraft.ChatFormatting;
+import net.minecraft.server.level.ServerPlayer;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.spongepowered.api.entity.living.player.server.ServerPlayer;
-import org.spongepowered.math.vector.Vector3i;
 
 import java.time.Instant;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * Interface for all faction related actions.
@@ -296,9 +306,9 @@ public interface FactionLogic
     /**
      * Changes color of the faction tag.
      * @param faction the faction that should be affected.
-     * @param textColor new {@link NamedTextColor} that should be used for the faction tag.
+     * @param textColor new {@link net.minecraft.ChatFormatting} that should be used for the faction tag.
      */
-    void changeTagColor(Faction faction, NamedTextColor textColor);
+    void changeTagColor(Faction faction, ChatFormatting textColor);
 
     /**
      * Sets faction last online time.

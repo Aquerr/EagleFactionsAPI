@@ -61,7 +61,7 @@ public interface StorageManager
 
     /**
      * Creates a backup of Eagle Factions data.
-     * By default backups are placed in /config/eaglefactions/backups.
+     * By default, backups are placed in /config/eaglefactions/backups.
      *
      * @return <tt>backup path</tt> if operation succeed or <tt>null</tt> if not
      */

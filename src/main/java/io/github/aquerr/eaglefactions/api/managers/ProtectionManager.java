@@ -1,23 +1,22 @@
 package io.github.aquerr.eaglefactions.api.managers;
 
 import io.github.aquerr.eaglefactions.api.entities.FactionType;
-import org.spongepowered.api.block.BlockSnapshot;
-import org.spongepowered.api.entity.Entity;
-import org.spongepowered.api.entity.living.player.User;
-import org.spongepowered.api.entity.living.player.server.ServerPlayer;
-import org.spongepowered.api.item.inventory.ItemStackSnapshot;
-import org.spongepowered.api.world.server.ServerLocation;
+import io.github.aquerr.eaglefactions.api.util.ServerLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.util.BlockSnapshot;
 
 public interface ProtectionManager
 {
     /**
-     * Checks if a {@link User} can break the given {@link BlockSnapshot}
+     * Checks if a {@link net.minecraft.server.level.ServerPlayer} can break the given {@link net.minecraftforge.common.util.BlockSnapshot}
      * @param blockSnapshot that should be checked for block break.
      * @param player who preformed block break.
      * @param shouldNotify determines if user should be notified about not having access to break block.
      * @return <tt>true</tt> if player can break block or <tt>false</tt> if not
      */
-    ProtectionResult canBreak(final BlockSnapshot blockSnapshot, final User player, final boolean shouldNotify);
+    ProtectionResult canBreak(final BlockSnapshot blockSnapshot, final ServerPlayer player, final boolean shouldNotify);
 
     /**
      * Checks if the given {@link BlockSnapshot} can be destroyed.
@@ -27,22 +26,22 @@ public interface ProtectionManager
     ProtectionResult canBreak(final BlockSnapshot blockSnapshot);
 
     /**
-     * Checks if a {@link User} can place the given {@link BlockSnapshot}.
+     * Checks if a {@link ServerPlayer} can place the given {@link BlockSnapshot}.
      * @param blockSnapshot that should be checked for block place.
      * @param player who placed the block.
      * @param shouldNotify determines if user should be notified about not having access to place block.
      * @return <tt>true</tt> if block can be placed at the given location or <tt>false</tt> if not
      */
-    ProtectionResult canPlace(final BlockSnapshot blockSnapshot, final User player, final boolean shouldNotify);
+    ProtectionResult canPlace(final BlockSnapshot blockSnapshot, final ServerPlayer player, final boolean shouldNotify);
 
     /**
-     * Checks if a {@link User} can explode blocks at the given {@link ServerLocation}
+     * Checks if a {@link ServerPlayer} can explode blocks at the given {@link ServerLocation}
      * @param location that should be checked for block explosion.
      * @param player who will be tested.
      * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if blocks can be exploded at the given location or <tt>false</tt> if not
      */
-    ProtectionResult canExplode(final ServerLocation location, final User player, final boolean shouldNotify);
+    ProtectionResult canExplode(final ServerLocation location, final ServerPlayer player, final boolean shouldNotify);
 
     /**
      * Checks if blocks can explode at the given {@link ServerLocation}
@@ -95,23 +94,23 @@ public interface ProtectionManager
     boolean isBlockWhitelistedForInteraction(final String blockId, final FactionType factionType);
 
     /**
-     * Checks if a {@link User} can interact with block at the given location.
+     * Checks if a {@link ServerPlayer} can interact with block at the given location.
      * @param blockLocation block location that should be checked.
      * @param player who should be tested for block interaction.
      * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if player can interact with block or <tt>false</tt> if not
      */
-    ProtectionResult canInteractWithBlock(final ServerLocation blockLocation, final User player, final boolean shouldNotify);
+    ProtectionResult canInteractWithBlock(final ServerLocation blockLocation, final ServerPlayer player, final boolean shouldNotify);
 
     /**
-     * Checks if a {@link User} can use an item at the given location.
+     * Checks if a {@link ServerPlayer} can use an item at the given location.
      * @param location that should be checked for item use.
      * @param user who should be tested for the given location.
-     * @param usedItem {@link ItemStackSnapshot} that should be tested.
+     * @param usedItem {@link ItemStack} that should be tested.
      * @param shouldNotify determines if user should be notified about not having access to that location.
      * @return <tt>true</tt> if user can use the item in the given location or <tt>false</tt> if not
      */
-    ProtectionResult canUseItem(final ServerLocation location, final User user, final ItemStackSnapshot usedItem, final boolean shouldNotify);
+    ProtectionResult canUseItem(final ServerLocation location, final ServerPlayer user, final ItemStack usedItem, final boolean shouldNotify);
 
     /**
      * Checks if the given server location is safe zone.

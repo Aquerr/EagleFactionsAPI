@@ -1,8 +1,7 @@
 package io.github.aquerr.eaglefactions.api.managers;
 
 import io.github.aquerr.eaglefactions.api.entities.*;
-import org.spongepowered.api.entity.living.player.Player;
-import org.spongepowered.api.entity.living.player.server.ServerPlayer;
+import net.minecraft.server.level.ServerPlayer;
 
 public interface InvitationManager
 {

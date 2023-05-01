@@ -2,9 +2,8 @@ package io.github.aquerr.eaglefactions.api.config;
 
 import io.github.aquerr.eaglefactions.api.entities.ChatEnum;
 import io.github.aquerr.eaglefactions.api.entities.FactionMemberType;
-import net.kyori.adventure.text.TextComponent;
-import net.kyori.adventure.text.format.NamedTextColor;
-import net.kyori.adventure.text.format.TextColor;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextColor;
 
 import java.util.Map;
 import java.util.Set;
@@ -17,9 +16,9 @@ public interface ChatConfig
 
 	boolean shouldDisplayProtectionSystemMessages();
 
-	TextComponent getFactionStartPrefix();
+	Component getFactionStartPrefix();
 
-	TextComponent getFactionEndPrefix();
+	Component getFactionEndPrefix();
 
 	String getChatPrefixType();
 
@@ -29,7 +28,7 @@ public interface ChatConfig
 
 	boolean isFactionPrefixFirstInChat();
 
-	TextComponent getNonFactionPlayerPrefix();
+	Component getNonFactionPlayerPrefix();
 
 	boolean shouldShowFactionEnterPhrase();
 

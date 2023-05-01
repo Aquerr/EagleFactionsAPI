@@ -1,14 +1,17 @@
+import net.minecraftforge.gradle.userdev.UserDevExtension
 import java.io.ByteArrayOutputStream
 
 plugins {
     java
+    id("net.minecraftforge.gradle") version "5.1.+"
 }
 
 val eaglefactionsApiVersion = findProperty("eaglefactions-api.version") as String
-val spongeApiVersion = findProperty("sponge-api.version") as String
+val minecraftVersion = findProperty("minecraft.version") as String
+val forgeVersion = findProperty("forge.version") as String
 
 group = "io.github.aquerr"
-version = "$eaglefactionsApiVersion-API-$spongeApiVersion"
+version = "$eaglefactionsApiVersion-API-$minecraftVersion"
 
 repositories {
     mavenCentral()
@@ -16,13 +19,10 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.spongepowered:spongeapi:$spongeApiVersion")
+    "minecraft"("net.minecraftforge:forge:${forgeVersion}")
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-}
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
 tasks.withType(Jar::class).configureEach {
     if(System.getenv("JENKINS_HOME") != null) {
@@ -73,6 +73,18 @@ tasks.register("publishBuildOnDiscord") {
             exec {
                 commandLine("java", "-jar", ".." + File.separator + "jenkinsdiscordbot-1.0.jar", "EagleFactionsAPI", jarFiles[0], lastCommitDescription)
             }
+        }
+    }
+}
+
+configure<UserDevExtension> {
+    mappings("official", minecraftVersion)
+}
+
+sourceSets {
+    main {
+        java {
+            setSrcDirs(listOf("src/main"))
         }
     }
 }

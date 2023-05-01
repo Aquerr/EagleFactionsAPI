@@ -1,8 +1,7 @@
 package io.github.aquerr.eaglefactions.api.messaging;
 
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.TextComponent;
-import org.spongepowered.api.command.exception.CommandException;
+import io.github.aquerr.eaglefactions.api.exception.CommandException;
+import net.minecraft.network.chat.Component;
 
 public interface MessageService
 {
@@ -16,9 +15,9 @@ public interface MessageService
 
     CommandException resolveExceptionWithMessageAndThrowable(String messageKey, Throwable throwable);
 
-    TextComponent resolveComponentWithMessage(String messageKey);
+    Component resolveComponentWithMessage(String messageKey);
 
-    TextComponent resolveComponentWithMessage(String messageKey, Object... args);
+    Component resolveComponentWithMessage(String messageKey, Object... args);
 
     String resolveMessage(String messageKey);
 

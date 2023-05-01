@@ -1,17 +1,17 @@
 package io.github.aquerr.eaglefactions.api.events;
 
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import org.spongepowered.api.entity.living.player.Player;
+import net.minecraft.server.level.ServerPlayer;
 
 /**
- * Fired when a {@link Player} is being invited to a {@link Faction}
+ * Fired when a {@link net.minecraft.server.level.ServerPlayer} is being invited to a {@link Faction}
  */
 public interface FactionInviteEvent extends FactionEvent
 {
     /**
-     * @return {@link Player} who has been invited to the faction.
+     * @return {@link net.minecraft.server.level.ServerPlayer} who has been invited to the faction.
      */
-    Player getInvitedPlayer();
+    ServerPlayer getInvitedPlayer();
 
     interface Pre extends FactionInviteEvent {}
 
