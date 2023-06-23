@@ -15,11 +15,10 @@ version = "$eaglefactionsApiVersion-API-$minecraftVersion"
 
 repositories {
     mavenCentral()
-    maven("https://repo.spongepowered.org/maven")
 }
 
 dependencies {
-    "minecraft"("net.minecraftforge:forge:${forgeVersion}")
+    minecraft("net.minecraftforge:forge:${forgeVersion}")
 }
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
@@ -79,12 +78,4 @@ tasks.register("publishBuildOnDiscord") {
 
 configure<UserDevExtension> {
     mappings("official", minecraftVersion)
-}
-
-sourceSets {
-    main {
-        java {
-            setSrcDirs(listOf("src/main"))
-        }
-    }
 }
