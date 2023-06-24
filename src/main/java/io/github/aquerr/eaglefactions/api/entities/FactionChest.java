@@ -20,11 +20,11 @@ public interface FactionChest
      */
     List<SlotItem> getItems();
 
-    /**
-     * Gets this faction chest inventory.
-     * @return {@link net.minecraft.world.inventory.InventoryMenu} instance that is associated with this faction chest.
-     */
-    InventoryMenu getInventory();
+//    /**
+//     * Gets this faction chest inventory.
+//     * @return {@link net.minecraft.world.inventory.InventoryMenu} instance that is associated with this faction chest.
+//     */
+//    InventoryMenu getInventory();
 
     interface SlotItem extends Serializable
     {

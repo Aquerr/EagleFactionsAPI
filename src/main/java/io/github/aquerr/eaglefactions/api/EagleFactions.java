@@ -4,7 +4,7 @@ import io.github.aquerr.eaglefactions.api.config.Configuration;
 import io.github.aquerr.eaglefactions.api.entities.Faction;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 import io.github.aquerr.eaglefactions.api.logic.AttackLogic;
-import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
+import io.github.aquerr.eaglefactions.api.logic.FactionManager;
 import io.github.aquerr.eaglefactions.api.logic.PVPLogger;
 import io.github.aquerr.eaglefactions.api.managers.*;
 import io.github.aquerr.eaglefactions.api.messaging.MessageService;
@@ -70,9 +70,9 @@ public interface EagleFactions
     PVPLogger getPVPLogger();
 
     /**
-     * @return instance of {@link FactionLogic}
+     * @return instance of {@link FactionManager}
      */
-    FactionLogic getFactionLogic();
+    FactionManager getFactionManager();
 
     /**
      * @return instance of {@link AttackLogic}
@@ -107,7 +107,7 @@ public interface EagleFactions
     /**
      * Gets instance of {@link Faction.Builder} used to create a faction object.
      *
-     * To persist faction, use {@link FactionLogic}.
+     * To persist faction, use {@link FactionManager}.
      *
      * @param name the name of the faction.
      * @param tag the tag of the faction.

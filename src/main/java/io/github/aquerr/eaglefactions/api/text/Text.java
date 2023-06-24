@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Text
 {
-    private String value;
-    private String color = "white";
+    private final String value;
+    private final String color;
 
     public Text(String value, String color)
     {
@@ -16,11 +16,22 @@ public class Text
     public Text(String value)
     {
         this.value = value;
+        this.color = "WHITE";
     }
 
     public static Text of(String value)
     {
         return new Text(value);
+    }
+
+    public String getColor()
+    {
+        return color;
+    }
+
+    public String getText()
+    {
+        return value;
     }
 
     @Override

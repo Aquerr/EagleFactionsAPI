@@ -9,6 +9,7 @@ import io.github.aquerr.eaglefactions.api.entities.FactionPermType;
 import io.github.aquerr.eaglefactions.api.entities.ProtectionFlagType;
 import io.github.aquerr.eaglefactions.api.managers.claim.provider.FactionMaxClaimCountProvider;
 import io.github.aquerr.eaglefactions.api.math.Vector3i;
+import io.github.aquerr.eaglefactions.api.text.Text;
 import net.minecraft.ChatFormatting;
 import net.minecraft.server.level.ServerPlayer;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -25,10 +26,10 @@ import java.util.UUID;
  *
  * Other plugins should always use this class for interacting with factions.
  */
-public interface FactionLogic
+public interface FactionManager
 {
     /**
-     * Add {@link FactionMaxClaimCountProvider} to providers used in calculating maximal claim count for faction in {@link FactionLogic#getFactionMaxClaims(Faction)}.
+     * Add {@link FactionMaxClaimCountProvider} to providers used in calculating maximal claim count for faction in {@link FactionManager#getFactionMaxClaims(Faction)}.
      * @param provider new provider
      */
     void addFactionMaxClaimCountProvider(FactionMaxClaimCountProvider provider);
@@ -176,7 +177,7 @@ public interface FactionLogic
     /**
      * Directly adds a claim to the given faction.
      *
-     * Consider using {@link FactionLogic#startClaiming(ServerPlayer, Faction, UUID, Vector3i)}
+     * Consider using {@link FactionManager#startClaiming(ServerPlayer, Faction, UUID, Vector3i)}
      * if you want to preform the full claiming mechanism (claiming with delay, claiming by using items).
      *
      * @param faction the faction that should acquire claim.
@@ -192,7 +193,7 @@ public interface FactionLogic
     void removeClaim(Faction faction, Claim claim);
 
     /**
-     * Works the same as {@link FactionLogic#removeClaim(Faction, Claim)} but it is used after successful attack to spawn different particles.
+     * Works the same as {@link FactionManager#removeClaim(Faction, Claim)} but it is used after successful attack to spawn different particles.
      * @param faction the faction that should lose a claim.
      * @param claim the claim that should be removed from the faction.
      */
@@ -250,9 +251,10 @@ public interface FactionLogic
 
     /**
      * Gets the list of all factions tags used on the server.
+     *
      * @return {@link List<String>} that contains all factions tags.
      */
-    List<String> getFactionsTags();
+    List<Text> getFactionsTags();
 
     /**
      * Checks if the given faction has online players on the server.

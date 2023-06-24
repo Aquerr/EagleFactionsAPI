@@ -1,6 +1,6 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
+import io.github.aquerr.eaglefactions.api.logic.FactionManager;
 import io.github.aquerr.eaglefactions.api.managers.PowerManager;
 import io.github.aquerr.eaglefactions.api.math.Vector3i;
 import io.github.aquerr.eaglefactions.api.text.Text;
@@ -14,7 +14,7 @@ import java.util.UUID;
 /**
  * Faction is an immutable object that stores all information (but power) needed for faction to work.
  *
- * To change faction data use {@link FactionLogic}
+ * To change faction data use {@link FactionManager}
  * To get faction power use {@link PowerManager}
  */
 public interface Faction extends Comparable<Faction>
