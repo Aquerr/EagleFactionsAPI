@@ -151,10 +151,10 @@ public interface FactionLogic
     void removeEnemy(String playerFactionName, String enemyFactionName);
 
     /**
-     * Gets all claimed chunks on the server.
-     * @return {@link Set<Claim>} that contains all claimed chunks.
+     * Gets all claimed chunks on the server with corresponding factions.
+     * @return {@link Map} that contains all claimed chunks.
      */
-    Map<Claim, Optional<Faction>> getAllClaims();
+    Map<Claim, Faction> getAllClaims();
 
     /**
      * Adds claims to the given faction.
