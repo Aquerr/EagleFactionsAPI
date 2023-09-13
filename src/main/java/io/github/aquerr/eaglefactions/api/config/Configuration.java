@@ -21,6 +21,8 @@ public interface Configuration
 
     BluemapConfig getBluemapConfig();
 
+    HomeConfig getHomeConfig();
+
     void save();
 
     void reloadConfiguration() throws IOException;
