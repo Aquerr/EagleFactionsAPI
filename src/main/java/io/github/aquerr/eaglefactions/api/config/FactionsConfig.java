@@ -2,11 +2,9 @@ package io.github.aquerr.eaglefactions.api.config;
 
 import java.util.Map;
 
-public interface FactionsConfig
+public interface FactionsConfig extends ConfigReloadable
 {
-	void reload();
-
-	String getLanguageFileName();
+	String getLanguageTag();
 
 	int getMaxNameLength();
 

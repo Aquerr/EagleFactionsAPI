@@ -1,9 +1,7 @@
 package io.github.aquerr.eaglefactions.api.config;
 
-public interface BluemapConfig
+public interface BluemapConfig extends ConfigReloadable
 {
-    void reload();
-
     boolean isBluemapIntegrationEnabled();
 
     int getBluemapFactionColor();

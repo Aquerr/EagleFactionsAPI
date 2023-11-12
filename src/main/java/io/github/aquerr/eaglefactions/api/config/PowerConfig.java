@@ -1,9 +1,7 @@
 package io.github.aquerr.eaglefactions.api.config;
 
-public interface PowerConfig
+public interface PowerConfig extends ConfigReloadable
 {
-	void reload();
-
 	float getGlobalMaxPower();
 
 	float getStartingPower();

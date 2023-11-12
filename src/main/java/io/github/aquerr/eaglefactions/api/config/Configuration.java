@@ -23,6 +23,8 @@ public interface Configuration
 
     HomeConfig getHomeConfig();
 
+    VersionConfig getVersionConfig();
+
     void save();
 
     void reloadConfiguration() throws IOException;

@@ -9,10 +9,8 @@ import net.kyori.adventure.text.format.TextColor;
 import java.util.Map;
 import java.util.Set;
 
-public interface ChatConfig
+public interface ChatConfig extends ConfigReloadable
 {
-	void reload();
-
 	boolean shouldSuppressOtherFactionsMessagesWhileInTeamChat();
 
 	boolean shouldDisplayProtectionSystemMessages();

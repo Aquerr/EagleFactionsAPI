@@ -1,8 +1,7 @@
 package io.github.aquerr.eaglefactions.api.config;
 
-public interface HomeConfig
+public interface HomeConfig extends ConfigReloadable
 {
-    void reload();
     int getHomeCooldown();
     int getHomeDelayTime();
     boolean canHomeBetweenWorlds();
