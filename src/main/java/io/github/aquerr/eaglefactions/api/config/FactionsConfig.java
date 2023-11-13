@@ -2,11 +2,9 @@ package io.github.aquerr.eaglefactions.api.config;
 
 import java.util.Map;
 
-public interface FactionsConfig
+public interface FactionsConfig extends ConfigReloadable
 {
-	void reload();
-
-	String getLanguageFileName();
+	String getLanguageTag();
 
 	int getMaxNameLength();
 
@@ -30,17 +28,9 @@ public interface FactionsConfig
 
 	boolean isAllianceFriendlyFire();
 
-	int getHomeDelayTime();
-
-	int getHomeCooldown();
-
 	boolean shouldDelayClaim();
 
 	int getClaimDelay();
-
-	boolean shouldBlockHomeAfterDeathInOwnFaction();
-
-	int getHomeBlockTimeAfterDeathInOwnFaction();
 
 	boolean shouldClaimByItems();
 
@@ -58,11 +48,7 @@ public interface FactionsConfig
 
 	boolean shouldBlockEnteringSafezoneFromWarzone();
 
-	boolean shouldSpawnAtHomeAfterDeath();
-
 	boolean canAttackOnlyAtNight();
-
-	boolean canHomeBetweenWorlds();
 
 	long getMaxInactiveTime();
 
@@ -72,8 +58,6 @@ public interface FactionsConfig
 	boolean shouldShowOnlyPlayerFactionsClaimsInMap();
 	
 	boolean shouldRegenerateChunksWhenFactionRemoved();
-
-	boolean canPlaceHomeOutsideFactionClaim();
 
 	boolean shouldInformAboutAttack();
 	boolean shouldInformAboutDestroy();

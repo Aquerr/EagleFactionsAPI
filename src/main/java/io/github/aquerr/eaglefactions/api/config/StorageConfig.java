@@ -1,9 +1,7 @@
 package io.github.aquerr.eaglefactions.api.config;
 
-public interface StorageConfig
+public interface StorageConfig extends ConfigReloadable
 {
-	void reload();
-
 	String getStorageType();
 
 	String getStorageUsername();

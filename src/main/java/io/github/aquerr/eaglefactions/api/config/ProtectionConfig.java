@@ -1,13 +1,10 @@
 package io.github.aquerr.eaglefactions.api.config;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
-public interface ProtectionConfig
+public interface ProtectionConfig extends ConfigReloadable
 {
-	void reload() throws IOException;
-
 	Set<String> getClaimableWorldNames();
 
 	Set<String> getNotClaimableWorldNames();

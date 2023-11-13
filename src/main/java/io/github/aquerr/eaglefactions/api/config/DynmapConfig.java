@@ -1,9 +1,7 @@
 package io.github.aquerr.eaglefactions.api.config;
 
-public interface DynmapConfig
+public interface DynmapConfig extends ConfigReloadable
 {
-	void reload();
-
 	boolean isDynmapIntegrationEnabled();
 
 	int getDynmapFactionColor();

@@ -2,10 +2,8 @@ package io.github.aquerr.eaglefactions.api.config;
 
 import java.util.Set;
 
-public interface PVPLoggerConfig
+public interface PVPLoggerConfig extends ConfigReloadable
 {
-	void reload();
-
 	boolean isPVPLoggerActive();
 
 	int getPVPLoggerBlockTime();
