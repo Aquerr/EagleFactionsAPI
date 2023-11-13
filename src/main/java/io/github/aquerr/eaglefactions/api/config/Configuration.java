@@ -20,6 +20,8 @@ public interface Configuration
 
     void save();
 
+    VersionConfig getVersionConfig();
+
     void reloadConfiguration();
 
     int getInt(int defaultValue, Object... nodePath);
