@@ -1,4 +1,4 @@
-![alt text](http://i.imgur.com/Lh7W1Mo.png)
+![alt text](https://i.imgur.com/YNvnziY.png)
 
 # Eagle Factions API
 
@@ -21,12 +21,19 @@ Check our [Wiki](https://github.com/Aquerr/EagleFactionsAPI/wiki) to get to know
 ## Links
 
 * [Wiki](https://github.com/Aquerr/EagleFactionsAPI/wiki)
-* Ore (Not yet available)
+* [Releases](https://github.com/Aquerr/EagleFactionsAPI/releases)
 * [Discord](https://discord.gg/Zg3rWta)
 
 ## Credits
 
 API creator: [Aquerr](https://github.com/Aquerr)
+
+## Thanks
+
+Thanks to JetBrains for their IDE
+
+<img width="200" alt="jetbrains" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png">
+
 
 ## License
 
@@ -34,4 +41,4 @@ API creator: [Aquerr](https://github.com/Aquerr)
 
 ## Donation
 
-Creation of this plugin is really a time consuming task. If you would like to support and motivate me to further work then you can star this repo or send me some cookies through [PayPal](https://www.paypal.me/aquerr).
+Creation of this plugin is really a time consuming task. If you would like to support and motivate me to further work then you can star this repo or send me some cookies through [PayPal](https://paypal.me/aquerrnerdi).
