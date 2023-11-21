@@ -32,4 +32,6 @@ public interface ChatConfig extends ConfigReloadable
 	boolean shouldShowFactionEnterPhrase();
 
 	Map<ChatEnum, Set<FactionMemberType>> getVisibleRanks();
+
+    boolean shouldDisplayFactionTagsInTabList();
 }
