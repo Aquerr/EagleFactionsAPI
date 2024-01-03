@@ -9,13 +9,13 @@ import java.util.UUID;
 
 public class FactionHome
 {
-    private final Vector3i BlockPosition;
-    private final UUID WorldUUID;
+    private final Vector3i blockPosition;
+    private final UUID worldUUID;
 
     public FactionHome(@Nullable UUID worldUUID, @Nullable Vector3i blockPosition)
     {
-        this.BlockPosition = blockPosition;
-        this.WorldUUID = worldUUID;
+        this.blockPosition = blockPosition;
+        this.worldUUID = worldUUID;
     }
 
     public static FactionHome from(String worldUUIDAndBlockPositionString)
@@ -49,18 +49,18 @@ public class FactionHome
 
     public UUID getWorldUUID()
     {
-        return WorldUUID;
+        return worldUUID;
     }
 
     public Vector3i getBlockPosition()
     {
-        return BlockPosition;
+        return blockPosition;
     }
 
     @Override
     public String toString()
     {
-        return this.WorldUUID.toString() + "|" + this.BlockPosition.toString();
+        return this.worldUUID.toString() + "|" + this.blockPosition.toString();
     }
 
     @Override
@@ -69,12 +69,12 @@ public class FactionHome
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FactionHome that = (FactionHome) o;
-        return Objects.equals(BlockPosition, that.BlockPosition) && Objects.equals(WorldUUID, that.WorldUUID);
+        return Objects.equals(blockPosition, that.blockPosition) && Objects.equals(worldUUID, that.worldUUID);
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(BlockPosition, WorldUUID);
+        return Objects.hash(blockPosition, worldUUID);
     }
 }

@@ -11,7 +11,7 @@ public interface RankManager
 {
     /**
      * Demotes a player to lower rank in a faction.
-     * @param player the player that issued demotion. Can be null if is is not the player that issued demotion e.g. console.
+     * @param player the player that issued demotion. Can be null if it is not the player that issued demotion e.g. console.
      * @param targetPlayer the {@link FactionPlayer} that should be demoted.
      * @return {@link FactionMemberType} that the player has been demoted to. Returns same rank if it has not been changed.
      */
@@ -19,7 +19,7 @@ public interface RankManager
 
     /**
      * Promotes a player to higher rank in a faction.
-     * @param player the player that issued promotion. Can be null if is is not the player that issued promotion e.g. console.
+     * @param player the player that issued promotion. Can be null if it is not the player that issued promotion e.g. console.
      * @param targetPlayer the {@link FactionPlayer} that should be promoted.
      * @return {@link FactionMemberType} that the player has been promoted to. Returns same rank if it has not been changed.
      */

@@ -1,6 +1,7 @@
 package io.github.aquerr.eaglefactions.api.exception;
 
 import org.spongepowered.api.item.inventory.ItemStack;
+import org.spongepowered.api.registry.RegistryTypes;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,7 +27,7 @@ public class RequiredItemsNotFoundException extends Exception
     public String buildAllRequiredItemsMessage()
     {
         return Arrays.toString(allRequiredItems.stream()
-                .map(itemStack -> itemStack.type().toString() + ":" + itemStack.quantity())
+                .map(itemStack -> itemStack.type().key(RegistryTypes.ITEM_TYPE).asString() + " x" + itemStack.quantity())
                 .toArray());
     }
 }
