@@ -39,7 +39,7 @@ public interface StorageManager
     void reloadStorage();
 
     /**
-     * Gets all unique players who were registered/added the the Eagle Factions storage.
+     * Gets all unique players who were registered/added to the Eagle Factions storage.
      * @return a Set of {@link FactionPlayer} that were added to the Eagle Factions storage.
      */
     Set<FactionPlayer> getServerPlayers();

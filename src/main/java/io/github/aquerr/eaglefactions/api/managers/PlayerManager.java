@@ -82,7 +82,7 @@ public interface PlayerManager
      * Gets a set consists of players with admin mode.
      * @return set with players who have admin mode on.
      */
-    Set<UUID> getAdminModePlayers();
+    Set<ServerPlayer> getAdminModePlayers();
 
     /**
      * Sets player's last death location to warzone.

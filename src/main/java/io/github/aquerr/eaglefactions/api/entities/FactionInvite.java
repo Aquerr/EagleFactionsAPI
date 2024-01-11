@@ -1,10 +1,6 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import java.util.UUID;
-
-public interface FactionInvite extends AcceptableInvite
+public interface FactionInvite extends AcceptableInvite<Faction, FactionPlayer>
 {
-    String getSenderFaction();
 
-    UUID getInvitedPlayerUniqueId();
 }

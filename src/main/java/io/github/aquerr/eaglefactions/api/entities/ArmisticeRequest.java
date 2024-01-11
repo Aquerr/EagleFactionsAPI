@@ -1,8 +1,6 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-public interface ArmisticeRequest extends AcceptableInvite
+public interface ArmisticeRequest extends AcceptableInvite<Faction, Faction>
 {
-    String getSenderFaction();
 
-    String getInvitedFaction();
 }

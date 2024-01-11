@@ -17,7 +17,7 @@ import java.util.UUID;
  * To change faction data use {@link FactionLogic}
  * To get faction power use {@link PowerManager}
  */
-public interface Faction extends Comparable<Faction>
+public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
 {
     /**
      * Gets faction name.

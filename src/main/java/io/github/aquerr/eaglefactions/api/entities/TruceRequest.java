@@ -1,8 +1,5 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-public interface TruceRequest extends AcceptableInvite
+public interface TruceRequest extends AcceptableInvite<Faction, Faction>
 {
-    String getSenderFaction();
-
-    String getInvitedFaction();
 }

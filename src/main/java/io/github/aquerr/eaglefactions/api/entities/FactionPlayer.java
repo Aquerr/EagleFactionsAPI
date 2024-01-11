@@ -8,7 +8,7 @@ import java.util.UUID;
 /**
  * Represents a faction player.
  */
-public interface FactionPlayer
+public interface FactionPlayer extends Inviter, InviteAcceptor
 {
     /**
      * Gets last known player's name.
