@@ -1,29 +1,34 @@
 package io.github.aquerr.eaglefactions.api.managers;
 
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import io.github.aquerr.eaglefactions.api.entities.FactionMemberType;
+import io.github.aquerr.eaglefactions.api.entities.FactionPermission;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
+import io.github.aquerr.eaglefactions.api.entities.Rank;
+import io.github.aquerr.eaglefactions.api.entities.RelationType;
 import io.github.aquerr.eaglefactions.api.exception.PlayerNotInFactionException;
+import io.github.aquerr.eaglefactions.api.exception.RankAlreadyExistsException;
+import io.github.aquerr.eaglefactions.api.exception.RankLadderPositionOutOfRange;
+import io.github.aquerr.eaglefactions.api.exception.RankNotExistsException;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.spongepowered.api.entity.living.player.server.ServerPlayer;
 
 public interface RankManager
 {
-    /**
-     * Demotes a player to lower rank in a faction.
-     * @param player the player that issued demotion. Can be null if it is not the player that issued demotion e.g. console.
-     * @param targetPlayer the {@link FactionPlayer} that should be demoted.
-     * @return {@link FactionMemberType} that the player has been demoted to. Returns same rank if it has not been changed.
-     */
-    FactionMemberType demotePlayer(@Nullable ServerPlayer player, FactionPlayer targetPlayer) throws PlayerNotInFactionException;
+//    /**
+//     * Demotes a player to lower rank in a faction.
+//     * @param player the player that issued demotion. Can be null if it is not the player that issued demotion e.g. console.
+//     * @param targetPlayer the {@link FactionPlayer} that should be demoted.
+//     * @return {@link Rank} that the player has been demoted to. Returns same rank if it has not been changed.
+//     */
+//    Rank demotePlayer(@Nullable ServerPlayer player, FactionPlayer targetPlayer) throws PlayerNotInFactionException;
 
-    /**
-     * Promotes a player to higher rank in a faction.
-     * @param player the player that issued promotion. Can be null if it is not the player that issued promotion e.g. console.
-     * @param targetPlayer the {@link FactionPlayer} that should be promoted.
-     * @return {@link FactionMemberType} that the player has been promoted to. Returns same rank if it has not been changed.
-     */
-    FactionMemberType promotePlayer(@Nullable ServerPlayer player, FactionPlayer targetPlayer) throws PlayerNotInFactionException;
+//    /**
+//     * Promotes a player to higher rank in a faction.
+//     * @param player the player that issued promotion. Can be null if it is not the player that issued promotion e.g. console.
+//     * @param targetPlayer the {@link FactionPlayer} that should be promoted.
+//     * @return {@link Rank} that the player has been promoted to. Returns same rank if it has not been changed.
+//     */
+//    Rank promotePlayer(@Nullable ServerPlayer player, FactionPlayer targetPlayer) throws PlayerNotInFactionException;
 
     /**
      * Sets player as leader in the given faction.
@@ -32,4 +37,20 @@ public interface RankManager
      * @param faction the faction.
      */
     boolean setLeader(@Nullable FactionPlayer targetPlayer, final Faction faction);
+
+    void assignRank(ServerPlayer player, Faction faction, FactionPlayer targetPlayer, Rank rank) throws PlayerNotInFactionException, RankNotExistsException;
+
+    void createRank(Faction faction, String rankName, int ladderPosition) throws RankAlreadyExistsException, RankLadderPositionOutOfRange;
+
+    void deleteRank(Faction faction, Rank rank) throws RankNotExistsException;
+
+    void setRankPermission(Faction faction, Rank rank, FactionPermission permission) throws RankNotExistsException;
+
+    void setRankDisplayName(Faction faction, Rank rank, String displayName) throws RankNotExistsException;
+
+    void setRankPosition(Faction faction, Rank rank, int ladderPosition) throws RankLadderPositionOutOfRange, RankNotExistsException;
+
+    void setDefaultRank(Faction faction, Rank rank) throws RankNotExistsException;
+
+    void setRelationPermission(Faction faction, RelationType relationType, FactionPermission permission);
 }

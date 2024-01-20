@@ -37,4 +37,6 @@ public interface Configuration
 
     List<String> getListOfStrings(Collection<String> defaultValue, Object... nodePath);
     Set<String> getSetOfStrings(Collection<String> defaultValue, Object... nodePath);
+
+    <T> List<T> getGenericList(Class<T> clazz, Collection<T> defaultValue, Object... nodePath);
 }

@@ -1,8 +1,8 @@
 package io.github.aquerr.eaglefactions.api.events;
 
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import io.github.aquerr.eaglefactions.api.entities.FactionMemberType;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
+import io.github.aquerr.eaglefactions.api.entities.Rank;
 import org.spongepowered.api.entity.living.player.Player;
 
 /**
@@ -29,6 +29,6 @@ public interface FactionPromoteEvent extends FactionEvent
 
     interface Post extends FactionPromoteEvent
     {
-        FactionMemberType getPromotedToRank();
+        Rank getPromotedToRank();
     }
 }

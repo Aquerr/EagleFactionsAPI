@@ -8,8 +8,8 @@ import java.util.List;
 
 public class RequiredItemsNotFoundException extends Exception
 {
-    private final ItemStack missingItem;
-    private final List<ItemStack> allRequiredItems;
+    private final transient ItemStack missingItem;
+    private final transient List<ItemStack> allRequiredItems;
 
     public RequiredItemsNotFoundException(ItemStack missingItem, List<ItemStack> allRequiredItems)
     {
