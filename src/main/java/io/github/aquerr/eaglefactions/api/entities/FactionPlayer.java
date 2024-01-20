@@ -2,6 +2,7 @@ package io.github.aquerr.eaglefactions.api.entities;
 
 import org.spongepowered.api.entity.living.player.User;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -38,10 +39,10 @@ public interface FactionPlayer extends Inviter, InviteAcceptor
     }
 
     /**
-     * Gets player's faction member type (rank).
-     * @return the {@link FactionMemberType} of the player.
+     * Gets player's faction ranks.
+     * @return the {@link Rank}s of the player.
      */
-    FactionMemberType getFactionRole();
+    List<Rank> getFactionRanks();
 
     /**
      * Checks if the player is online.

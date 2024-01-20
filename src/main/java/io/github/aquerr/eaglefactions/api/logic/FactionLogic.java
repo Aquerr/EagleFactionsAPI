@@ -104,9 +104,9 @@ public interface FactionLogic
      * Sets player's faction
      * @param playerUUID the UUID of the player.
      * @param factionName the name of the faction.
-     * @param rank the rank that will be given to the player.
+     * @param rankName the rank that will be given to the player.
      */
-    void setFaction(UUID playerUUID, String factionName, FactionMemberType rank);
+    void setFaction(UUID playerUUID, String factionName, @Nullable String rankName);
 
     /**
      * Creates a truce between given factions.
@@ -284,14 +284,14 @@ public interface FactionLogic
      */
     boolean addClaimByItems(ServerPlayer player, Faction faction, UUID worldUUID, Vector3i chunkPosition);
 
-    /**
-     * Changes permission of the given {@link FactionPermType} for the given {@link FactionMemberType} in the faction.
-     * @param faction the faction that should be edited.
-     * @param factionMemberType the faction member type that should be affected.
-     * @param factionPermType the faction flag type that should be changed.
-     * @param flagValue new boolean value.
-     */
-    void togglePerm(Faction faction, FactionMemberType factionMemberType, FactionPermType factionPermType, Boolean flagValue);
+//    /**
+//     * Changes permission of the given {@link FactionPermission} for the given {@link FactionMemberType} in the faction.
+//     * @param faction the faction that should be edited.
+//     * @param factionMemberType the faction member type that should be affected.
+//     * @param factionPermission the faction flag type that should be changed.
+//     * @param flagValue new boolean value.
+//     */
+//    void togglePerm(Faction faction, FactionMemberType factionMemberType, FactionPermission factionPermission, Boolean flagValue);
 
     /**
      * Changes color of the faction tag.

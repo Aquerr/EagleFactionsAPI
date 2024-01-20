@@ -2,6 +2,7 @@ package io.github.aquerr.eaglefactions.api;
 
 import io.github.aquerr.eaglefactions.api.config.Configuration;
 import io.github.aquerr.eaglefactions.api.entities.Faction;
+import io.github.aquerr.eaglefactions.api.entities.FactionMember;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 import io.github.aquerr.eaglefactions.api.logic.AttackLogic;
 import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
@@ -111,7 +112,7 @@ public interface EagleFactions
      *
      * @param name the name of the faction.
      * @param tag the tag of the faction.
-     * @param leader the UUID of the faction's leader.
+     * @param leader the faction's leader.
      * @return new instance of {@link Faction.Builder}
      */
     Faction.Builder getBuilderForFaction(final String name, final TextComponent tag, final UUID leader);

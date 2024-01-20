@@ -6,7 +6,7 @@ import net.kyori.adventure.text.TextComponent;
 import org.spongepowered.math.vector.Vector3i;
 
 import java.time.Instant;
-import java.util.Map;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -53,9 +53,9 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
 
     /**
      * Gets faction leader.
-     * @return the {@link UUID} of the faction leader.
+     * @return the {@link FactionMember} of the faction leader.
      */
-    UUID getLeader();
+    FactionMember getLeader();
 
     /**
      * Gets faction truces.
@@ -81,35 +81,23 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
      */
     Set<String> getEnemies();
 
+    Optional<Rank> getRank(String rankName);
+
     /**
      * Gets faction members.
-     * @return the {@link Set} of unique members UUIDs.
+     * @return the {@link Set} of unique members.
      */
-    Set<UUID> getMembers();
+    Set<FactionMember> getMembers();
 
     /**
-     * Gets faction officers.
-     * @return the {@link Set} of unique officers UUIDs.
+     * Gets faction ranks with their in-faction permission.
      */
-    Set<UUID> getOfficers();
+    List<Rank> getRanks();
 
     /**
-     * Gets faction recruits.
-     * @return the {@link Set} of unique recruits UUIDs.
+     * Gets default rank in faction.
      */
-    Set<UUID> getRecruits();
-
-    /**
-     * Gets all players from the faction (recruits + members + officers + leader).
-     * @return the {@link Set} of unique players UUIDs.
-     */
-    Set<UUID> getPlayers();
-
-    /**
-     * Gets faction permissions.
-     * @return A key-value representation of faction permissions where {@link FactionMemberType} is the key and {@link Map< FactionPermType , Boolean>} is a value.
-     */
-    Map<FactionMemberType, Map<FactionPermType, Boolean>> getPerms();
+    Rank getDefaultRank();
 
     /**
      * Gets faction last online date.
@@ -124,12 +112,25 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
     Instant getCreatedDate();
 
     /**
-     * Checks what member the given player is.
-     * @param playerUUID the UUID of the player.
-     * @return faction member type for the given player or {@link FactionMemberType#NONE}
-     * if player is not a member of this faction and is not in alliance/truce with this faction.
+     * Gets permissions for given relation type.
+     * @param relationType the type of relation.
+     * @return the set containing the permissions that the given relation have inside this faction's territory.
      */
-    FactionMemberType getPlayerMemberType(final UUID playerUUID);
+    Set<FactionPermission> getRelationPermissions(RelationType relationType);
+
+    /**
+     * Gets ranks for the given player inside the faction.
+     * @param playerUUID the UUID of the player.
+     * @return ranks for the given player.
+     */
+    List<Rank> getPlayerRanks(UUID playerUUID);
+
+    /**
+     * Gets relation type between given faction and this faction.
+     * @param faction the other faction.
+     * @return the {@link RelationType}
+     */
+    RelationType getRelationTo(final Faction faction);
 
     /**
      * Gets faction chest.
@@ -236,43 +237,45 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
     //Builder
     interface Builder
     {
-        Builder setName(final String name);
+        Builder name(final String name);
 
-        Builder setTag(final TextComponent tag);
+        Builder tag(final TextComponent tag);
 
-        Builder setDescription(final String description);
+        Builder description(final String description);
 
-        Builder setMessageOfTheDay(final String messageOfTheDay);
+        Builder messageOfTheDay(final String messageOfTheDay);
 
-        Builder setLeader(final UUID leaderUUID);
+        Builder leader(final UUID leader);
 
-        Builder setRecruits(final Set<UUID> recruits);
+        Builder members(final Set<FactionMember> members);
 
-        Builder setMembers(final Set<UUID> members);
+        Builder alliances(final Set<String> alliances);
 
-        Builder setOfficers(final Set<UUID> officers);
+        Builder truces(final Set<String> truces);
 
-        Builder setAlliances(final Set<String> alliances);
+        Builder enemies(final Set<String> enemies);
 
-        Builder setTruces(final Set<String> truces);
+        Builder claims(final Set<Claim> claims);
 
-        Builder setEnemies(final Set<String> enemies);
+        Builder home(final FactionHome home);
 
-        Builder setClaims(final Set<Claim> claims);
+        Builder lastOnline(final Instant lastOnline);
 
-        Builder setHome(final FactionHome home);
+        Builder createdDate(final Instant createdDate);
 
-        Builder setLastOnline(final Instant lastOnline);
+        Builder ranks(List<Rank> ranks);
 
-        Builder setCreatedDate(final Instant createdDate);
+        Builder defaultRankName(String defaultRankName);
 
-        Builder setPerms(final Map<FactionMemberType, Map<FactionPermType, Boolean>> perms);
+        Builder alliancePermissions(Set<FactionPermission> permissions);
 
-        Builder setChest(final FactionChest chest);
+        Builder trucePermissions(Set<FactionPermission> permissions);
 
-        Builder setIsPublic(final boolean isPublic);
+        Builder chest(final FactionChest chest);
 
-        Builder setProtectionFlags(final Set<ProtectionFlag> protectionFlags);
+        Builder isPublic(final boolean isPublic);
+
+        Builder protectionFlags(final Set<ProtectionFlag> protectionFlags);
 
         Faction build();
     }

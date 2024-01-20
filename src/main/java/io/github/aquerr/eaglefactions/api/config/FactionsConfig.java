@@ -1,5 +1,8 @@
 package io.github.aquerr.eaglefactions.api.config;
 
+import io.github.aquerr.eaglefactions.api.entities.Rank;
+
+import java.util.List;
 import java.util.Map;
 
 public interface FactionsConfig extends ConfigReloadable
@@ -65,4 +68,8 @@ public interface FactionsConfig extends ConfigReloadable
 	boolean shouldShowDestroyedClaim();
 
     boolean shouldShowAttackInBossBar();
+
+	List<Rank> getDefaultRanks();
+
+	String getDefaultRankName();
 }
