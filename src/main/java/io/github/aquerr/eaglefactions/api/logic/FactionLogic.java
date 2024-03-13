@@ -1,6 +1,12 @@
 package io.github.aquerr.eaglefactions.api.logic;
 
-import io.github.aquerr.eaglefactions.api.entities.*;
+import io.github.aquerr.eaglefactions.api.entities.Claim;
+import io.github.aquerr.eaglefactions.api.entities.Faction;
+import io.github.aquerr.eaglefactions.api.entities.FactionChest;
+import io.github.aquerr.eaglefactions.api.entities.FactionHome;
+import io.github.aquerr.eaglefactions.api.entities.ProtectionFlagType;
+import io.github.aquerr.eaglefactions.api.managers.claim.ClaimContext;
+import io.github.aquerr.eaglefactions.api.managers.claim.ClaimStrategy;
 import io.github.aquerr.eaglefactions.api.managers.claim.provider.FactionMaxClaimCountProvider;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -8,7 +14,11 @@ import org.spongepowered.api.entity.living.player.server.ServerPlayer;
 import org.spongepowered.math.vector.Vector3i;
 
 import java.time.Instant;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * Interface for all faction related actions.
@@ -17,6 +27,18 @@ import java.util.*;
  */
 public interface FactionLogic
 {
+    /**
+     * Sets the claim strategy used by the plugin when a player uses Claim Command.
+     *
+     * If you would like to configure the claiming strategy from code then either use one of strategies located at
+     * {@link io.github.aquerr.eaglefactions.api.managers.claim} or implement your own.
+     *
+     * @see ClaimStrategy
+     *
+     * @param claimStrategy the claim strategy to use.
+     */
+    void setClaimStrategy(ClaimStrategy claimStrategy);
+
     /**
      * Add {@link FactionMaxClaimCountProvider} to providers used in calculating maximal claim count for faction in {@link FactionLogic#getFactionMaxClaims(Faction)}.
      * @param provider new provider
@@ -164,10 +186,12 @@ public interface FactionLogic
     void addClaims(Faction faction, List<Claim> claims);
 
     /**
-     * Directly adds a claim to the given faction.
+     * Directly adds a claim to the given faction without performing any extra logic.
      *
-     * Consider using {@link FactionLogic#startClaiming(ServerPlayer, Faction, UUID, Vector3i)}
+     * Consider using {@link FactionLogic#startClaiming(ClaimContext)}
      * if you want to preform the full claiming mechanism (claiming with delay, claiming by using items).
+     *
+     * @see FactionLogic#startClaiming(ClaimContext)
      *
      * @param faction the faction that should acquire claim.
      * @param claim the claim that should be added to the faction.
@@ -265,35 +289,6 @@ public interface FactionLogic
     void kickPlayer(UUID playerUUID, String factionName);
 
     /**
-     * Starts claiming for the given chunk.
-     * This method should be used instead
-     * @param player the player that is trying to claim a chunk.
-     * @param faction the faction that claim should be run for. This parameter will be removed in future API versions.
-     * @param worldUUID the world UUID of the given chunk
-     * @param chunkPosition the chunk location
-     */
-    void startClaiming(ServerPlayer player, Faction faction, UUID worldUUID, Vector3i chunkPosition);
-
-    /**
-     * Adds claim by using items that are specified in the config file.
-     * @param player the player that is trying to claim a chunk.
-     * @param faction the faction that claim should be run for. This parameter will be removed in future API versions.
-     * @param worldUUID the world UUID of the given chunk
-     * @param chunkPosition the chunk location
-     * @return
-     */
-    boolean addClaimByItems(ServerPlayer player, Faction faction, UUID worldUUID, Vector3i chunkPosition);
-
-//    /**
-//     * Changes permission of the given {@link FactionPermission} for the given {@link FactionMemberType} in the faction.
-//     * @param faction the faction that should be edited.
-//     * @param factionMemberType the faction member type that should be affected.
-//     * @param factionPermission the faction flag type that should be changed.
-//     * @param flagValue new boolean value.
-//     */
-//    void togglePerm(Faction faction, FactionMemberType factionMemberType, FactionPermission factionPermission, Boolean flagValue);
-
-    /**
      * Changes color of the faction tag.
      * @param faction the faction that should be affected.
      * @param textColor new {@link NamedTextColor} that should be used for the faction tag.
@@ -363,4 +358,19 @@ public interface FactionLogic
      * @param value new value
      */
     void setFactionProtectionFlag(Faction faction, ProtectionFlagType flagType, boolean value);
+
+    /**
+     * Starts claiming process.
+     *
+     * This method performs all logic related to choosing the correct claiming strategy (no cost, by items, by money, delayed claim, etc.).
+     * If you have configured claiming strategy {@link FactionLogic#setClaimStrategy(ClaimStrategy)} then, this is the method you would want to use to start claiming processes.
+     *
+     * At the end of execution, this method invokes the {@link FactionLogic#addClaim(Faction, Claim)} that actually adds the claim to faction.
+     *
+     * @see FactionLogic#addClaim(Faction, Claim)
+     * @see FactionLogic#setClaimStrategy(ClaimStrategy)
+     *
+     * @param claimContext the claim context.
+     */
+    void startClaiming(ClaimContext claimContext);
 }

@@ -21,13 +21,18 @@ public class RequiredItemsNotFoundException extends Exception
     @Override
     public String getMessage()
     {
-        return "Could not found required items in player's inventory. All required items: " + buildAllRequiredItemsMessage() + ". Missing item = " + missingItem;
+        return "Could not found required items in player's inventory. All required items: " + buildAllRequiredItemsMessage() + ". Missing item = " + asStringWithCount(missingItem);
     }
 
     public String buildAllRequiredItemsMessage()
     {
         return Arrays.toString(allRequiredItems.stream()
-                .map(itemStack -> itemStack.type().key(RegistryTypes.ITEM_TYPE).asString() + " x" + itemStack.quantity())
+                .map(this::asStringWithCount)
                 .toArray());
+    }
+
+    private String asStringWithCount(ItemStack itemStack)
+    {
+        return itemStack.type().key(RegistryTypes.ITEM_TYPE).asString() + " x" + itemStack.quantity();
     }
 }
