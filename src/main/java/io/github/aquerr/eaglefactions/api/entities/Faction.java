@@ -53,9 +53,10 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
 
     /**
      * Gets faction leader.
+     *
      * @return the {@link FactionMember} of the faction leader.
      */
-    FactionMember getLeader();
+    Optional<FactionMember> getLeader();
 
     /**
      * Gets faction truces.
@@ -80,6 +81,8 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
      * @return the {@link Set} of unique enemies.
      */
     Set<String> getEnemies();
+
+    Rank getLeaderRank();
 
     Optional<Rank> getRank(String rankName);
 
@@ -123,7 +126,7 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
      * @param playerUUID the UUID of the player.
      * @return ranks for the given player.
      */
-    List<Rank> getPlayerRanks(UUID playerUUID);
+    Set<Rank> getPlayerRanks(UUID playerUUID);
 
     /**
      * Gets relation type between given faction and this faction.
@@ -264,8 +267,6 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
         Builder createdDate(final Instant createdDate);
 
         Builder ranks(List<Rank> ranks);
-
-        Builder defaultRankName(String defaultRankName);
 
         Builder alliancePermissions(Set<FactionPermission> permissions);
 

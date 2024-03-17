@@ -112,10 +112,9 @@ public interface EagleFactions
      *
      * @param name the name of the faction.
      * @param tag the tag of the faction.
-     * @param leader the faction's leader.
      * @return new instance of {@link Faction.Builder}
      */
-    Faction.Builder getBuilderForFaction(final String name, final TextComponent tag, final UUID leader);
+    Faction.Builder getBuilderForFaction(final String name, final TextComponent tag);
 
     /**
      * Creates new faction player object.

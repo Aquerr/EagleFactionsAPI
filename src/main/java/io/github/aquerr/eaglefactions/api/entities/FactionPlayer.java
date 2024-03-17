@@ -4,6 +4,7 @@ import org.spongepowered.api.entity.living.player.User;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -42,7 +43,7 @@ public interface FactionPlayer extends Inviter, InviteAcceptor
      * Gets player's faction ranks.
      * @return the {@link Rank}s of the player.
      */
-    List<Rank> getFactionRanks();
+    Set<Rank> getFactionRanks();
 
     /**
      * Checks if the player is online.

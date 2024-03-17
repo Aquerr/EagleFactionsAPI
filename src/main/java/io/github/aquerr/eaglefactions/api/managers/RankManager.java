@@ -5,12 +5,12 @@ import io.github.aquerr.eaglefactions.api.entities.FactionPermission;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 import io.github.aquerr.eaglefactions.api.entities.Rank;
 import io.github.aquerr.eaglefactions.api.entities.RelationType;
+import io.github.aquerr.eaglefactions.api.exception.ActionNotAllowedException;
 import io.github.aquerr.eaglefactions.api.exception.PlayerNotInFactionException;
 import io.github.aquerr.eaglefactions.api.exception.RankAlreadyExistsException;
 import io.github.aquerr.eaglefactions.api.exception.RankLadderPositionOutOfRange;
 import io.github.aquerr.eaglefactions.api.exception.RankNotExistsException;
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.spongepowered.api.entity.living.player.server.ServerPlayer;
 
 public interface RankManager
 {
@@ -38,19 +38,19 @@ public interface RankManager
      */
     boolean setLeader(@Nullable FactionPlayer targetPlayer, final Faction faction);
 
-    void assignRank(ServerPlayer player, Faction faction, FactionPlayer targetPlayer, Rank rank) throws PlayerNotInFactionException, RankNotExistsException;
+    void assignRank(Faction faction, FactionPlayer targetPlayer, Rank rank) throws PlayerNotInFactionException, RankNotExistsException;
 
     void createRank(Faction faction, String rankName, int ladderPosition) throws RankAlreadyExistsException, RankLadderPositionOutOfRange;
 
-    void deleteRank(Faction faction, Rank rank) throws RankNotExistsException;
+    void deleteRank(Faction faction, Rank rank) throws RankNotExistsException, ActionNotAllowedException;
 
     void setRankPermission(Faction faction, Rank rank, FactionPermission permission) throws RankNotExistsException;
 
     void setRankDisplayName(Faction faction, Rank rank, String displayName) throws RankNotExistsException;
 
-    void setRankPosition(Faction faction, Rank rank, int ladderPosition) throws RankLadderPositionOutOfRange, RankNotExistsException;
-
-    void setDefaultRank(Faction faction, Rank rank) throws RankNotExistsException;
+    void setRankPosition(Faction faction, Rank rank, int ladderPosition) throws RankLadderPositionOutOfRange, RankNotExistsException, ActionNotAllowedException;
 
     void setRelationPermission(Faction faction, RelationType relationType, FactionPermission permission);
+
+    void setRankDisplayInChat(Faction faction, Rank rank, boolean displayInChat) throws RankNotExistsException;
 }
