@@ -70,6 +70,4 @@ public interface FactionsConfig extends ConfigReloadable
     boolean shouldShowAttackInBossBar();
 
 	List<Rank> getDefaultRanks();
-
-	String getDefaultRankName();
 }
