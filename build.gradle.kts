@@ -26,10 +26,10 @@ java {
 
 tasks.withType(Jar::class).configureEach {
     if(System.getenv("JENKINS_HOME") != null) {
-        archiveVersion.set(project.version.toString() + "_" + System.getenv("BUILD_NUMBER") + "-SNAPSHOT")
+        project.version = project.version.toString() + "_" + System.getenv("BUILD_NUMBER") + "-SNAPSHOT"
         println("Version => " + project.version.toString())
     } else {
-        archiveVersion.set(project.version.toString() + "-SNAPSHOT")
+        project.version = project.version.toString() + "-SNAPSHOT"
     }
 }
 
