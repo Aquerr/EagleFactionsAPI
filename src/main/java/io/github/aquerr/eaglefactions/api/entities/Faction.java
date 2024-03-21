@@ -47,9 +47,9 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
 
     /**
      * Gets faction home object which contains information about the world and position in that world.
-     * @return the faction home of the faction.
+     * @return the faction home of the faction or empty {@link Optional}.
      */
-    FactionHome getHome();
+    Optional<FactionHome> getHome();
 
     /**
      * Gets faction leader.
