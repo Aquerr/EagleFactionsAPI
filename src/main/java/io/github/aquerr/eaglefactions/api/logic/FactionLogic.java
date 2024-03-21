@@ -189,7 +189,7 @@ public interface FactionLogic
      * Directly adds a claim to the given faction without performing any extra logic.
      *
      * Consider using {@link FactionLogic#startClaiming(ClaimContext)}
-     * if you want to preform the full claiming mechanism (claiming with delay, claiming by using items).
+     * if you want to perform the full claiming mechanism (claiming with delay, claiming by using items).
      *
      * @see FactionLogic#startClaiming(ClaimContext)
      *
@@ -222,7 +222,7 @@ public interface FactionLogic
 
     /**
      * Checks if a {@link Claim} is connected to other claims in the given {@link Faction}
-     * @param faction the faction object to preform check against
+     * @param faction the faction object to perform check against
      * @param claimToCheck the claim that should be checked
      * @return <tt>true</tt> if chunk is connected to other claims or <tt>false</tt> if it is not.
      */

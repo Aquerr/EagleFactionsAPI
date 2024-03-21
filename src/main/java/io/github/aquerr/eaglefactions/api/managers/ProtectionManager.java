@@ -13,7 +13,7 @@ public interface ProtectionManager
     /**
      * Checks if a {@link User} can break the given {@link BlockSnapshot}
      * @param blockSnapshot that should be checked for block break.
-     * @param player who preformed block break.
+     * @param player who performed block break.
      * @param shouldNotify determines if user should be notified about not having access to break block.
      * @return <tt>true</tt> if player can break block or <tt>false</tt> if not
      */

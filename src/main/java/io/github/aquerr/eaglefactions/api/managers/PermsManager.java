@@ -50,7 +50,7 @@ public interface PermsManager
      * Checks if a player with the given UUID has permission for attacking enemy claims.
      * @param playerUUID the UUID of the player.
      * @param playerFaction player's faction.
-     * @return <tt>true</tt> if player can preform attack on enemy claims, <tt>false</tt> if not.
+     * @return <tt>true</tt> if player can perform attack on enemy claims, <tt>false</tt> if not.
      */
     boolean canAttack(final UUID playerUUID, final Faction playerFaction);
 
