@@ -26,6 +26,7 @@ java {
 
 tasks.withType(Jar::class).configureEach {
     if(System.getenv("JENKINS_HOME") != null) {
+        archiveBaseName.set("EagleFactionsAPI")
         project.version = project.version.toString() + "_" + System.getenv("BUILD_NUMBER") + "-SNAPSHOT"
         println("Version => " + project.version.toString())
     } else {
