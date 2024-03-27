@@ -14,22 +14,6 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 public interface RankManager
 {
-//    /**
-//     * Demotes a player to lower rank in a faction.
-//     * @param player the player that issued demotion. Can be null if it is not the player that issued demotion e.g. console.
-//     * @param targetPlayer the {@link FactionPlayer} that should be demoted.
-//     * @return {@link Rank} that the player has been demoted to. Returns same rank if it has not been changed.
-//     */
-//    Rank demotePlayer(@Nullable ServerPlayer player, FactionPlayer targetPlayer) throws PlayerNotInFactionException;
-
-//    /**
-//     * Promotes a player to higher rank in a faction.
-//     * @param player the player that issued promotion. Can be null if it is not the player that issued promotion e.g. console.
-//     * @param targetPlayer the {@link FactionPlayer} that should be promoted.
-//     * @return {@link Rank} that the player has been promoted to. Returns same rank if it has not been changed.
-//     */
-//    Rank promotePlayer(@Nullable ServerPlayer player, FactionPlayer targetPlayer) throws PlayerNotInFactionException;
-
     /**
      * Sets player as leader in the given faction.
      * The old leader is moved to officers.
