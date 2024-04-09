@@ -5,12 +5,11 @@ import io.github.aquerr.eaglefactions.api.entities.Faction;
 import io.github.aquerr.eaglefactions.api.entities.FactionChest;
 import io.github.aquerr.eaglefactions.api.entities.FactionHome;
 import io.github.aquerr.eaglefactions.api.entities.ProtectionFlagType;
-import io.github.aquerr.eaglefactions.api.managers.claim.ClaimContext;
-import io.github.aquerr.eaglefactions.api.managers.claim.ClaimStrategy;
 import io.github.aquerr.eaglefactions.api.managers.claim.provider.FactionMaxClaimCountProvider;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.spongepowered.api.entity.living.player.server.ServerPlayer;
+import org.spongepowered.api.world.server.ServerLocation;
 import org.spongepowered.math.vector.Vector3i;
 
 import java.time.Instant;
@@ -27,18 +26,6 @@ import java.util.UUID;
  */
 public interface FactionLogic
 {
-    /**
-     * Sets the claim strategy used by the plugin when a player uses Claim Command.
-     *
-     * If you would like to configure the claiming strategy from code then either use one of strategies located at
-     * {@link io.github.aquerr.eaglefactions.api.managers.claim} or implement your own.
-     *
-     * @see ClaimStrategy
-     *
-     * @param claimStrategy the claim strategy to use.
-     */
-    void setClaimStrategy(ClaimStrategy claimStrategy);
-
     /**
      * Add {@link FactionMaxClaimCountProvider} to providers used in calculating maximal claim count for faction in {@link FactionLogic#getFactionMaxClaims(Faction)}.
      * @param provider new provider
@@ -100,12 +87,6 @@ public interface FactionLogic
      * @return {@link Map} instance where keys are factions names and values are factions objects.
      */
     Map<String, Faction> getFactions();
-
-    /**
-     * Adds/Creates a new faction to the cache and storage.
-     * @param faction that should be added to the storage.
-     */
-    void addFaction(Faction faction);
 
     /**
      * Disbands/Deletes a faction.
@@ -188,10 +169,10 @@ public interface FactionLogic
     /**
      * Directly adds a claim to the given faction without performing any extra logic.
      *
-     * Consider using {@link FactionLogic#startClaiming(ClaimContext)}
+     * Consider using {@link io.github.aquerr.eaglefactions.api.managers.claim.ClaimManager#claim(ServerPlayer, Faction, ServerLocation)}
      * if you want to perform the full claiming mechanism (claiming with delay, claiming by using items).
      *
-     * @see FactionLogic#startClaiming(ClaimContext)
+     * @see io.github.aquerr.eaglefactions.api.managers.claim.ClaimManager#claim(ServerPlayer, Faction, ServerLocation)
      *
      * @param faction the faction that should acquire claim.
      * @param claim the claim that should be added to the faction.
@@ -358,19 +339,4 @@ public interface FactionLogic
      * @param value new value
      */
     void setFactionProtectionFlag(Faction faction, ProtectionFlagType flagType, boolean value);
-
-    /**
-     * Starts claiming process.
-     *
-     * This method performs all logic related to choosing the correct claiming strategy (no cost, by items, by money, delayed claim, etc.).
-     * If you have configured claiming strategy {@link FactionLogic#setClaimStrategy(ClaimStrategy)} then, this is the method you would want to use to start claiming processes.
-     *
-     * At the end of execution, this method invokes the {@link FactionLogic#addClaim(Faction, Claim)} that actually adds the claim to faction.
-     *
-     * @see FactionLogic#addClaim(Faction, Claim)
-     * @see FactionLogic#setClaimStrategy(ClaimStrategy)
-     *
-     * @param claimContext the claim context.
-     */
-    void startClaiming(ClaimContext claimContext);
 }

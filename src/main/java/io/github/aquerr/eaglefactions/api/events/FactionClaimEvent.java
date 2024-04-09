@@ -1,7 +1,7 @@
 package io.github.aquerr.eaglefactions.api.events;
 
 import org.spongepowered.api.entity.living.player.Player;
-import org.spongepowered.api.world.World;
+import org.spongepowered.api.world.server.ServerWorld;
 import org.spongepowered.math.vector.Vector3i;
 
 /**
@@ -11,9 +11,9 @@ public interface FactionClaimEvent extends FactionEvent
 {
     /**
      * Gets the world in which the claim event was triggered in.
-     * @return {@link World} object.
+     * @return {@link ServerWorld} object.
      */
-    World getWorld();
+    ServerWorld getWorld();
 
     /**
      * Gets the chunk position of the claim where the claim event was triggered in.
@@ -26,11 +26,6 @@ public interface FactionClaimEvent extends FactionEvent
 
     interface Claim extends FactionClaimEvent
     {
-        /**
-         * @return <tt>true</tt> if territory is being claimed by items or <tt>false</tt> if it is not
-         */
-        boolean isClaimedByItems();
-
         interface Pre extends Claim {}
 
         interface Post extends Claim {}

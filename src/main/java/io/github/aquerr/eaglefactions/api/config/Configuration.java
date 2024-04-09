@@ -2,7 +2,6 @@ package io.github.aquerr.eaglefactions.api.config;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -25,6 +24,8 @@ public interface Configuration
 
     VersionConfig getVersionConfig();
 
+    LangConfig getLangConfig();
+
     void save();
 
     void reloadConfiguration() throws IOException;
@@ -35,8 +36,10 @@ public interface Configuration
     boolean getBoolean(boolean defaultValue, Object... nodePath);
     String getString(String defaultValue, Object... nodePath);
 
-    List<String> getListOfStrings(Collection<String> defaultValue, Object... nodePath);
-    Set<String> getSetOfStrings(Collection<String> defaultValue, Object... nodePath);
+    List<String> getListOfStrings(List<String> defaultValue, Object... nodePath);
+    Set<String> getSetOfStrings(Set<String> defaultValue, Object... nodePath);
 
-    <T> List<T> getGenericList(Class<T> clazz, Collection<T> defaultValue, Object... nodePath);
+    <T> List<T> getGenericList(Class<T> clazz, List<T> defaultValue, Object... nodePath);
+
+    <T> T getGenericType(Class<T> clazz, T defaultValue, Object... nodePath);
 }

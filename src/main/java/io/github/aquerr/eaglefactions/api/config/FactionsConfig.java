@@ -1,14 +1,14 @@
 package io.github.aquerr.eaglefactions.api.config;
 
 import io.github.aquerr.eaglefactions.api.entities.Rank;
+import org.spongepowered.configurate.objectmapping.ConfigSerializable;
+import org.spongepowered.configurate.objectmapping.meta.Setting;
 
 import java.util.List;
 import java.util.Map;
 
 public interface FactionsConfig extends ConfigReloadable
 {
-	String getLanguageTag();
-
 	int getMaxNameLength();
 
 	int getMinNameLength();
@@ -35,17 +35,9 @@ public interface FactionsConfig extends ConfigReloadable
 
 	int getClaimDelay();
 
-	boolean shouldClaimByItems();
-
-	Map<String, Integer> getRequiredItemsToClaim();
-
 	boolean canUseFactionChest();
 
 	boolean requireConnectedClaims();
-
-	boolean getFactionCreationByItems();
-
-	Map<String, Integer> getRequiredItemsToCreateFaction();
 
 	boolean getBlockEnteringFactions();
 
@@ -70,4 +62,33 @@ public interface FactionsConfig extends ConfigReloadable
     boolean shouldShowAttackInBossBar();
 
 	List<Rank> getDefaultRanks();
+
+	List<CostConfigDefinition> getFactionCreationOperationCostDefinitions();
+
+	List<CostConfigDefinition> getClaimOperationCostDefinitions();
+
+	@ConfigSerializable
+	class CostConfigDefinition
+	{
+		@Setting("type")
+		private String type;
+		@Setting("value")
+		private Object value;
+
+		public CostConfigDefinition(String type, Object value)
+		{
+			this.type = type;
+			this.value = value;
+		}
+
+		public String getType()
+		{
+			return type;
+		}
+
+		public Object getValue()
+		{
+			return value;
+		}
+	}
 }

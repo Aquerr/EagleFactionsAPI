@@ -2,12 +2,14 @@ package io.github.aquerr.eaglefactions.api;
 
 import io.github.aquerr.eaglefactions.api.config.Configuration;
 import io.github.aquerr.eaglefactions.api.entities.Faction;
-import io.github.aquerr.eaglefactions.api.entities.FactionMember;
 import io.github.aquerr.eaglefactions.api.entities.FactionPlayer;
 import io.github.aquerr.eaglefactions.api.logic.AttackLogic;
 import io.github.aquerr.eaglefactions.api.logic.FactionLogic;
 import io.github.aquerr.eaglefactions.api.logic.PVPLogger;
+import io.github.aquerr.eaglefactions.api.logic.cost.OperationCostFactory;
 import io.github.aquerr.eaglefactions.api.managers.*;
+import io.github.aquerr.eaglefactions.api.managers.claim.ClaimManager;
+import io.github.aquerr.eaglefactions.api.managers.creation.FactionCreationManager;
 import io.github.aquerr.eaglefactions.api.messaging.MessageService;
 import io.github.aquerr.eaglefactions.api.messaging.placeholder.PlaceholderService;
 import io.github.aquerr.eaglefactions.api.storage.StorageManager;
@@ -100,10 +102,25 @@ public interface EagleFactions
      */
     PlaceholderService getPlaceholderService();
 
-    /***
+    /**
      * @return instance of {@link MessageService}
      */
     MessageService getMessageService();
+
+    /**
+     * @return instance of {@link FactionCreationManager}
+     */
+    FactionCreationManager getFactionCreationManager();
+
+    /**
+     * @return instance of {@link ClaimManager}
+     */
+    ClaimManager getClaimManager();
+
+    /**
+     * @return instance of {@link OperationCostFactory}
+     */
+    OperationCostFactory getOperationCostFactory();
 
     /**
      * Gets instance of {@link Faction.Builder} used to create a faction object.
