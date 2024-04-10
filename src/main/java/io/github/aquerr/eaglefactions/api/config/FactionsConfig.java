@@ -1,6 +1,7 @@
 package io.github.aquerr.eaglefactions.api.config;
 
 import io.github.aquerr.eaglefactions.api.entities.Rank;
+import org.spongepowered.configurate.ConfigurationNode;
 import org.spongepowered.configurate.objectmapping.ConfigSerializable;
 import org.spongepowered.configurate.objectmapping.meta.Setting;
 
@@ -73,12 +74,11 @@ public interface FactionsConfig extends ConfigReloadable
 		@Setting("type")
 		private String type;
 		@Setting("value")
-		private Object value;
+		private ConfigurationNode value;
 
-		public CostConfigDefinition(String type, Object value)
+		public CostConfigDefinition()
 		{
-			this.type = type;
-			this.value = value;
+
 		}
 
 		public String getType()
@@ -86,9 +86,19 @@ public interface FactionsConfig extends ConfigReloadable
 			return type;
 		}
 
-		public Object getValue()
+		public ConfigurationNode getValue()
 		{
 			return value;
+		}
+
+		public void setType(String type)
+		{
+			this.type = type;
+		}
+
+		public void setValue(ConfigurationNode value)
+		{
+			this.value = value;
 		}
 	}
 }
