@@ -17,5 +17,17 @@ import org.spongepowered.api.entity.living.player.server.ServerPlayer;
  */
 public interface OperationCost
 {
+    /**
+     * Pays for operation.
+     *
+     * @param serverPlayer the player
+     * @throws CostNotSatisfiedException when player cannot satisfy the payment
+     */
     void pay(ServerPlayer serverPlayer) throws CostNotSatisfiedException;
+
+    /**
+     * Rollbacks the payment.
+     * @param serverPlayer the player
+     */
+    void rollBack(ServerPlayer serverPlayer);
 }
