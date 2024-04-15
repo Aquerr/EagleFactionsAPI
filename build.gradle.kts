@@ -1,7 +1,7 @@
 import java.io.ByteArrayOutputStream
 
 plugins {
-    java
+    `java-library`
 }
 
 val eaglefactionsApiVersion = findProperty("eaglefactions-api.version") as String
@@ -20,8 +20,7 @@ dependencies {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    toolchain.languageVersion.set(JavaLanguageVersion.of(JavaVersion.VERSION_17.majorVersion))
 }
 
 tasks.withType(Jar::class).configureEach {
