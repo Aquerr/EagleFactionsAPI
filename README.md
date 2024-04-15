@@ -1,4 +1,4 @@
-![alt text](http://i.imgur.com/Lh7W1Mo.png)
+![alt text](https://i.imgur.com/YNvnziY.png)
 
 # Eagle Factions API
 
@@ -30,8 +30,8 @@ API creator: [Aquerr](https://github.com/Aquerr)
 
 ## License
 
-[MIT](https://github.com/Aquerr/EagleFactionsAPI/blob/master/LICENSE)
+[MIT](https://github.com/Aquerr/EagleFactionsAPI/blob/api-8/LICENSE)
 
 ## Donation
 
-Creation of this plugin is really a time consuming task. If you would like to support and motivate me to further work then you can star this repo or send me some cookies through [PayPal](https://www.paypal.me/aquerr).
+Creation of this plugin is really a time consuming task. If you would like to support and motivate me to further work then you can star this repo or send me some cookies through [PayPal](https://paypal.me/aquerrnerdi).
