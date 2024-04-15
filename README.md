@@ -30,7 +30,7 @@ API creator: [Aquerr](https://github.com/Aquerr)
 
 ## License
 
-[MIT](https://github.com/Aquerr/EagleFactionsAPI/blob/api-8/LICENSE)
+[MIT](https://github.com/Aquerr/EagleFactionsAPI/blob/master/LICENSE)
 
 ## Donation
 
