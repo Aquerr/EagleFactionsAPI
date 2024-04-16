@@ -17,7 +17,7 @@ public interface ProtectionFlags
      * Gets value for given flag type.
      *
      * @param type the type
-     * @return <tt>true</tt> if flag is set to true, <tt>false</tt> if flag is set to false OR it does not exist.
+     * @return true if flag is set to true, false if flag is set to false OR it does not exist.
      */
     boolean getValueForFlag(ProtectionFlagType type);
 

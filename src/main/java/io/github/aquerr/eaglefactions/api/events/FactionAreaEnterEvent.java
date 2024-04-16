@@ -27,7 +27,7 @@ public interface FactionAreaEnterEvent extends Event, Cancellable
 	 *
 	 * @return Faction or Optional.empty if left claim belongs to wilderness.
 	 *
-	 * Clients can cancel this event by sending <tt>true</tt> to {@link Cancellable#setCancelled(boolean)} method.
+	 * Clients can cancel this event by sending true to {@link Cancellable#setCancelled(boolean)} method.
 	 */
 	Optional<Faction> getEnteredFaction();
 
@@ -36,7 +36,7 @@ public interface FactionAreaEnterEvent extends Event, Cancellable
 	 *
 	 * @return Faction or Optional.empty if entered claim belongs to wilderness.
 	 *
-	 * Clients can cancel this event by sending <tt>true</tt> to {@link Cancellable#setCancelled(boolean)} method.
+	 * Clients can cancel this event by sending true to {@link Cancellable#setCancelled(boolean)} method.
 	 */
 	Optional<Faction> getLeftFaction();
 

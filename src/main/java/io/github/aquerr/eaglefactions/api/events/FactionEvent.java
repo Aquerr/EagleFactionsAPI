@@ -18,7 +18,8 @@ public interface FactionEvent extends Event, Cancellable
 
     /**
      * Gets faction that this event is related to.
-     * Clients can cancel this event by sending <tt>true</tt> to {@link Cancellable#setCancelled(boolean)} method.
+     * Clients can cancel this event by sending true to {@link Cancellable#setCancelled(boolean)} method.
+     * @return the faction
      */
     Faction getFaction();
 }

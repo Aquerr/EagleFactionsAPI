@@ -35,7 +35,7 @@ public interface ClaimManager
      * @param player the player
      * @param faction the faction
      * @param serverLocation the location
-     * @throws CouldNotClaimException
+     * @throws CouldNotClaimException when could not claim given location
      */
     void claim(ServerPlayer player, Faction faction, ServerLocation serverLocation) throws CouldNotClaimException;
 
@@ -44,7 +44,7 @@ public interface ClaimManager
      * @param player the player
      * @param faction the faction
      * @param serverLocation the location
-     * @throws CouldNotClaimException
+     * @throws CouldNotClaimException when could not claim given location
      */
     void claim(ServerPlayer player,
                Faction faction,

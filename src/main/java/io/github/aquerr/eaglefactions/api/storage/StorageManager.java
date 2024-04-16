@@ -20,13 +20,13 @@ public interface StorageManager
     /**
      * Deletes faction from the storage and cache.
      * @param factionName name of the faction that should be deleted.
-     * @return <tt>true</tt> if operation succeed or <tt>false</tt> if not
+     * @return true if operation succeed or false if not
      */
     boolean deleteFaction(final String factionName);
 
     /**
      * Gets a faction from the storage.
-     * If there is no faction with given faction name then <tt>null</tt> is returned.
+     * If there is no faction with given faction name then null is returned.
      * @param factionName the name of the faction to get
      * @return faction or null if faction does not exist
      */
@@ -47,7 +47,7 @@ public interface StorageManager
     /**
      * Adds a player to the storage.
      * @param factionPlayer the faction player.
-     * @return <tt>true</tt> if operation succeed or <tt>false</tt> if not.
+     * @return true if operation succeed or false if not.
      */
     boolean savePlayer(FactionPlayer factionPlayer);
 
@@ -63,14 +63,14 @@ public interface StorageManager
      * Creates a backup of Eagle Factions data.
      * By default, backups are placed in /config/eaglefactions/backups.
      *
-     * @return <tt>backup path</tt> if operation succeed or <tt>null</tt> if not
+     * @return backup path if operation succeed or null if not
      */
     Path createBackup();
 
     /**
      * Restores Eagle Factions data from the given backup.
      * @param backupName the name of the backup file.
-     * @return <tt>true</tt> if operation succeed or <tt>false</tt> if not
+     * @return true if operation succeed or false if not
      */
     boolean restoreBackup(String backupName);
 

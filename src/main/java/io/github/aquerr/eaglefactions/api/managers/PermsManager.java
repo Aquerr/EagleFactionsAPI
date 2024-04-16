@@ -14,7 +14,7 @@ public interface PermsManager
      * @param playerFaction player's faction.
      * @param chunkFaction faction at chunk.
      * @param claim the claim that belongs to the faction at the given chunk.
-     * @return <tt>true</tt> if player can interact, <tt>false</tt> if not.
+     * @return true if player can interact, false if not.
      */
     boolean canBreakBlock(final UUID playerUUID, final Faction playerFaction, final Faction chunkFaction, final Claim claim);
 
@@ -24,7 +24,7 @@ public interface PermsManager
      * @param playerFaction player's faction.
      * @param chunkFaction faction at chunk.
      * @param claim the claim that belongs to the faction at the given chunk.
-     * @return <tt>true</tt> if player can interact, <tt>false</tt> if not.
+     * @return true if player can interact, false if not.
      */
     boolean canPlaceBlock(final UUID playerUUID, final Faction playerFaction, final Faction chunkFaction, final Claim claim);
 
@@ -34,7 +34,7 @@ public interface PermsManager
      * @param playerFaction player's faction.
      * @param chunkFaction faction at chunk.
      * @param claim the claim that belongs to the faction at the given chunk.
-     * @return <tt>true</tt> if player can interact, <tt>false</tt> if not.
+     * @return true if player can interact, false if not.
      */
     boolean canInteract(final UUID playerUUID, final Faction playerFaction, final Faction chunkFaction, final Claim claim);
 
@@ -42,7 +42,7 @@ public interface PermsManager
      * Checks if a player with the given UUID has permission for claiming territories.
      * @param playerUUID the UUID of the player.
      * @param playerFaction player's faction.
-     * @return <tt>true</tt> if player can claim territories, <tt>false</tt> if not.
+     * @return true if player can claim territories, false if not.
      */
     boolean canClaim(final UUID playerUUID, final Faction playerFaction);
 
@@ -50,7 +50,7 @@ public interface PermsManager
      * Checks if a player with the given UUID has permission for attacking enemy claims.
      * @param playerUUID the UUID of the player.
      * @param playerFaction player's faction.
-     * @return <tt>true</tt> if player can perform attack on enemy claims, <tt>false</tt> if not.
+     * @return true if player can perform attack on enemy claims, false if not.
      */
     boolean canAttack(final UUID playerUUID, final Faction playerFaction);
 
@@ -58,7 +58,7 @@ public interface PermsManager
      * Checks if a player with the given UUID has permission for inviting others to faction.
      * @param playerUUID the UUID of the player.
      * @param playerFaction player's faction.
-     * @return <tt>true</tt> if player can invite others, <tt>false</tt> if not.
+     * @return true if player can invite others, false if not.
      */
     boolean canInvite(final UUID playerUUID, final Faction playerFaction);
 
@@ -66,7 +66,7 @@ public interface PermsManager
      * Checks if a player with the given UUID has permission for opening faction's chest.
      * @param playerUUID the UUID of the player.
      * @param playerFaction player's faction.
-     * @return <tt>true</tt> if player can open faction's chest, <tt>false</tt> if not.
+     * @return true if player can open faction's chest, false if not.
      */
     boolean canUseChest(final UUID playerUUID, final Faction playerFaction);
 
@@ -74,7 +74,8 @@ public interface PermsManager
      * Checks if the given player has given permission inside given faction.
      * @param playerUUID the player UUID
      * @param playerFaction the faction
-     * @return <tt>true</tt> if player has given permission, <tt>false</tt> if not.
+     * @param permission the permission to check
+     * @return true if player has given permission, false if not.
      */
     boolean hasPermission(final UUID playerUUID, final Faction playerFaction, final FactionPermission permission);
 }

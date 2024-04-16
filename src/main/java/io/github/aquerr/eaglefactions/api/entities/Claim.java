@@ -2,7 +2,10 @@ package io.github.aquerr.eaglefactions.api.entities;
 
 import org.spongepowered.math.vector.Vector3i;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Objects;
+import java.util.Set;
+import java.util.UUID;
 
 public class Claim
 {
@@ -14,7 +17,7 @@ public class Claim
 
     public Claim(UUID worldUUID, Vector3i chunkPosition)
     {
-        this(worldUUID, chunkPosition, Collections.EMPTY_SET, true);
+        this(worldUUID, chunkPosition, Collections.emptySet(), true);
     }
 
     public Claim(UUID worldUUID, Vector3i chunkPosition, final Set<UUID> owners, final boolean accessibleByFaction)

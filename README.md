@@ -37,8 +37,8 @@ Thanks to JetBrains for their IDE
 
 ## License
 
-[MIT](https://github.com/Aquerr/EagleFactionsAPI/blob/master/LICENSE)
+[MIT](https://github.com/Aquerr/EagleFactionsAPI/blob/api-10/LICENSE)
 
 ## Donation
 
-Creation of this plugin is really a time consuming task. If you would like to support and motivate me to further work then you can star this repo or send me some cookies through [PayPal](https://paypal.me/aquerrnerdi).
+Creation of this plugin is really a time-consuming task. If you would like to support and motivate me to further work then you can star this repo or send me some cookies through [PayPal](https://paypal.me/aquerrnerdi).

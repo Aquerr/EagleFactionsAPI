@@ -82,8 +82,18 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
      */
     Set<String> getEnemies();
 
+    /**
+     * Gets leader rank.
+     *
+     * @return the leader rank.
+     */
     Rank getLeaderRank();
 
+    /**
+     * Gets the rank with given rank from the faction.
+     * @param rankName the rank name
+     * @return Optional containing the rank, else Optional.empty()
+     */
     Optional<Rank> getRank(String rankName);
 
     /**
@@ -94,11 +104,15 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
 
     /**
      * Gets faction ranks with their in-faction permission.
+     *
+     * @return the list of ranks
      */
     List<Rank> getRanks();
 
     /**
      * Gets default rank in faction.
+     *
+     * @return the default rank
      */
     Rank getDefaultRank();
 
@@ -143,7 +157,7 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
 
     /**
      * Checks if this faction is public.
-     * @return <tt>true</tt> if faction is public, <tt>false</tt> if not.
+     * @return true if faction is public, false if not.
      */
     boolean isPublic();
 
@@ -151,7 +165,7 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
      * Gets value for given flag type.
      *
      * @param type the type
-     * @return <tt>true</tt> if flag is set to true, <tt>false</tt> if flag is set to false OR it does not exist.
+     * @return true if flag is set to true, false if flag is set to false OR it does not exist.
      */
     boolean getProtectionFlagValue(ProtectionFlagType type);
 
@@ -167,13 +181,13 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
     /**
      * Checks if the given player UUID exists in that faction.
      * @param playerUUID the UUID of the player.
-     * @return <tt>true</tt> if player exists, <tt>false</tt> if not.
+     * @return true if player exists, false if not.
      */
     boolean containsPlayer(final UUID playerUUID);
 
     /**
      * Checks if this faction is SafeZone.
-     * @return <tt>true<tt/> if it is SafeZone, <tt>false</tt>> if not.
+     * @return true if it is SafeZone, false if not.
      */
     default boolean isSafeZone()
     {
@@ -182,7 +196,7 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
 
     /**
      * Checks if this faction is WarZone.
-     * @return <tt>true<tt/> if it is WarZone, <tt>false</tt>> if not.
+     * @return true if it is WarZone, false if not.
      */
     default boolean isWarZone()
     {
@@ -192,7 +206,7 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
     /**
      * Checks if the given faction is in alliance with this faction.
      * @param faction the faction that will be checked.
-     * @return <tt>true</tt> if faction is an ally, <tt>false</tt> if not.
+     * @return true if faction is an ally, false if not.
      */
     default boolean isAlly(final Faction faction)
     {
@@ -202,7 +216,7 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
     /**
      * Checks if the given faction is in truce with this faction.
      * @param faction the faction that will be checked.
-     * @return <tt>true</tt> if faction is in truce, <tt>false</tt> if not.
+     * @return true if faction is in truce, false if not.
      */
     default boolean isTruce(final Faction faction)
     {
@@ -212,7 +226,7 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
     /**
      * Checks if the given faction is an enemy to this faction.
      * @param faction the faction that will be checked.
-     * @return <tt>true</tt> if faction is an enemy, <tt>false</tt> if not.
+     * @return true if faction is an enemy, false if not.
      */
     default boolean isEnemy(final Faction faction)
     {

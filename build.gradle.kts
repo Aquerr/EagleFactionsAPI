@@ -2,13 +2,15 @@ import java.io.ByteArrayOutputStream
 
 plugins {
     `java-library`
+    `maven-publish`
 }
 
 val eaglefactionsApiVersion = findProperty("eaglefactions-api.version") as String
 val spongeApiVersion = findProperty("sponge-api.version") as String
+val finalVersion = "$eaglefactionsApiVersion-API-$spongeApiVersion"
 
 group = "io.github.aquerr"
-version = "$eaglefactionsApiVersion-API-$spongeApiVersion"
+version = finalVersion
 
 repositories {
     mavenCentral()
@@ -21,15 +23,18 @@ dependencies {
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(JavaVersion.VERSION_17.majorVersion))
+
+    withSourcesJar()
+    withJavadocJar()
 }
 
-tasks.withType(Jar::class).configureEach {
+tasks.jar {
+    archiveBaseName.set("EagleFactionsAPI")
     if(System.getenv("JENKINS_HOME") != null) {
-        archiveBaseName.set("EagleFactionsAPI")
-        project.version = project.version.toString() + "_" + System.getenv("BUILD_NUMBER") + "-SNAPSHOT"
+        project.version = finalVersion + "_" + System.getenv("BUILD_NUMBER") + "-SNAPSHOT"
         println("Version => " + project.version.toString())
     } else {
-        project.version = project.version.toString() + "-SNAPSHOT"
+        project.version = "$finalVersion-SNAPSHOT"
     }
 }
 
@@ -72,6 +77,43 @@ tasks.register("publishBuildOnDiscord") {
 
             exec {
                 commandLine("java", "-jar", ".." + File.separator + "jenkinsdiscordbot-1.0.jar", "EagleFactionsAPI", jarFiles[0], lastCommitDescription)
+            }
+        }
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+
+            from(components["java"])
+
+            pom {
+                name.set("EagleFactionsAPI")
+                artifactId = "eaglefactionsapi"
+                description.set(project.description)
+                url.set("https://github.com/Aquerr/EagleFactionsAPI")
+
+                licenses {
+                    license {
+                        name.set("MIT")
+                        url.set("https://github.com/Aquerr/EagleFactionsAPI/blob/api-8/LICENSE")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("Aquerr")
+                        name.set("Bartłomiej Stępień")
+                        url.set("https://github.com/Aquerr")
+                    }
+                }
+
+                scm {
+                    connection.set("scm:git:git://github.com/Aquerr/EagleFactionsAPI.git")
+                    developerConnection.set("scm:git:ssh://github.com/Aquerr/EagleFactionsAPI.git")
+                    url.set("https://github.com/Aquerr/EagleFactionsAPI")
+                }
             }
         }
     }

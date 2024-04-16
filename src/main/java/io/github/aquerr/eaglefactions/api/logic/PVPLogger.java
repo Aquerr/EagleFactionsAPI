@@ -9,7 +9,7 @@ public interface PVPLogger
 {
     /**
      * Checks if {@link PVPLogger} is active or not.
-     * @return <tt>true</tt> if PVPLogger is active, <tt>false</tt> if not
+     * @return true if PVPLogger is active, false if not
      */
     boolean isActive();
 
@@ -24,8 +24,8 @@ public interface PVPLogger
      * Checks if a command should be blocked by PVPLogger if a player is blocked.
      * @param player the player that should be checked against PVPLogger.
      * @param command the command that should be checked by PVPLogger.
-     * @return <tt>true</tt> if command player is currently blocked and the given command should be blocked.
-     * <tt>false</tt> if the player is not currently blocked or a command should not be blocked.
+     * @return true if command player is currently blocked and the given command should be blocked.
+     * false if the player is not currently blocked or a command should not be blocked.
      */
     boolean shouldBlockCommand(final ServerPlayer player, final String command);
 
@@ -40,7 +40,7 @@ public interface PVPLogger
     /**
      * Checks if player is being blocked by PVPLogger.
      * @param player the player that should be checked.
-     * @return <tt>true</tt> if player is being blocked, <tt>false</tt> if not.
+     * @return true if player is being blocked, false if not.
      */
     boolean isPlayerBlocked(final ServerPlayer player);
 

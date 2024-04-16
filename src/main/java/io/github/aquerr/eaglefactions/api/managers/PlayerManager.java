@@ -14,7 +14,7 @@ public interface PlayerManager
      * Adds new player to the cache and storage.
      * @param playerUUID the uuid of the player.
      * @param name the name of the player.
-     * @return <tt>true</tt> if operation succeed or <tt>false</tt> if not.
+     * @return true if operation succeed or false if not.
      */
     boolean addPlayer(UUID playerUUID, String name);
 
@@ -29,7 +29,7 @@ public interface PlayerManager
      * Saves/persists the faction player.
      *
      * @param factionPlayer the faction player.
-     * @return <tt>true</tt> if operation succeed or <tt>false</tt> if not.
+     * @return true if operation succeed or false if not.
      */
     boolean savePlayer(final FactionPlayer factionPlayer);
 
@@ -45,7 +45,7 @@ public interface PlayerManager
      *  Checks if a player with the given player uuid is currently online.
      *
      * @param playerUUID the UUID of hte player.
-     * @return <tt>true</tt> if player is online, <tt>false</tt> if not.
+     * @return true if player is online, false if not.
      */
     boolean isPlayerOnline(UUID playerUUID);
 
@@ -67,14 +67,14 @@ public interface PlayerManager
     /**
      * Activates factions admin mode for the given player.
      * @param player the player admin mode should be activated for.
-     * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
+     * @return true if operation succeeded, false if not.
      */
     boolean activateAdminMode(final User player);
 
     /**
      * Deactivates factions admin mode for the given player.
      * @param player the player admin mode should be deactivated for.
-     * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
+     * @return true if operation succeeded, false if not.
      */
     boolean deactivateAdminMode(final User player);
 
