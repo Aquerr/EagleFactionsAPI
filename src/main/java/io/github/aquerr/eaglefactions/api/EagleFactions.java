@@ -43,7 +43,7 @@ public interface EagleFactions
      * Gets Eagle Factions resource file.
      *
      * @param fileName to get from resources
-     * @return <tt>URI</tt> object of that file or <tt>null</tt> if file could not be found.
+     * @return {@link URI} object of that file or null if file could not be found.
      */
     URI getResource(final String fileName);
 

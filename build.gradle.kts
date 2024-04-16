@@ -7,9 +7,10 @@ plugins {
 
 val eaglefactionsApiVersion = findProperty("eaglefactions-api.version") as String
 val spongeApiVersion = findProperty("sponge-api.version") as String
+val finalVersion = "$eaglefactionsApiVersion-API-$spongeApiVersion"
 
 group = "io.github.aquerr"
-version = "$eaglefactionsApiVersion-API-$spongeApiVersion"
+version = finalVersion
 
 repositories {
     mavenCentral()
@@ -28,13 +29,13 @@ java {
     withJavadocJar()
 }
 
-tasks.withType(Jar::class).configureEach {
+tasks.jar {
+    archiveBaseName.set("EagleFactionsAPI")
     if(System.getenv("JENKINS_HOME") != null) {
-        archiveBaseName.set("EagleFactionsAPI")
-        project.version = project.version.toString() + "_" + System.getenv("BUILD_NUMBER") + "-SNAPSHOT"
+        project.version = finalVersion + "_" + System.getenv("BUILD_NUMBER") + "-SNAPSHOT"
         println("Version => " + project.version.toString())
     } else {
-        project.version = project.version.toString() + "-SNAPSHOT"
+        project.version = "$finalVersion-SNAPSHOT"
     }
 }
 

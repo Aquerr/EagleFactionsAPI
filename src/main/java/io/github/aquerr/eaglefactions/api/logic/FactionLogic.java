@@ -47,7 +47,7 @@ public interface FactionLogic
     /**
      * Gets {@link Faction} for the given player {@link UUID}.
      * @param playerUUID the UUID of the player whose faction should be looked for.
-     * @return {@link Optional<Faction>} if the given player is in a faction or
+     * @return {@link Optional} if the given player is in a faction or
      * {@link Optional#empty()} if the given player is not in a faction.
      */
     Optional<Faction> getFactionByPlayerUUID(UUID playerUUID);
@@ -56,7 +56,7 @@ public interface FactionLogic
      * Gets {@link Faction} for the given chunk location {@link Vector3i} in the given world UUID {@link UUID}.
      * @param worldUUID the UUID of the world
      * @param chunk the location of the chunk
-     * @return {@link Optional<Faction>} if the given chunk claimed by a faction or
+     * @return {@link Optional} if the given chunk claimed by a faction or
      * {@link Optional#empty()} if the given chunk is not claimed by any faction.
      */
     Optional<Faction> getFactionByChunk(UUID worldUUID, Vector3i chunk);
@@ -64,21 +64,21 @@ public interface FactionLogic
     /**
      * Gets {@link Faction} by the given faction name.
      * @param factionName the name of the faction that should be looked for.
-     * @return {@link Faction} or <tt>null</tt> if factions could not be found.
+     * @return {@link Faction} or null if factions could not be found.
      */
     @Nullable
     Faction getFactionByName(String factionName);
 
     /**
-     * Gets a {@link List<ServerPlayer>} that contains all online players in a given {@link Faction}
+     * Gets a {@link List} that contains all online players in a given {@link Faction}
      * @param faction the faction that should be used to get online players from.
-     * @return {@link List<ServerPlayer>} list with online players in the given faction.
+     * @return {@link List} list with online players in the given faction.
      */
     List<ServerPlayer> getOnlinePlayers(Faction faction);
 
     /**
      * Gets all faction names that exists on the server.
-     * @return {@link Set<String>} that contains all faction names on the server.
+     * @return {@link Set} that contains all faction names on the server.
      */
     Set<String> getFactionsNames();
 
@@ -91,7 +91,7 @@ public interface FactionLogic
     /**
      * Disbands/Deletes a faction.
      * @param factionName name of the faction that should be disbanded/deleted.
-     * @return <tt>true</tt> if operation succeeded or <tt>false</tt> if it did not.
+     * @return true if operation succeeded or false if it did not.
      */
     boolean disbandFaction(String factionName);
 
@@ -197,7 +197,7 @@ public interface FactionLogic
      * Checks if the chunk {@link Vector3i} in the given world {@link UUID} is claimed.
      * @param worldUUID the UUID of the world
      * @param chunk the position of the chunk
-     * @return <tt>true</tt> if chunk is claimed or <tt>false</tt> if it is not.
+     * @return true if chunk is claimed or false if it is not.
      */
 	boolean isClaimed(UUID worldUUID, Vector3i chunk);
 
@@ -205,7 +205,7 @@ public interface FactionLogic
      * Checks if a {@link Claim} is connected to other claims in the given {@link Faction}
      * @param faction the faction object to perform check against
      * @param claimToCheck the claim that should be checked
-     * @return <tt>true</tt> if chunk is connected to other claims or <tt>false</tt> if it is not.
+     * @return true if chunk is connected to other claims or false if it is not.
      */
     boolean isClaimConnected(Faction faction, Claim claimToCheck);
 
@@ -214,7 +214,7 @@ public interface FactionLogic
      * @param faction the faction that owns the claim.
      * @param claim the claim
      * @param owner the owner that should be added as owner of the given claim.
-     * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
+     * @return true if operation succeeded, false if not.
      */
     boolean addClaimOwner(final Faction faction, final Claim claim, final UUID owner);
 
@@ -223,7 +223,7 @@ public interface FactionLogic
      * @param faction the faction that owns the claim.
      * @param claim the claim
      * @param owner the owner that should be removed from the given claim.
-     * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
+     * @return true if operation succeeded, false if not.
      */
     boolean removeClaimOwner(final Faction faction, final Claim claim, final UUID owner);
 
@@ -232,7 +232,6 @@ public interface FactionLogic
      * @param faction the faction that own the claim.
      * @param claim the claim.
      * @param isAccessibleByFaction the
-     * @return <tt>true</tt> if operation succeeded, <tt>false</tt> if not.
      */
     void setClaimAccessibleByFaction(final Faction faction, final Claim claim, final boolean isAccessibleByFaction);
 
@@ -245,14 +244,14 @@ public interface FactionLogic
 
     /**
      * Gets the list of all factions tags used on the server.
-     * @return {@link List<String>} that contains all factions tags.
+     * @return {@link List} that contains all factions tags.
      */
     List<String> getFactionsTags();
 
     /**
      * Checks if the given faction has online players on the server.
      * @param faction the faction that check should be run against.
-     * @return <tt>true</tt> if there are player on the server that are in that faction or <tt>false</tt> if this faction has no players who are currently online.
+     * @return true if there are player on the server that are in that faction or false if this faction has no players who are currently online.
      */
     boolean hasOnlinePlayers(Faction faction);
 
@@ -321,7 +320,7 @@ public interface FactionLogic
     /**
      * Sets if faction is public (people can join it without invitation) or private (normal faction).
      * @param faction that should be affected by this change.
-     * @param isPublic boolean value, <tt>true</tt> if faction should be public, <tt>false</tt> if not.
+     * @param isPublic boolean value, true if faction should be public, false if not.
      */
 	void setIsPublic(Faction faction, boolean isPublic);
 

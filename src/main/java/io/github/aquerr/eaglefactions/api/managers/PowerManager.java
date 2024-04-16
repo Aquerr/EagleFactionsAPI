@@ -64,7 +64,7 @@ public interface PowerManager
      *
      * @param playerUUID the UUID of the player.
      * @param power the new power.
-     * @return <tt>true</tt> if operation succeed, <tt>false</tt> if not.
+     * @return true if operation succeed, false if not.
      */
     boolean setPlayerPower(UUID playerUUID, float power);
 
@@ -73,7 +73,7 @@ public interface PowerManager
      *
      * @param playerUUID the UUID of the player.
      * @param maxpower the new max power.
-     * @return <tt>true</tt> if operation succeed, <tt>false</tt> if not.
+     * @return true if operation succeed, false if not.
      */
     boolean setPlayerMaxPower(UUID playerUUID, float maxpower);
 

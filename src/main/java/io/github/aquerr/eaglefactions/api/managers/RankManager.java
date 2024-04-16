@@ -19,6 +19,7 @@ public interface RankManager
      * The old leader is moved to officers.
      * @param targetPlayer the player that should be set as leader. Can be null.
      * @param faction the faction.
+     * @return true if succeeded, false if not.
      */
     boolean setLeader(@Nullable FactionPlayer targetPlayer, final Faction faction);
 

@@ -2,7 +2,6 @@ package io.github.aquerr.eaglefactions.api.entities;
 
 import org.spongepowered.api.entity.living.player.User;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -32,7 +31,7 @@ public interface FactionPlayer extends Inviter, InviteAcceptor
 
     /**
      * Gets player's faction name.
-     * @return the name of the faction as {@link Optional<String>} or {@link Optional#empty()} if player is not in a faction.
+     * @return the name of the faction as {@link Optional} or {@link Optional#empty()} if player is not in a faction.
      */
     default Optional<String> getFactionName()
     {
@@ -47,7 +46,7 @@ public interface FactionPlayer extends Inviter, InviteAcceptor
 
     /**
      * Checks if the player is online.
-     * @return <tt>true</tt> if player is online or <tt>false</tt> if not.
+     * @return true if player is online or false if not.
      */
     boolean isOnline();
 
@@ -71,7 +70,7 @@ public interface FactionPlayer extends Inviter, InviteAcceptor
 
     /**
      * Checks if the given player recently died in WarZone.
-     * @return <tt>true</tt> if yes, <tt>false</tt> if not.
+     * @return true if yes, false if not.
      */
     boolean diedInWarZone();
 }
