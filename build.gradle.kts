@@ -1,7 +1,8 @@
 import java.io.ByteArrayOutputStream
 
 plugins {
-    java
+    `java-library`
+    `maven-publish`
 }
 
 val eaglefactionsApiVersion = findProperty("eaglefactions-api.version") as String
@@ -76,6 +77,43 @@ tasks.register("publishBuildOnDiscord") {
 
             exec {
                 commandLine("java", "-jar", ".." + File.separator + "jenkinsdiscordbot-1.0.jar", "EagleFactionsAPI", jarFiles[0], lastCommitDescription)
+            }
+        }
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+
+            from(components["java"])
+
+            pom {
+                name.set("EagleFactionsAPI")
+                artifactId = "eaglefactionsapi"
+                description.set(project.description)
+                url.set("https://github.com/Aquerr/EagleFactionsAPI")
+
+                licenses {
+                    license {
+                        name.set("MIT")
+                        url.set("https://github.com/Aquerr/EagleFactionsAPI/blob/api-8/LICENSE")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("Aquerr")
+                        name.set("Bartłomiej Stępień")
+                        url.set("https://github.com/Aquerr")
+                    }
+                }
+
+                scm {
+                    connection.set("scm:git:git://github.com/Aquerr/EagleFactionsAPI.git")
+                    developerConnection.set("scm:git:ssh://github.com/Aquerr/EagleFactionsAPI.git")
+                    url.set("https://github.com/Aquerr/EagleFactionsAPI")
+                }
             }
         }
     }
