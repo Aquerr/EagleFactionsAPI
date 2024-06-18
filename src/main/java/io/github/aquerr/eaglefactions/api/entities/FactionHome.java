@@ -1,6 +1,5 @@
 package io.github.aquerr.eaglefactions.api.entities;
 
-import com.google.common.base.Strings;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.spongepowered.math.vector.Vector3i;
 
@@ -20,7 +19,7 @@ public class FactionHome
 
     public static FactionHome from(String worldUUIDAndBlockPositionString)
     {
-        if (Strings.isNullOrEmpty(worldUUIDAndBlockPositionString))
+        if (worldUUIDAndBlockPositionString == null || worldUUIDAndBlockPositionString.isEmpty())
             return null;
 
         try
