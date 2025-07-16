@@ -65,7 +65,7 @@ tasks.register("publishBuildOnDiscord") {
     group = "Publishing"
     description = "Task for publishing the jar file to discord's jenkins channel"
     doLast {
-        val jarFiles: List<String> = groovy.ant.FileNameFinder().getFileNames(project.buildDir.path, "**/*.jar")
+        val jarFiles: List<String> = groovy.ant.FileNameFinder().getFileNames(project.layout.buildDirectory.get().asFile.path, "**/*.jar")
 
         if(jarFiles.size > 0) {
             println("Found jar files: " + jarFiles)
@@ -75,7 +75,7 @@ tasks.register("publishBuildOnDiscord") {
                 lastCommitDescription = "No changelog provided"
             }
 
-            exec {
+            project.providers.exec {
                 commandLine("java", "-jar", ".." + File.separator + "jenkinsdiscordbot-1.0.jar", "EagleFactionsAPI", jarFiles[0], lastCommitDescription)
             }
         }
