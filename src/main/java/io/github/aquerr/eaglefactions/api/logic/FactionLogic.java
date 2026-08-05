@@ -53,13 +53,13 @@ public interface FactionLogic
     Optional<Faction> getFactionByPlayerUUID(UUID playerUUID);
 
     /**
-     * Gets {@link Faction} for the given chunk location {@link Vector3i} in the given world UUID {@link UUID}.
-     * @param worldUUID the UUID of the world
+     * Gets {@link Faction} for the given chunk location {@link Vector3i} in the given world id (which is normally a world key).
+     * @param worldId the id of the world
      * @param chunk the location of the chunk
      * @return {@link Optional} if the given chunk claimed by a faction or
      * {@link Optional#empty()} if the given chunk is not claimed by any faction.
      */
-    Optional<Faction> getFactionByChunk(UUID worldUUID, Vector3i chunk);
+    Optional<Faction> getFactionByChunk(String worldId, Vector3i chunk);
 
     /**
      * Gets {@link Faction} by the given faction name.
@@ -194,12 +194,12 @@ public interface FactionLogic
 	void destroyClaim(Faction faction, Claim claim);
 
     /**
-     * Checks if the chunk {@link Vector3i} in the given world {@link UUID} is claimed.
-     * @param worldUUID the UUID of the world
+     * Checks if the chunk {@link Vector3i} in the given world is claimed.
+     * @param worldId the id of the world
      * @param chunk the position of the chunk
      * @return true if chunk is claimed or false if it is not.
      */
-	boolean isClaimed(UUID worldUUID, Vector3i chunk);
+	boolean isClaimed(String worldId, Vector3i chunk);
 
     /**
      * Checks if a {@link Claim} is connected to other claims in the given {@link Faction}

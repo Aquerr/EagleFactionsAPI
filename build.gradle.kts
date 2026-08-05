@@ -34,7 +34,7 @@ tasks.jar {
         project.version = finalVersion + "_" + System.getenv("BUILD_NUMBER") + "-SNAPSHOT"
         println("Version => " + project.version.toString())
     } else {
-        project.version = "$finalVersion-SNAPSHOT"
+//        project.version = "$finalVersion-SNAPSHOT"
     }
 }
 

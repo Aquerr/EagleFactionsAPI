@@ -4,29 +4,28 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import org.spongepowered.math.vector.Vector3i;
 
 import java.util.Objects;
-import java.util.UUID;
 
 public class FactionHome
 {
     private final Vector3i blockPosition;
-    private final UUID worldUUID;
+    private final String worldId;
 
-    public FactionHome(@Nullable UUID worldUUID, @Nullable Vector3i blockPosition)
+    public FactionHome(@Nullable String worldId, @Nullable Vector3i blockPosition)
     {
         this.blockPosition = blockPosition;
-        this.worldUUID = worldUUID;
+        this.worldId = worldId;
     }
 
-    public static FactionHome from(String worldUUIDAndBlockPositionString)
+    public static FactionHome from(String worldIdAndBlockPositionString)
     {
-        if (worldUUIDAndBlockPositionString == null || worldUUIDAndBlockPositionString.isEmpty())
+        if (worldIdAndBlockPositionString == null || worldIdAndBlockPositionString.isEmpty())
             return null;
 
         try
         {
             String splitter = "\\|";
-            String worldUUIDString = worldUUIDAndBlockPositionString.split(splitter)[0];
-            String vectorsString = worldUUIDAndBlockPositionString.split(splitter)[1];
+            String worldIdString = worldIdAndBlockPositionString.split(splitter)[0];
+            String vectorsString = worldIdAndBlockPositionString.split(splitter)[1];
 
             String[] vectors = vectorsString.replace("(", "").replace(")", "").replace(" ", "").split(",");
 
@@ -36,8 +35,7 @@ public class FactionHome
 
             Vector3i blockPosition = Vector3i.from(x, y, z);
 
-            UUID worldUUID = UUID.fromString(worldUUIDString);
-            return new FactionHome(worldUUID, blockPosition);
+            return new FactionHome(worldIdString, blockPosition);
         }
         catch (Exception exception)
         {
@@ -46,9 +44,9 @@ public class FactionHome
         }
     }
 
-    public UUID getWorldUUID()
+    public String getWorldId()
     {
-        return worldUUID;
+        return worldId;
     }
 
     public Vector3i getBlockPosition()
@@ -59,7 +57,7 @@ public class FactionHome
     @Override
     public String toString()
     {
-        return this.worldUUID.toString() + "|" + this.blockPosition.toString();
+        return this.worldId.toString() + "|" + this.blockPosition.toString();
     }
 
     @Override
@@ -68,12 +66,12 @@ public class FactionHome
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FactionHome that = (FactionHome) o;
-        return Objects.equals(blockPosition, that.blockPosition) && Objects.equals(worldUUID, that.worldUUID);
+        return Objects.equals(blockPosition, that.blockPosition) && Objects.equals(worldId, that.worldId);
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(blockPosition, worldUUID);
+        return Objects.hash(blockPosition, worldId);
     }
 }
