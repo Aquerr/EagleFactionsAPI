@@ -9,28 +9,28 @@ import java.util.UUID;
 
 public class Claim
 {
-    private final UUID worldUUID;
+    private final String worldId;
     private final Vector3i chunkPosition;
 
     private final Set<UUID> owners;
     private final boolean accessibleByFaction;
 
-    public Claim(UUID worldUUID, Vector3i chunkPosition)
+    public Claim(String worldId, Vector3i chunkPosition)
     {
-        this(worldUUID, chunkPosition, Collections.emptySet(), true);
+        this(worldId, chunkPosition, Collections.emptySet(), true);
     }
 
-    public Claim(UUID worldUUID, Vector3i chunkPosition, final Set<UUID> owners, final boolean accessibleByFaction)
+    public Claim(String worldId, Vector3i chunkPosition, final Set<UUID> owners, final boolean accessibleByFaction)
     {
-        this.worldUUID = worldUUID;
+        this.worldId = worldId;
         this.chunkPosition = chunkPosition;
         this.accessibleByFaction = accessibleByFaction;
         this.owners = Collections.unmodifiableSet(owners);
     }
 
-    public UUID getWorldUUID()
+    public String getWorldId()
     {
-        return this.worldUUID;
+        return this.worldId;
     }
 
     public Vector3i getChunkPosition()
@@ -61,19 +61,19 @@ public class Claim
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
         Claim claim = (Claim) o;
-        return worldUUID.equals(claim.worldUUID) &&
+        return worldId.equals(claim.worldId) &&
                 chunkPosition.equals(claim.chunkPosition);
     }
 
     @Override
     public int hashCode()
     {
-        return Objects.hash(worldUUID, chunkPosition);
+        return Objects.hash(worldId, chunkPosition);
     }
 
     @Override
     public String toString()
     {
-        return this.worldUUID.toString() + "|" + this.chunkPosition.toString();
+        return this.worldId + "|" + this.chunkPosition.toString();
     }
 }

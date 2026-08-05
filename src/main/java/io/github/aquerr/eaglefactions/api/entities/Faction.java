@@ -233,11 +233,11 @@ public interface Faction extends Comparable<Faction>, Inviter, InviteAcceptor
         return getEnemies().contains(faction.getName());
     }
 
-    default Optional<Claim> getClaimAt(final UUID worldUUID, final Vector3i chunkPosition)
+    default Optional<Claim> getClaimAt(final String worldId, final Vector3i chunkPosition)
     {
         for (final Claim claim : getClaims())
         {
-            if (claim.getWorldUUID().equals(worldUUID) && claim.getChunkPosition().equals(chunkPosition))
+            if (claim.getWorldId().equals(worldId) && claim.getChunkPosition().equals(chunkPosition))
             {
                 return Optional.of(claim);
             }
